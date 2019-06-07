@@ -1,6 +1,6 @@
 const path = require('path');
 
-const PAGINATION_OFFSET = 2;
+const PAGINATION_OFFSET = 5;
 
 const pluckCategories = edges =>
   Object.keys(

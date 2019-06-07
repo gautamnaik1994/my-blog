@@ -17,6 +17,7 @@ const Categories = ({ categories }) => (
   </Fragment>
 );
 
+
 const Blog = ({
   data: { site, allMdx },
   pageContext: { pagination, categories },

@@ -1,15 +1,14 @@
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    siteUrl: 'https://www.robinwieruch.de/',
-    author: 'Robin Wieruch',
-    title: 'Gatsby MDX Starter Project',
-    description: 'My Gatsby MDX Starter Project',
+    siteUrl: 'https://vimblog.netlify.com/',
+    author: 'Gautam Naik',
+    title: 'Vim Blog',
+    description: 'Blog will contain Vim tips, tricks and mappings',
     keywords: [
-      'Software Engineer',
-      'Web Developer',
-      'Consultant',
-      'Freelancer',
+      'vim',
+      'blog',
+      'mappings'
     ],
   },
   plugins: [
@@ -51,8 +50,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'A learning, teaching and writing software engineer',
-        short_name: 'RWieruch',
+        name: 'Blog will contain Vim tips, tricks and mappings',
+        short_name: 'VimBlog',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#525dce',
