@@ -112,36 +112,28 @@ const createPaginatedPagesForCategories = (
   pathPrefix,
   context,
 ) => {
-  console.log("Inside createPaginatedPages2");
   const pages = edges.reduce((acc, value, index) => {
     const pageIndex = Math.floor(index / PAGINATION_OFFSET);
-
     if (!acc[pageIndex]) {
       acc[pageIndex] = [];
     }
-
     acc[pageIndex].push(value.node.id);
-
     return acc;
   }, []);
-
-
+  console.log("PaginatedCategories");
   pages.forEach((page, index) => {
-    const previousPagePath = `${pathPrefix}/${index + 1}`;
-    const nextPagePath =
-      index === 1 ? pathPrefix : `${pathPrefix}/${index - 1}`;
-
+    const nextPagePath = index === pages.length - 1 ? null : `${pathPrefix}/${index + 1}`;
+    const previousPagePath  =
+      index === 0 ? null : `${pathPrefix}/${index - 1}`;
     console.log("Index: ", index, " Prev path:  ", previousPagePath, " Next path: ", nextPagePath);
     createPage({
       path: index > 0 ? `${pathPrefix}/${index}` : `${pathPrefix}`,
       component: path.resolve(`src/templates/blog.js`),
       context: {
-        gautam: 'gautam',
         pagination: {
           page,
-          nextPagePath: index === 0 ? null : nextPagePath,
-          previousPagePath:
-            index === pages.length - 1 ? null : previousPagePath,
+          nextPagePath:nextPagePath,
+          previousPagePath: index === 1 ? pathPrefix : previousPagePath,
           pageCount: pages.length,
           pathPrefix,
         },
