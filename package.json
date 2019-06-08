@@ -32,7 +32,9 @@
     "styled-components": "^4.3.0"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.0"
+    "babel-plugin-styled-components": "^1.10.0",
+    "nodemon": "^1.19.1",
+    "rimraf": "^2.6.3"
   },
   "keywords": [
     "gatsby"
@@ -40,7 +42,8 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "start": "gatsby develop",
+    "prestart": "rimraf .cache",
+    "start": "gatsby develop -o",
     "build": "gatsby build",
     "develop": "gatsby develop"
   }

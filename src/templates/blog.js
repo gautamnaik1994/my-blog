@@ -39,6 +39,10 @@ const Blog = ({
         <div key={post.id}>
           {post.frontmatter.banner && (
             <Img
+            imgStyle={
+            {  width:200, 
+              height:200}
+            }
               sizes={post.frontmatter.banner.childImageSharp.sizes}
             />
           )}

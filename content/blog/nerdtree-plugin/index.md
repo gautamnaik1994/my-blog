@@ -1,8 +1,8 @@
 ---
-slug: "/mdx-example"
-date: "2013-07-13T03:49:16.408Z"
-title: "MDX Example"
-description: "MDX Example Description ..."
+slug: "/nerdtree"
+date: "2016-07-13T03:49:16.408Z"
+title: "Nerd tree"
+description: "Nerd tree Description ..."
 categories: ["react"]
 keywords: ["react"]
 banner: "./images/banner.jpg"

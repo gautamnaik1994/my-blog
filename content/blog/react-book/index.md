@@ -1,6 +1,6 @@
 ---
 slug: "/react-book"
-date: "2017-07-14T03:49:16.408Z"
+date: "2012-07-14T03:49:16.408Z"
 title: "The Road to learn React"
 description: "The Road to learn React Description ..."
 categories: ["react"]

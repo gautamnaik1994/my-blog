@@ -1,6 +1,6 @@
 const path = require('path');
 
-const PAGINATION_OFFSET = 5;
+const PAGINATION_OFFSET = 2;
 
 const pluckCategories = edges =>
   Object.keys(
@@ -32,7 +32,7 @@ const createCategoryPages = (createPage, edges) => {
   const posts = groupByCategory(edges);
 
   Object.keys(posts).forEach(category => {
-    createPaginatedPages(
+    createPaginatedPagesForCategories(
       createPage,
       posts[category],
       `/categories/${category}`,
@@ -61,7 +61,7 @@ const createPosts = (createPage, edges) => {
 const createBlog = (createPage, edges) => {
   const categories = pluckCategories(edges);
 
-  createPaginatedPages(createPage, edges, '/blog', { categories });
+  createPaginatedPages(createPage, edges, '/', { categories });
 };
 
 const createPaginatedPages = (
@@ -83,14 +83,60 @@ const createPaginatedPages = (
   }, []);
 
   pages.forEach((page, index) => {
+    const nextPagePath = index === pages.length - 1 ? null : `/${index + 1}`;
+    const previousPagePath = index === 0 ? null : `/${index - 1}`;
+
+
+
+    console.log("Index: ", index, " Prev path:  ", previousPagePath, " Next path: ", nextPagePath);
+    createPage({
+      path: index > 0 ? `/${index}` : `${pathPrefix}`,
+      component: path.resolve(`src/templates/blog.js`),
+      context: {
+        pagination: {
+          page,
+          nextPagePath: nextPagePath,
+          previousPagePath: index === 1 ? pathPrefix : previousPagePath,
+          pageCount: pages.length,
+          pathPrefix,
+        },
+        ...context,
+      },
+    });
+  });
+};
+
+const createPaginatedPagesForCategories = (
+  createPage,
+  edges,
+  pathPrefix,
+  context,
+) => {
+  console.log("Inside createPaginatedPages2");
+  const pages = edges.reduce((acc, value, index) => {
+    const pageIndex = Math.floor(index / PAGINATION_OFFSET);
+
+    if (!acc[pageIndex]) {
+      acc[pageIndex] = [];
+    }
+
+    acc[pageIndex].push(value.node.id);
+
+    return acc;
+  }, []);
+
+
+  pages.forEach((page, index) => {
     const previousPagePath = `${pathPrefix}/${index + 1}`;
     const nextPagePath =
       index === 1 ? pathPrefix : `${pathPrefix}/${index - 1}`;
 
+    console.log("Index: ", index, " Prev path:  ", previousPagePath, " Next path: ", nextPagePath);
     createPage({
       path: index > 0 ? `${pathPrefix}/${index}` : `${pathPrefix}`,
       component: path.resolve(`src/templates/blog.js`),
       context: {
+        gautam: 'gautam',
         pagination: {
           page,
           nextPagePath: index === 0 ? null : nextPagePath,
@@ -131,7 +177,7 @@ exports.createPages = ({ actions, graphql }) =>
     }
 
     const { edges } = data.allMdx;
-
+    // createIBlog(actions.createPage, edges);
     createBlog(actions.createPage, edges);
     createPosts(actions.createPage, edges);
     createCategoryPages(actions.createPage, edges);
