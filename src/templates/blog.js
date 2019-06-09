@@ -1,9 +1,15 @@
 import React, { Fragment } from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-
+import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Link from '../components/Link';
+import PostItem from '../components/PostItem';
+
+const BlogWrapper = styled.div`
+width:768px;
+margin:0 auto;
+`
 
 const Categories = ({ categories }) => (
   <Fragment>
@@ -34,32 +40,19 @@ const Blog = ({
         All categories on the blog:{' '}
         <Categories categories={categories} />
       </div>
+      <BlogWrapper>
+        {posts.map(({ node: post }) => (
 
-      {posts.map(({ node: post }) => (
-        <div key={post.id}>
-          {post.frontmatter.banner && (
-            <Img
-            imgStyle={
-            {  width:200, 
-              height:200}
-            }
-              sizes={post.frontmatter.banner.childImageSharp.sizes}
-            />
-          )}
+          <PostItem
+            key={post.id}
+            link={post.frontmatter.slug}
+            title={post.frontmatter.title}
+            date={post.frontmatter.date}
+            excerpt={post.excerpt}
+          />
+        ))}
+      </BlogWrapper>
 
-          <h2>
-            <Link to={post.frontmatter.slug}>
-              {post.frontmatter.title}
-            </Link>
-          </h2>
-
-          <small>{post.frontmatter.date}</small>
-
-          <p>{post.excerpt}</p>
-
-          <Link to={post.frontmatter.slug}>Continue Reading</Link>
-        </div>
-      ))}
 
       <hr />
 
