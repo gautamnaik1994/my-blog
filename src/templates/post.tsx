@@ -7,7 +7,7 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import Layout from '../components/Layout';
 import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
-
+import { Frontmatter, SiteMetadata, Site } from '../types';
 // const CategoryList = ({ list = [] }) => (
 //   <Fragment>
 //     Categories:
@@ -23,7 +23,7 @@ import Pagination from '../components/Pagination';
 
 interface Props {
   data: {
-    site: { siteMetadata: { keywords: string[] } };
+    site: Site;
     mdx: { edges: []; code: { body: string }; frontmatter: any };
   };
   pageContext: { next: { fields: any }; prev: { fields: any } };

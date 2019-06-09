@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import PostItem from '../components/PostItem';
 import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
+import { Frontmatter, SiteMetadata, Site } from '../types';
 
 const BlogWrapper = styled.div`
   width: 768px;
@@ -14,7 +15,7 @@ const BlogWrapper = styled.div`
 `;
 
 interface Props {
-  data: { site: {}; allMdx: { edges: [] } };
+  data: { site: Site; allMdx: { edges: [] } };
   pageContext: {
     pagination: {
       page: [];

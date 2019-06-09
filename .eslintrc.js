@@ -30,7 +30,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     'react/display-name': 'off',
     'no-console': 'warn',
-    'camelcase': 'off',
+    'camelcase': 'warn',
 
   },
   overrides: [
@@ -39,7 +39,7 @@ module.exports = {
       files: ['*.js'],
       rules: {
         '@typescript-eslint/no-var-requires': 'off', //
-        '@typescript-eslint/camelcase': 'off'
+        '@typescript-eslint/camelcase': 'warn'
       }
     }
   ]
