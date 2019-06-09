@@ -5,11 +5,7 @@ module.exports = {
     author: 'Gautam Naik',
     title: 'Vim Blog',
     description: 'Blog will contain Vim tips, tricks and mappings',
-    keywords: [
-      'vim',
-      'blog',
-      'mappings'
-    ],
+    keywords: ['vim', 'blog', 'mappings'],
   },
   plugins: [
     {
@@ -50,7 +46,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Blog will contain Vim tips, tricks and mappings',
+        name: 'Vim Blog',
         short_name: 'VimBlog',
         start_url: '/',
         background_color: '#fff',

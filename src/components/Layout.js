@@ -149,9 +149,7 @@ export default ({ site, frontmatter = {}, children }) => {
       >
         <html lang="en" />
       </Helmet>
-
       <GlobalStyle />
-
       <MDXProvider
         components={{
           ...MDXLayoutComponents,
@@ -166,7 +164,6 @@ export default ({ site, frontmatter = {}, children }) => {
               </li>
             ))}
           </ul>
-
           {children}
         </Fragment>
       </MDXProvider>

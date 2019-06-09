@@ -1,6 +1,6 @@
 import React from 'react';
 
-import YouTube from 'react-youtube';
+//import YouTube from 'react-youtube';
 
 import Title from './Title';
 import Subtitle from './Subtitle';
@@ -16,5 +16,5 @@ export const MDXLayoutComponents = {
 
 export const MDXGlobalComponents = {
   Link,
-  YouTube,
+  // YouTube,
 };

@@ -1,32 +1,21 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+//import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
-import Link from '../components/Link';
+//import Link from '../components/Link';
 import PostItem from '../components/PostItem';
+import Categories from '../components/Categories';
+import Pagination from '../components/Pagination';
 
 const BlogWrapper = styled.div`
-width:768px;
-margin:0 auto;
-`
-
-const Categories = ({ categories }) => (
-  <Fragment>
-    <ul>
-      {categories.map(category => (
-        <li key={category}>
-          <Link to={`/categories/${category}`}>{category}</Link>
-        </li>
-      ))}
-    </ul>
-  </Fragment>
-);
-
+  width: 768px;
+  margin: 0 auto;
+`;
 
 const Blog = ({
   data: { site, allMdx },
-  pageContext: { pagination, categories },
+  pageContext: { pagination, categories, activeCategoryIndex },
 }) => {
   const { page, nextPagePath, previousPagePath } = pagination;
 
@@ -38,11 +27,13 @@ const Blog = ({
     <Layout site={site}>
       <div>
         All categories on the blog:{' '}
-        <Categories categories={categories} />
+        <Categories
+          activeCategoryIndex={activeCategoryIndex}
+          categories={categories}
+        />
       </div>
       <BlogWrapper>
         {posts.map(({ node: post }) => (
-
           <PostItem
             key={post.id}
             link={post.frontmatter.slug}
@@ -53,25 +44,11 @@ const Blog = ({
         ))}
       </BlogWrapper>
 
-
       <hr />
-
-      <div>
-        Pagination:
-        <ul>
-          {nextPagePath && (
-            <li>
-              <Link to={nextPagePath}>Next Page</Link>
-            </li>
-          )}
-
-          {previousPagePath && (
-            <li>
-              <Link to={previousPagePath}>Previous Page</Link>
-            </li>
-          )}
-        </ul>
-      </div>
+      <Pagination
+        nextPagePath={nextPagePath}
+        previousPagePath={previousPagePath}
+      />
     </Layout>
   );
 };
