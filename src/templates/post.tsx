@@ -1,10 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+// @ts-ignore
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
 import Layout from '../components/Layout';
-import Link from '../components/Link';
 import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
 
@@ -21,10 +21,18 @@ import Pagination from '../components/Pagination';
 //   </Fragment>
 // );
 
+interface Props {
+  data: {
+    site: { siteMetadata: { keywords: string[] } };
+    mdx: { edges: []; code: { body: string }; frontmatter: any };
+  };
+  pageContext: { next: { fields: any }; prev: { fields: any } };
+}
+
 export default function Post({
   data: { site, mdx },
   pageContext: { next, prev },
-}) {
+}: Props) {
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
       <h1>{mdx.frontmatter.title}</h1>

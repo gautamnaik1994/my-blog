@@ -9,12 +9,19 @@ const PaginationWrapper = styled.div`
   }
 `;
 
+interface Props {
+  nextPagePath?: string;
+  previousPagePath?: string;
+  nextPostTitle?: string;
+  prevPostTitle?: string;
+}
+
 export default ({
   nextPagePath,
   previousPagePath,
   nextPostTitle = 'Next Page',
   prevPostTitle = 'Previous Page',
-}) => (
+}: Props) => (
   <PaginationWrapper>
     {previousPagePath && (
       <Link

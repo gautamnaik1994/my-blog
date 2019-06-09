@@ -13,14 +13,27 @@ const BlogWrapper = styled.div`
   margin: 0 auto;
 `;
 
+interface Props {
+  data: { site: {}; allMdx: { edges: [] } };
+  pageContext: {
+    pagination: {
+      page: [];
+      nextPagePath: string;
+      previousPagePath: string;
+    };
+    categories: string[];
+    activeCategoryIndex: number;
+  };
+}
+
 const Blog = ({
   data: { site, allMdx },
   pageContext: { pagination, categories, activeCategoryIndex },
-}) => {
+}: Props) => {
   const { page, nextPagePath, previousPagePath } = pagination;
 
-  const posts = page.map(id =>
-    allMdx.edges.find(edge => edge.node.id === id),
+  const posts = page.map((id: number) =>
+    allMdx.edges.find((edge: { node: { id: number } }) => edge.node.id === id),
   );
 
   return (
@@ -33,13 +46,13 @@ const Blog = ({
         />
       </div>
       <BlogWrapper>
-        {posts.map(({ node: post }) => (
+        {posts.map(({ node }: any) => (
           <PostItem
-            key={post.id}
-            link={post.frontmatter.slug}
-            title={post.frontmatter.title}
-            date={post.frontmatter.date}
-            excerpt={post.excerpt}
+            key={node.id}
+            link={node.frontmatter.slug}
+            title={node.frontmatter.title}
+            date={node.frontmatter.date}
+            excerpt={node.excerpt}
           />
         ))}
       </BlogWrapper>

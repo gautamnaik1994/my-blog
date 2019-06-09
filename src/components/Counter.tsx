@@ -1,14 +1,14 @@
 import React from 'react';
 
-const Counter = ({ initialCounter }) => {
+const Counter = ({ initialCounter }: any) => {
   const [counter, setCounter] = React.useState(initialCounter);
 
   const onIncrement = () => {
-    setCounter(c => c + 1);
+    setCounter((c: number) => c + 1);
   };
 
   const onDecrement = () => {
-    setCounter(c => c - 1);
+    setCounter((c: number) => c - 1);
   };
 
   return (

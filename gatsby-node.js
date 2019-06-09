@@ -26,54 +26,7 @@ const groupByCategory = edges =>
     return acc;
   }, {});
 
-const createCategoryPages = (createPage, edges) => {
-  const categories = pluckCategories(edges);
-
-  const posts = groupByCategory(edges);
-
-  Object.keys(posts).forEach((category, index) => {
-    createPaginatedPagesForCategories(
-      createPage,
-      posts[category],
-      `/categories/${category}`,
-      {
-        categories,
-        activeCategory: category,
-        activeCategoryIndex: index,
-      },
-    );
-  });
-};
-
-const createPosts = (createPage, edges) => {
-  edges.forEach(({ node }, i) => {
-    const prev = i === 0 ? null : edges[i - 1].node;
-    const next = i === edges.length - 1 ? null : edges[i + 1].node;
-
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(`./src/templates/post.js`),
-      context: {
-        id: node.id,
-        prev,
-        next,
-      },
-    });
-  });
-};
-
-const createBlog = (createPage, edges) => {
-  const categories = pluckCategories(edges);
-
-  createPaginatedPages(createPage, edges, '/', { categories });
-};
-
-const createPaginatedPages = (
-  createPage,
-  edges,
-  pathPrefix,
-  context,
-) => {
+const createPaginatedPages = (createPage, edges, pathPrefix, context) => {
   const pages = edges.reduce((acc, value, index) => {
     const pageIndex = Math.floor(index / PAGINATION_OFFSET);
 
@@ -87,8 +40,7 @@ const createPaginatedPages = (
   }, []);
 
   pages.forEach((page, index) => {
-    const nextPagePath =
-      index === pages.length - 1 ? null : `/${index + 1}`;
+    const nextPagePath = index === pages.length - 1 ? null : `/${index + 1}`;
     const previousPagePath = index === 0 ? null : `/${index - 1}`;
 
     console.log(
@@ -101,13 +53,12 @@ const createPaginatedPages = (
     );
     createPage({
       path: index > 0 ? `/${index}` : `${pathPrefix}`,
-      component: path.resolve(`src/templates/blog.js`),
+      component: path.resolve(`src/templates/blog.tsx`),
       context: {
         pagination: {
           page,
           nextPagePath: nextPagePath,
-          previousPagePath:
-            index === 1 ? pathPrefix : previousPagePath,
+          previousPagePath: index === 1 ? pathPrefix : previousPagePath,
           pageCount: pages.length,
           pathPrefix,
         },
@@ -134,11 +85,8 @@ const createPaginatedPagesForCategories = (
   console.log('PaginatedCategories');
   pages.forEach((page, index) => {
     const nextPagePath =
-      index === pages.length - 1
-        ? null
-        : `${pathPrefix}/${index + 1}`;
-    const previousPagePath =
-      index === 0 ? null : `${pathPrefix}/${index - 1}`;
+      index === pages.length - 1 ? null : `${pathPrefix}/${index + 1}`;
+    const previousPagePath = index === 0 ? null : `${pathPrefix}/${index - 1}`;
     console.log(
       'Index: ',
       index,
@@ -149,13 +97,12 @@ const createPaginatedPagesForCategories = (
     );
     createPage({
       path: index > 0 ? `${pathPrefix}/${index}` : `${pathPrefix}`,
-      component: path.resolve(`src/templates/blog.js`),
+      component: path.resolve(`src/templates/blog.tsx`),
       context: {
         pagination: {
           page,
           nextPagePath: nextPagePath,
-          previousPagePath:
-            index === 1 ? pathPrefix : previousPagePath,
+          previousPagePath: index === 1 ? pathPrefix : previousPagePath,
           pageCount: pages.length,
           pathPrefix,
         },
@@ -163,6 +110,48 @@ const createPaginatedPagesForCategories = (
       },
     });
   });
+};
+
+const createCategoryPages = (createPage, edges) => {
+  const categories = pluckCategories(edges);
+
+  const posts = groupByCategory(edges);
+
+  Object.keys(posts).forEach((category, index) => {
+    createPaginatedPagesForCategories(
+      createPage,
+      posts[category],
+      `/categories/${category}`,
+      {
+        categories,
+        activeCategory: category,
+        activeCategoryIndex: index,
+      },
+    );
+  });
+};
+
+const createPosts = (createPage, edges) => {
+  edges.forEach(({ node }, i) => {
+    const prev = i === 0 ? null : edges[i - 1].node;
+    const next = i === edges.length - 1 ? null : edges[i + 1].node;
+
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/post.tsx`),
+      context: {
+        id: node.id,
+        prev,
+        next,
+      },
+    });
+  });
+};
+
+const createBlog = (createPage, edges) => {
+  const categories = pluckCategories(edges);
+
+  createPaginatedPages(createPage, edges, '/', { categories });
 };
 
 exports.createPages = ({ actions, graphql }) =>

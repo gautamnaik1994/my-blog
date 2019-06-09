@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
+// @ts-ignore
 import { MDXProvider } from '@mdx-js/react';
 import { createGlobalStyle } from 'styled-components';
 
@@ -123,7 +124,15 @@ const NAVIGATION = [
   { to: 'https://roadtoreact.com', label: 'Courses' },
 ];
 
-export default ({ site, frontmatter = {}, children }) => {
+interface LayoutProps {
+  site: {
+    siteMetadata?: any;
+  };
+  frontmatter?: any;
+  children: {};
+}
+
+export default ({ site, frontmatter = {}, children }: LayoutProps) => {
   const {
     title,
     description: siteDescription,

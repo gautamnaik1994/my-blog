@@ -38,6 +38,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-styled-components',

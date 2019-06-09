@@ -6,7 +6,14 @@ const PostItem = styled.div`
   border: 1px solid red;
 `;
 
-export default ({ link, title, date, excerpt }) => (
+interface Props {
+  link: string;
+  title: string;
+  date: string;
+  excerpt: string;
+}
+
+export default ({ link, title, date, excerpt }: Props) => (
   <PostItem>
     <h2>
       <Link to={link}>{title}</Link>
@@ -16,4 +23,3 @@ export default ({ link, title, date, excerpt }) => (
     <Link to={link}>Continue Reading</Link>
   </PostItem>
 );
-
