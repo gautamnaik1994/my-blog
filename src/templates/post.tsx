@@ -8,6 +8,7 @@ import Layout from '../components/Layout';
 import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
 import { Frontmatter, SiteMetadata, Site, Mdx, PageContext } from '../types';
+
 // const CategoryList = ({ list = [] }) => (
 //   <Fragment>
 //     Categories:
@@ -33,6 +34,7 @@ export default function Post({
   data: { site, mdx },
   pageContext: { next, prev },
 }: Props) {
+  console.log('Props ', prev);
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
       <h1>{mdx.frontmatter.title}</h1>
@@ -48,10 +50,10 @@ export default function Post({
       <MDXRenderer>{mdx.code.body}</MDXRenderer>
       <hr />
       <Pagination
-        nextPagePath={next.fields.slug}
-        previousPagePath={prev.fields.slug}
-        nextPostTitle={next.fields.title}
-        prevPostTitle={prev.fields.title}
+        nextPagePath={next && next.fields.slug}
+        previousPagePath={prev && prev.fields.slug}
+        nextPostTitle={next && next.fields.title}
+        prevPostTitle={prev && prev.fields.title}
       />
     </Layout>
   );
