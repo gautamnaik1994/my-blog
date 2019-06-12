@@ -1,9 +1,9 @@
 {
-  "name": "vim-blog",
+  "name": "my-blog",
   "description": "Blog will contain Vim tips, tricks and mappings",
   "version": "1.0.0",
   "author": "Gautam Naik <gautamnaik@gmail.com> (https://gautamnaik.netlify.com/)",
-  "repository": "https://github.com/gautamnaik1994/vim-blog",
+  "repository": "https://github.com/gautamnaik1994/my-blog",
   "dependencies": {
     "@mdx-js/mdx": "^1.0.20",
     "@mdx-js/react": "^1.0.20",
@@ -69,4 +69,3 @@
     "format": "prettier --write \"src/**/*.tsx\""
   }
 }
-

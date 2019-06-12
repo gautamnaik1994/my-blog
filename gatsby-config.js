@@ -1,10 +1,10 @@
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    siteUrl: 'https://vimblog.netlify.com/',
+    siteUrl: 'https://gautamblogs.netlify.com/',
     author: 'Gautam Naik',
     title: 'Vim Blog',
-    description: 'Blog will contain Vim tips, tricks and mappings',
+    description: 'Blog will contain blogs',
     keywords: ['vim', 'blog', 'mappings'],
   },
   plugins: [
@@ -48,7 +48,7 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Vim Blog',
-        short_name: 'VimBlog',
+        short_name: 'GautamBlogs',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#525dce',

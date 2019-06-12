@@ -3,13 +3,11 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 // @ts-ignore
 import { MDXProvider } from '@mdx-js/react';
-
 import 'prismjs/themes/prism-okaidia.css';
-
 import Link from './Link';
 import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
 import { GlobalStyle } from './GlobalStyle';
-import { Frontmatter, SiteMetadata, Site } from '../types';
+import { Frontmatter, Site, LayoutProps } from '../types';
 
 const NAVIGATION = [
   { to: '/', label: 'About' },
@@ -17,23 +15,13 @@ const NAVIGATION = [
   { to: 'https://roadtoreact.com', label: 'Courses' },
 ];
 
-interface LayoutProps {
-  site: Site;
-  frontmatter?: Frontmatter;
-  children: {};
-}
+// interface LayoutProps {
+//   site: Site;
+//   frontmatter?: Frontmatter;
+//   children: {};
+// }
 
-export default ({
-  site,
-  frontmatter = {
-    title: '',
-    slug: '',
-    date: '',
-    keywords: [],
-    description: '',
-  },
-  children,
-}: LayoutProps) => {
+export default ({ site, frontmatter = {}, children }: LayoutProps) => {
   const {
     title,
     description: siteDescription,
