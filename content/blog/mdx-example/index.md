@@ -4,6 +4,7 @@ date: "2013-07-13T03:49:16.408Z"
 title: "MDX Example"
 description: "MDX Example Description ..."
 categories: ["react"]
+tags: ["react"]
 keywords: ["react"]
 banner: "./images/banner.jpg"
 ---

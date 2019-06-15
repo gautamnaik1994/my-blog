@@ -4,6 +4,7 @@ date: "2012-07-14T03:49:16.408Z"
 title: "The Road to learn React"
 description: "The Road to learn React Description ..."
 categories: ["react"]
+tags: ["react"]
 keywords: ["react", "book"]
 banner: "./images/banner.jpg"
 ---

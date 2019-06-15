@@ -11,6 +11,8 @@ interface Props {
   title: string;
   date: string;
   excerpt: string;
+  category: string[];
+  tags: string[];
 }
 
 export default ({ link, title, date, excerpt }: Props) => (

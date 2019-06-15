@@ -61,6 +61,7 @@
   "scripts": {
     "prestart": "rimraf .cache",
     "start": "gatsby develop -o",
+    "debug": "node --inspect node_modules/.bin/gatsby develop",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "type-check": "tsc",

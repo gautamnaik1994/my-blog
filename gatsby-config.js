@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://gautamblogs.netlify.com/',
     author: 'Gautam Naik',
-    title: 'Vim Blog',
+    title: 'Gautam Blogs',
     description: 'Blog will contain blogs',
     keywords: ['vim', 'blog', 'mappings'],
   },

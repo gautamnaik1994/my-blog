@@ -5,6 +5,7 @@ title: "Nerd tree"
 description: "Nerd tree Description ..."
 categories: ["react"]
 keywords: ["react"]
+tags: ["react"]
 banner: "./images/banner.jpg"
 ---
 

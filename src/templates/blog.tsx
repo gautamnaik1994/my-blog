@@ -54,6 +54,8 @@ const Blog = ({
             title={node.frontmatter.title}
             date={node.frontmatter.date}
             excerpt={node.excerpt}
+            tags={node.frontmatter.tags}
+            category={node.frontmatter.category}
           />
         ))}
       </BlogWrapper>
@@ -92,6 +94,7 @@ export const pageQuery = graphql`
             slug
             categories
             keywords
+            tags
           }
         }
       }

@@ -16,6 +16,7 @@ export interface Frontmatter {
   description?: string = '';
   keywords?: string[] = [];
   categories?: string[] | any = [];
+  tags?: string[] | any = [];
   banner?: { childImageSharp: { sizes: any } };
 }
 

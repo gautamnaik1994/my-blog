@@ -4,6 +4,7 @@ date: "2011-07-18T13:35:13.234Z"
 title: "Why should we remap Escape key"
 description: "Pressing Esc key is tiring as the finger has to move to the corner..."
 categories: ["vim", "keymaps","react"]
+tags: ["vim", "keymaps","react"]
 keywords: ["vim", "keymap"]
 banner: "./images/banner.jpg"
 ---
