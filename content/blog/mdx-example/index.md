@@ -1,15 +1,15 @@
 ---
-slug: "/mdx-example"
-date: "2013-07-13T03:49:16.408Z"
-title: "MDX Example"
-description: "MDX Example Description ..."
-categories: ["react"]
-tags: ["react"]
-keywords: ["react"]
-banner: "./images/banner.jpg"
+slug: '/mdx-example'
+date: '2013-07-13T03:49:16.408Z'
+title: 'MDX Example'
+description: 'MDX Example Description ...'
+categories: ['react']
+tags: ['react']
+keywords: ['react']
+banner: './images/banner.jpg'
 ---
 
-import Counter from "$components/Counter";
+import Counter from "\$components/Counter";
 
 Showcasing how MDX for Gatsby.js works ... The Counter component is imported explicitly, but since we are using MDXProvider, we can also define global components which don't need to be imported (e.g. Link, YouTube).
 

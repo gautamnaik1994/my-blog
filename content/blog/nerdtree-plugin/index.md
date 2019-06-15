@@ -1,15 +1,15 @@
 ---
-slug: "/nerdtree"
-date: "2016-07-13T03:49:16.408Z"
-title: "Nerd tree"
-description: "Nerd tree Description ..."
-categories: ["react"]
-keywords: ["react"]
-tags: ["react"]
-banner: "./images/banner.jpg"
+slug: '/nerdtree'
+date: '2016-07-13T03:49:16.408Z'
+title: 'Nerd tree'
+description: 'Nerd tree Description ...'
+categories: ['react']
+keywords: ['react']
+tags: ['react']
+banner: './images/banner.jpg'
 ---
 
-import Counter from "$components/Counter";
+import Counter from "\$components/Counter";
 
 Showcasing how MDX for Gatsby.js works ... The Counter component is imported explicitly, but since we are using MDXProvider, we can also define global components which don't need to be imported (e.g. Link, YouTube).
 

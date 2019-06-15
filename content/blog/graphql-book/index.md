@@ -1,12 +1,12 @@
 ---
-slug: "/graphql-book"
-date: "2014-07-18T13:35:13.234Z"
-title: "The Road to GraphQL"
-description: "GraphQL Description ..."
-categories: ["graphql", "javascript","react"]
-tags: ["graphql", "javascript","react"]
-keywords: ["graphql", "book"]
-banner: "./images/banner.jpg"
+slug: '/graphql-book'
+date: '2014-07-18T13:35:13.234Z'
+title: 'The Road to GraphQL'
+description: 'GraphQL Description ...'
+categories: ['graphql', 'javascript', 'react']
+tags: ['graphql', 'javascript', 'react']
+keywords: ['graphql', 'book']
+banner: './images/banner.jpg'
 ---
 
 The central theme of this book is GraphQL in modern applications. While GraphQL is only a specification that can be used in many programming languages, this book focuses on GraphQL in JavaScript. Facebook--the company behind the GraphQL--didn't release GraphQL's reference implementation in JavaScript, but it remains one of the more compelling languages for mordern client-server architecture. Using Facebook's specification as their blueprint, other programming languages like Python and Java followed.

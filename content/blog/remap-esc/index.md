@@ -1,12 +1,12 @@
 ---
-slug: "/remap-esc"
-date: "2011-07-18T13:35:13.234Z"
-title: "Why should we remap Escape key"
-description: "Pressing Esc key is tiring as the finger has to move to the corner..."
-categories: ["vim", "keymaps","react"]
-tags: ["vim", "keymaps","react"]
-keywords: ["vim", "keymap"]
-banner: "./images/banner.jpg"
+slug: '/remap-esc'
+date: '2011-07-18T13:35:13.234Z'
+title: 'Why should we remap Escape key'
+description: 'Pressing Esc key is tiring as the finger has to move to the corner...'
+categories: ['vim', 'keymaps', 'react']
+tags: ['vim', 'keymaps', 'react']
+keywords: ['vim', 'keymap']
+banner: './images/banner.jpg'
 ---
 
 The central theme of this book is GraphQL in modern applications. While GraphQL is only a specification that can be used in many programming languages, this book focuses on GraphQL in JavaScript. Facebook--the company behind the GraphQL--didn't release GraphQL's reference implementation in JavaScript, but it remains one of the more compelling languages for mordern client-server architecture. Using Facebook's specification as their blueprint, other programming languages like Python and Java followed.

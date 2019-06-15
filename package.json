@@ -25,12 +25,14 @@
     "gatsby-source-filesystem": "^2.0.38",
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.21",
+    "polished": "^3.4.0",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "~5.2.1",
     "react-youtube": "^7.9.0",
-    "styled-components": "^4.3.0"
+    "styled-components": "^4.3.0",
+    "styled-theming": "^2.2.0"
   },
   "devDependencies": {
     "@types/node": "^12.0.7",
@@ -38,6 +40,7 @@
     "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
     "@types/styled-components": "^4.1.16",
+    "@types/styled-theming": "^2.2.1",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
     "add": "^2.0.6",
@@ -67,6 +70,7 @@
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
     "lint:fix": "npm run lint --fix",
-    "format": "prettier --write \"src/**/*.tsx\""
+    "format": "prettier --write \"src/**/*.tsx\"",
+    "format-md": "prettier --write \"content/**/*.md\""
   }
 }

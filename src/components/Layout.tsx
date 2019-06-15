@@ -1,19 +1,35 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
+import '../d.ts';
 // @ts-ignore
 import { MDXProvider } from '@mdx-js/react';
 import 'prismjs/themes/prism-okaidia.css';
-import Link from './Link';
+import Header from './Header';
 import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
 import { GlobalStyle } from './GlobalStyle';
-import { Frontmatter, Site, LayoutProps } from '../types';
+import { LayoutProps } from '../types';
+import { ThemeProvider } from 'styled-components';
 
-const NAVIGATION = [
-  { to: '/', label: 'About' },
-  { to: '/blog', label: 'Blog' },
-  { to: 'https://roadtoreact.com', label: 'Courses' },
-];
+const themes = {
+  DARK: 'dark',
+  LIGHT: 'light',
+};
+
+//const setTheme = (theme: string): void => {
+//console.log('Change Theme');
+//switch (theme) {
+//case themes.LIGHT:
+//theme = themes.LIGHT;
+//break;
+//case themes.DARK:
+//theme = themes.DARK;
+//break;
+//default:
+//theme = themes.LIGHT;
+//}
+//console.log(' Theme = ', theme);
+//};
 
 // interface LayoutProps {
 //   site: Site;
@@ -36,6 +52,8 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
   const keywords = (frontmatterKeywords || siteKeywords).join(', ');
   const description = frontmatterDescription || siteDescription;
 
+  const [theme, setTheme] = useState('light');
+
   return (
     <Fragment>
       <Helmet
@@ -47,24 +65,22 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
       >
         <html lang="en" />
       </Helmet>
-      <GlobalStyle />
-      <MDXProvider
-        components={{
-          ...MDXLayoutComponents,
-          ...MDXGlobalComponents,
-        }}
-      >
+      <ThemeProvider theme={{ mode: theme }}>
         <Fragment>
-          <ul>
-            {NAVIGATION.map(navigation => (
-              <li key={navigation.label}>
-                <Link to={navigation.to}>{navigation.label}</Link>
-              </li>
-            ))}
-          </ul>
-          {children}
+          <GlobalStyle />
+          <MDXProvider
+            components={{
+              ...MDXLayoutComponents,
+              ...MDXGlobalComponents,
+            }}
+          >
+            <Fragment>
+              <Header setTheme={setTheme} />
+              {children}
+            </Fragment>
+          </MDXProvider>
         </Fragment>
-      </MDXProvider>
+      </ThemeProvider>
     </Fragment>
   );
 };
