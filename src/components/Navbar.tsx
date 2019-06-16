@@ -8,10 +8,13 @@ const NAVIGATION = [
   { to: '/about', label: 'About' },
 ];
 
-const Header = styled.nav`
+const Navbar = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  button {
+    margin-left: 5px;
+  }
 `;
 
 const Logo = styled(Link)`
@@ -31,7 +34,7 @@ interface Props {
 }
 
 export default ({ setTheme }: Props) => (
-  <Header>
+  <Navbar>
     <Logo to="/">
       <img src={LogoImg} alt="Home" />
     </Logo>
@@ -42,5 +45,5 @@ export default ({ setTheme }: Props) => (
     ))}
     <button onClick={() => setTheme('dark')}>Dark</button>
     <button onClick={() => setTheme('light')}>Light</button>
-  </Header>
+  </Navbar>
 );

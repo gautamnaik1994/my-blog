@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import '../d.ts';
+import '../global.d.ts';
 // @ts-ignore
 import { MDXProvider } from '@mdx-js/react';
 import 'prismjs/themes/prism-okaidia.css';
-import Header from './Header';
+import Navbar from './Navbar';
+import Hero from './Hero';
 import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
 import { GlobalStyle } from './GlobalStyle';
 import { LayoutProps } from '../types';
@@ -64,8 +65,17 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
         ]}
       >
         <html lang="en" />
+        <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+        <link
+          href="https://unpkg.com/sanitize.css/forms.css"
+          rel="stylesheet"
+        />
+        <link
+          href="https://unpkg.com/sanitize.css/typography.css"
+          rel="stylesheet"
+        />
       </Helmet>
-      <ThemeProvider theme={{ mode: theme }}>
+      <ThemeProvider theme={{ mode: theme, primary: 'red' }}>
         <Fragment>
           <GlobalStyle />
           <MDXProvider
@@ -75,7 +85,8 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
             }}
           >
             <Fragment>
-              <Header setTheme={setTheme} />
+              <Navbar setTheme={setTheme} />
+              <Hero title="Welcome to Blog" />
               {children}
             </Fragment>
           </MDXProvider>
