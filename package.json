@@ -54,7 +54,7 @@
     "nodemon": "^1.19.1",
     "prettier": "^1.18.2",
     "rimraf": "^2.6.3",
-    "typescript": "3.4.5"
+    "typescript": "^3.5.2"
   },
   "keywords": [
     "gatsby"
