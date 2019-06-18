@@ -1,15 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navbar from './Navbar';
-
-const StyledNav = styled(Navbar)``;
 
 const ThemeChooser = styled.span`
   border: 1px solid red;
   display: inline-block;
-  ${StyledNav}:hover & {
-    background-color: green;
-  }
 `;
 
 interface Props {

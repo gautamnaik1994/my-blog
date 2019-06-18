@@ -39,13 +39,10 @@ const Blog = ({
 
   return (
     <Layout site={site}>
-      <div>
-        All categories on the blog:{' '}
-        <Categories
-          activeCategoryIndex={activeCategoryIndex}
-          categories={categories}
-        />
-      </div>
+      <Categories
+        activeCategoryIndex={activeCategoryIndex}
+        categories={categories}
+      />
       <BlogWrapper>
         {posts.map(({ node }: any) => (
           <PostItem
@@ -60,7 +57,6 @@ const Blog = ({
         ))}
       </BlogWrapper>
 
-      <hr />
       <Pagination
         nextPagePath={nextPagePath}
         previousPagePath={previousPagePath}

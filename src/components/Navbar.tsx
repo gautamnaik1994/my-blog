@@ -13,13 +13,14 @@ const Navbar = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  background-color: white;
+  box-shadow: 0 1px 9px 1px rgba(0, 0, 0, 0.3);
   button {
     margin-left: 5px;
   }
 `;
 
 const Logo = styled(Link)`
-  border: 1px solid black;
   width: 60px;
   height: 60px;
   display: inline-block;
@@ -45,6 +46,7 @@ export default ({ setTheme, className }: Props) => (
         {navigation.label}
       </Link>
     ))}
+    <button>Theme</button>
     <ThemeChooser setTheme={setTheme} />
   </Navbar>
 );

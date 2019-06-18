@@ -5,6 +5,9 @@ import '../global.d.ts';
 // @ts-ignore
 import { MDXProvider } from '@mdx-js/react';
 import 'prismjs/themes/prism-okaidia.css';
+import 'sanitize.css';
+import 'sanitize.css/typography.css';
+import 'sanitize.css/forms.css';
 import Navbar from './Navbar';
 import Hero from './Hero';
 import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
@@ -37,6 +40,7 @@ const themes = {
 //   frontmatter?: Frontmatter;
 //   children: {};
 // }
+//
 
 export default ({ site, frontmatter = {}, children }: LayoutProps) => {
   const {
@@ -65,17 +69,8 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
         ]}
       >
         <html lang="en" />
-        <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
-        <link
-          href="https://unpkg.com/sanitize.css/forms.css"
-          rel="stylesheet"
-        />
-        <link
-          href="https://unpkg.com/sanitize.css/typography.css"
-          rel="stylesheet"
-        />
       </Helmet>
-      <ThemeProvider theme={{ mode: theme, primary: 'red' }}>
+      <ThemeProvider theme={{ mode: theme, primary: 'teal' }}>
         <Fragment>
           <GlobalStyle />
           <MDXProvider

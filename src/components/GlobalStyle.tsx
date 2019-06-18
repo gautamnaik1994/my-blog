@@ -19,7 +19,11 @@ const bodyColor = theme('mode', {
   dark: '#e1e1e1',
 });
 
-export const GlobalStyle = createGlobalStyle`
+interface Props {
+  theme?: { primary: string };
+}
+
+export const GlobalStyle = createGlobalStyle<Props>`
     body {
         transition:background-color 0.3s ease-in,color 0.3s ease-in;
         background-color: ${bodyBackgroundColor};
@@ -32,6 +36,7 @@ export const GlobalStyle = createGlobalStyle`
 
     a{
         text-decoration:none;
+        color:${props => props.theme.primary}
     }
 
     ${() => {
