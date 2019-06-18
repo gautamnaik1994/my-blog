@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from './Link';
 import LogoImg from '../../assets/logo.png';
+import ThemeChooser from './ThemeChooser';
 
 const NAVIGATION = [
   { to: '/', label: 'Home' },
@@ -31,10 +32,11 @@ const Logo = styled(Link)`
 
 interface Props {
   setTheme: (theme: string) => void;
+  className?: any;
 }
 
-export default ({ setTheme }: Props) => (
-  <Navbar>
+export default ({ setTheme, className }: Props) => (
+  <Navbar className={className}>
     <Logo to="/">
       <img src={LogoImg} alt="Home" />
     </Logo>
@@ -43,7 +45,6 @@ export default ({ setTheme }: Props) => (
         {navigation.label}
       </Link>
     ))}
-    <button onClick={() => setTheme('dark')}>Dark</button>
-    <button onClick={() => setTheme('light')}>Light</button>
+    <ThemeChooser setTheme={setTheme} />
   </Navbar>
 );
