@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
 import '../global.d.ts';
 // @ts-ignore
 import { MDXProvider } from '@mdx-js/react';
@@ -14,6 +15,7 @@ import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
 import { GlobalStyle } from './GlobalStyle';
 import { LayoutProps } from '../types';
 import { ThemeProvider } from 'styled-components';
+import media from '../utils/MediaQueries';
 
 const themes = {
   DARK: 'dark',
@@ -40,7 +42,14 @@ const themes = {
 //   frontmatter?: Frontmatter;
 //   children: {};
 // }
-//
+
+const Grid = styled.div`
+  padding: 15px;
+  ${media.tablet} {
+    display: grid;
+    grid-template-columns: auto 200px 600px 200px auto;
+  }
+`;
 
 export default ({ site, frontmatter = {}, children }: LayoutProps) => {
   const {
@@ -82,7 +91,7 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
             <Fragment>
               <Navbar setTheme={setTheme} />
               <Hero title="Welcome to Blog" />
-              {children}
+              <Grid>{children}</Grid>
             </Fragment>
           </MDXProvider>
         </Fragment>

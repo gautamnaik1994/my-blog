@@ -10,8 +10,7 @@ import Pagination from '../components/Pagination';
 import { Frontmatter, SiteMetadata, Site } from '../types';
 
 const BlogWrapper = styled.div`
-  width: 768px;
-  margin: 0 auto;
+  grid-column: 3/4;
 `;
 
 interface Props {
@@ -55,12 +54,11 @@ const Blog = ({
             category={node.frontmatter.category}
           />
         ))}
+        <Pagination
+          nextPagePath={nextPagePath}
+          previousPagePath={previousPagePath}
+        />
       </BlogWrapper>
-
-      <Pagination
-        nextPagePath={nextPagePath}
-        previousPagePath={previousPagePath}
-      />
     </Layout>
   );
 };
