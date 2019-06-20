@@ -48,7 +48,6 @@ export default function Post({
       )}
 
       <MDXRenderer>{mdx.code.body}</MDXRenderer>
-      <hr />
       <Pagination
         nextPagePath={next && next.fields.slug}
         previousPagePath={prev && prev.fields.slug}

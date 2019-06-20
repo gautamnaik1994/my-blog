@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
@@ -44,14 +44,16 @@ const themes = {
 // }
 
 const Grid = styled.div`
-  padding: 15px;
   ${media.tablet} {
     display: grid;
-    grid-template-columns: auto 200px 600px 200px auto;
+    grid-template-columns: auto 200px minmax(550px, 600px) minmax(0, 200px) auto;
+    grid-template-rows: 250px auto;
+    grid-gap: 15px;
   }
 `;
 
 export default ({ site, frontmatter = {}, children }: LayoutProps) => {
+  console.log('called Layout');
   const {
     title,
     description: siteDescription,
@@ -65,8 +67,16 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
 
   const keywords = (frontmatterKeywords || siteKeywords).join(', ');
   const description = frontmatterDescription || siteDescription;
+  const initialThemeValue = localStorage.getItem('theme') || 'light';
 
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(initialThemeValue);
+
+  const setThemeValue = (val: string): void => {
+    setTheme(val);
+    localStorage.setItem('theme', val);
+  };
+
+  useEffect(() => {});
 
   return (
     <Fragment>
@@ -89,8 +99,7 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
             }}
           >
             <Fragment>
-              <Navbar setTheme={setTheme} />
-              <Hero title="Welcome to Blog" />
+              <Navbar setTheme={setThemeValue} />
               <Grid>{children}</Grid>
             </Fragment>
           </MDXProvider>

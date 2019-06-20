@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 //import Link from '../components/Link';
+import Hero from '../components/Hero';
 import PostItem from '../components/PostItem';
 import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
@@ -38,6 +39,7 @@ const Blog = ({
 
   return (
     <Layout site={site}>
+      <Hero title="Welcome to Blog" />
       <Categories
         activeCategoryIndex={activeCategoryIndex}
         categories={categories}

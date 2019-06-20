@@ -63,6 +63,7 @@ const CategoryItem = styled.li<CategoryItemProps>`
     margin: 5px;
     background-color: ${props => (props.activeCategory ? 'red' : ' #03A9F4')};
     box-shadow: 0 0 6px 2px rgba(3, 169, 244, 0.21);
+    text-transform: capitalize;
     ${props =>
       props.activeCategory &&
       css`

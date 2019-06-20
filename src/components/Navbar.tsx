@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from './Link';
-import LogoImg from '../../assets/logo.png';
+import theme from 'styled-theming';
+import { darken } from 'polished';
+import SvgLogo from './Logo';
 import ThemeChooser from './ThemeChooser';
 
 const NAVIGATION = [
@@ -9,26 +11,30 @@ const NAVIGATION = [
   { to: '/about', label: 'About' },
 ];
 
+const navBarBgColor = theme('mode', {
+  light: '#fff',
+  dark: darken(0.8, '#e1e1e1'),
+});
+
 const Navbar = styled.nav`
+  transition: background-color 0.3s ease-in;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: white;
+  background-color: ${navBarBgColor};
   box-shadow: 0 1px 9px 1px rgba(0, 0, 0, 0.3);
+  padding: 0 15px;
   button {
     margin-left: 5px;
   }
 `;
 
-const Logo = styled(Link)`
+const HomeLink = styled(Link)`
   width: 60px;
   height: 60px;
   display: inline-block;
   margin-right: auto;
-  img {
-    width: 100%;
-    height: 100%;
-  }
+  padding: 3px;
 `;
 
 interface Props {
@@ -38,15 +44,14 @@ interface Props {
 
 export default ({ setTheme, className }: Props) => (
   <Navbar className={className}>
-    <Logo to="/">
-      <img src={LogoImg} alt="Home" />
-    </Logo>
+    <HomeLink to="/">
+      <SvgLogo />
+    </HomeLink>
     {NAVIGATION.map(navigation => (
       <Link key={navigation.label} to={navigation.to}>
         {navigation.label}
       </Link>
     ))}
-    <button>Theme</button>
     <ThemeChooser setTheme={setTheme} />
   </Navbar>
 );
