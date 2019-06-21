@@ -23,7 +23,7 @@ const Navbar = styled.nav`
   align-items: center;
   background-color: ${navBarBgColor};
   box-shadow: 0 1px 9px 1px rgba(0, 0, 0, 0.3);
-  padding: 0 15px;
+  padding: 0 15px 0 5px;
   button {
     margin-left: 5px;
   }

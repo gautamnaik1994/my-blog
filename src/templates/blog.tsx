@@ -12,6 +12,7 @@ import { Frontmatter, SiteMetadata, Site } from '../types';
 
 const BlogWrapper = styled.div`
   grid-column: 3/4;
+  padding: 0px 10px;
 `;
 
 interface Props {

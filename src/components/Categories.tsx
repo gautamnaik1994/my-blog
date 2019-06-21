@@ -43,9 +43,18 @@ const CategoryItem = styled.li<CategoryItemProps>`
       &:after {
         content: '';
         position: absolute;
-        width: 20px;
+        width: 50%;
+        min-width: 30px;
         height: 4px;
-        background: red;
+        background-image: linear-gradient(
+          90deg,
+          rgb(131, 237, 184) 0%,
+          rgb(131, 237, 184) 0%,
+          rgb(131, 237, 184) 0.01%,
+          rgb(80, 188, 182) 33.15%,
+          rgb(239, 64, 86) 67.4%,
+          rgb(252, 182, 67) 100%
+        );
         border-radius: 13px;
         bottom: -4px;
         left: 50%;

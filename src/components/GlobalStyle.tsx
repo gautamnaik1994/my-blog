@@ -57,4 +57,7 @@ export const GlobalStyle = createGlobalStyle<Props>`
         padding-right: 1em;
         padding-left: 1em;
     }
+    .m-0{
+        margin:0!important;
+    }
 `;
