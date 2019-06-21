@@ -35,8 +35,17 @@ const ReadMore = styled(Link)`
     margin: 0;
     right: 0;
     left: auto;
+    overflow: hidden;
+    padding-left: 20px;
     :before {
-      content: '*';
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 50px;
+      transform: rotate(29deg);
+      left: -29px;
+      top: -17px;
+      background-color: #ffffff;
     }
   }
 `;
