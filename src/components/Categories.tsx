@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
 import Link from './Link';
 import media from '../utils/MediaQueries';
 
@@ -13,19 +14,31 @@ interface CategoryItemProps {
   activeCategory: boolean;
 }
 
+const CategoriesBg = theme('mode', {
+  light: '#fff',
+  dark: '#2a2a2a',
+});
+
 const Categories = styled.ul`
   grid-column: 2/3;
-  padding: 0;
-  padding-bottom: 0px;
+  padding: 8px;
+  margin: 0;
   text-align: center;
   white-space: nowrap;
   overflow-x: auto;
   height: auto;
   overflow-y: hidden;
   padding-bottom: 15px;
+  top: 60px;
+  position: sticky;
+  z-index: 1;
+  background: ${CategoriesBg};
+  transition: box-shadow 0.3s ease-in, background 0.3s ease-in;
   ${media.tablet} {
     white-space: normal;
     overflow: hidden;
+    height: calc(100vh - 250px);
+    text-align: left;
   }
 `;
 
@@ -49,11 +62,18 @@ const CategoryItem = styled.li<CategoryItemProps>`
         background-image: linear-gradient(
           90deg,
           rgb(131, 237, 184) 0%,
-          rgb(131, 237, 184) 0%,
           rgb(131, 237, 184) 0.01%,
           rgb(80, 188, 182) 33.15%,
           rgb(239, 64, 86) 67.4%,
           rgb(252, 182, 67) 100%
+        );
+        background-image: linear-gradient(
+          115deg,
+          #4fcf70,
+          #fad648,
+          #a767e5,
+          #12bcfe,
+          #44ce7b
         );
         border-radius: 13px;
         bottom: -4px;
@@ -87,9 +107,35 @@ const CategoryItem = styled.li<CategoryItemProps>`
   }
 `;
 
-export default ({ categories = [], activeCategoryIndex }: CategoryProps) => (
-  <Fragment>
-    <Categories>
+export default ({ categories = [], activeCategoryIndex }: CategoryProps) => {
+  const CategorierRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    var observer = new IntersectionObserver(
+      function(entries) {
+        if (CategorierRef && CategorierRef.current) {
+          // no intersection with screen
+          if (entries[0].intersectionRatio < 1) {
+            console.log('Inide intersection');
+            CategorierRef.current.classList.add('category-shadow');
+          }
+          // fully intersects with screen
+          else if (entries[0].intersectionRatio === 1) {
+            console.log('Inide intersection');
+            CategorierRef.current.classList.remove('category-shadow');
+          }
+        }
+      },
+      { threshold: [0, 1], rootMargin: '-150px 0px 0px 0px' },
+    );
+
+    CategorierRef &&
+      CategorierRef.current &&
+      observer.observe(CategorierRef.current);
+  });
+
+  return (
+    <Categories ref={CategorierRef}>
       {categories.map((category, index) => (
         <CategoryItem
           key={category}
@@ -99,5 +145,5 @@ export default ({ categories = [], activeCategoryIndex }: CategoryProps) => (
         </CategoryItem>
       ))}
     </Categories>
-  </Fragment>
-);
+  );
+};

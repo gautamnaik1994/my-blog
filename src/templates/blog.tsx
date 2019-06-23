@@ -57,6 +57,28 @@ const Blog = ({
             category={node.frontmatter.category}
           />
         ))}
+        {posts.map(({ node }: any) => (
+          <PostItem
+            key={node.id}
+            link={node.frontmatter.slug}
+            title={node.frontmatter.title}
+            date={node.frontmatter.date}
+            excerpt={node.excerpt}
+            tags={node.frontmatter.tags}
+            category={node.frontmatter.category}
+          />
+        ))}
+        {posts.map(({ node }: any) => (
+          <PostItem
+            key={node.id}
+            link={node.frontmatter.slug}
+            title={node.frontmatter.title}
+            date={node.frontmatter.date}
+            excerpt={node.excerpt}
+            tags={node.frontmatter.tags}
+            category={node.frontmatter.category}
+          />
+        ))}
         <Pagination
           nextPagePath={nextPagePath}
           previousPagePath={previousPagePath}

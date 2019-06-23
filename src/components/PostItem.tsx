@@ -1,21 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
+import theme from 'styled-theming';
+import Paragraph from './mdx/Paragraph';
+import { darken } from 'polished';
 import Link from './Link';
 import media from '../utils/MediaQueries';
 
-const bottomPadding = 30;
+const bottomPadding = 44;
+const backgroundColor = theme('mode', {
+  light: '#fff',
+  dark: darken(0.7, '#e1e1e1'),
+});
 
 const PostItem = styled.div`
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.25);
-  padding: 10px;
+  padding: 15px;
   padding-bottom: ${bottomPadding}px;
   border-radius: 5px 5px 2px 2px;
   margin-bottom: 15px;
   position: relative;
+  background: ${backgroundColor};
   border-bottom: 0;
   ${media.tablet} {
     border-bottom: 6px solid ${props => props.theme.primary};
   }
+`;
+const StyledParagraph = styled(Paragraph)`
+  font-size: 14px;
 `;
 
 const ReadMore = styled(Link)`
@@ -23,7 +34,7 @@ const ReadMore = styled(Link)`
   color: white;
   background-color: teal;
   text-align: center;
-  padding: 5px;
+  padding: 10px;
   position: absolute;
   bottom: -1px;
   border-radius: 0 0 2px 2px;
@@ -31,12 +42,12 @@ const ReadMore = styled(Link)`
   left: 0;
   ${media.tablet} {
     border-radius: 0 0 2px 0px;
-    padding: 5px 10px;
+    padding: 5px 20px;
     margin: 0;
     right: 0;
     left: auto;
     overflow: hidden;
-    padding-left: 20px;
+    padding-left: 25px;
     :before {
       content: '';
       position: absolute;
@@ -45,7 +56,7 @@ const ReadMore = styled(Link)`
       transform: rotate(29deg);
       left: -29px;
       top: -17px;
-      background-color: #ffffff;
+      background-color: ${backgroundColor};
     }
   }
 `;
@@ -65,7 +76,7 @@ export default ({ link, title, date, excerpt }: Props) => (
       <Link to={link}>{title}</Link>
     </h2>
     <small>{date}</small>
-    <p>{excerpt}</p>
+    <StyledParagraph>{excerpt}</StyledParagraph>
     <ReadMore to={link}>Continue Reading</ReadMore>
   </PostItem>
 );

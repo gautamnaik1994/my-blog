@@ -6,10 +6,7 @@ import { darken } from 'polished';
 import SvgLogo from './Logo';
 import ThemeChooser from './ThemeChooser';
 
-const NAVIGATION = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-];
+const NAVIGATION = [{ to: '/about', label: 'About' }];
 
 const navBarBgColor = theme('mode', {
   light: '#fff',
@@ -24,6 +21,12 @@ const Navbar = styled.nav`
   background-color: ${navBarBgColor};
   box-shadow: 0 1px 9px 1px rgba(0, 0, 0, 0.3);
   padding: 0 15px 0 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1;
   button {
     margin-left: 5px;
   }

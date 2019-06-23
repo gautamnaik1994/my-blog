@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import theme from 'styled-theming';
+import media from '../utils/MediaQueries';
 
 const themeModes = {
   DARK: 'dark',
@@ -24,6 +25,9 @@ interface Props {
 }
 
 export const GlobalStyle = createGlobalStyle<Props>`
+    html,body{
+    font-family: "IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"
+    }
     body {
         transition:background-color 0.3s ease-in,color 0.3s ease-in;
         background-color: ${bodyBackgroundColor};
@@ -59,5 +63,15 @@ export const GlobalStyle = createGlobalStyle<Props>`
     }
     .m-0{
         margin:0!important;
+    }
+    .date{
+        color: #9E9E9E;
+    }
+    .category-shadow{
+
+    box-shadow:0 4px 3px 0px rgba(0, 0, 0, 0.16);
+        ${media.tablet}{
+            box-shadow:none;
+        }
     }
 `;

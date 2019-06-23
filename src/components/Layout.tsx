@@ -17,11 +17,6 @@ import { LayoutProps } from '../types';
 import { ThemeProvider } from 'styled-components';
 import media from '../utils/MediaQueries';
 
-const themes = {
-  DARK: 'dark',
-  LIGHT: 'light',
-};
-
 //const setTheme = (theme: string): void => {
 //console.log('Change Theme');
 //switch (theme) {
@@ -46,14 +41,16 @@ const themes = {
 const Grid = styled.div`
   ${media.tablet} {
     display: grid;
-    grid-template-columns: auto 200px minmax(550px, 600px) minmax(0, 200px) auto;
+    grid-template-columns:
+      auto minmax(auto, 200px) minmax(550px, 650px) minmax(0, 200px)
+      auto;
     grid-template-rows: 250px auto;
     grid-gap: 15px;
   }
+  margin-top: 60px;
 `;
 
 export default ({ site, frontmatter = {}, children }: LayoutProps) => {
-  console.log('called Layout');
   const {
     title,
     description: siteDescription,
@@ -88,6 +85,11 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
         ]}
       >
         <html lang="en" />
+        <link
+          href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,700|Merriweather:400,400i,700&display=swap"
+          rel="stylesheet"
+        />
+        <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
       </Helmet>
       <ThemeProvider theme={{ mode: theme, primary: 'teal' }}>
         <Fragment>

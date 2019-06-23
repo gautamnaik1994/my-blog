@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import styled from 'styled-components';
 // @ts-ignore
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
@@ -22,6 +23,10 @@ import { Frontmatter, SiteMetadata, Site, Mdx, PageContext } from '../types';
 //   </Fragment>
 // );
 
+const Post = styled.div`
+  grid-column: 3/4;
+`;
+
 interface Props {
   data: {
     site: Site;
@@ -30,33 +35,34 @@ interface Props {
   pageContext: PageContext;
 }
 
-export default function Post({
+export default ({
   data: { site, mdx },
   pageContext: { next, prev },
-}: Props) {
-  console.log('Props ', prev);
+}: Props) => {
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
-      <h1>{mdx.frontmatter.title}</h1>
-      <h2>{mdx.frontmatter.date}</h2>
-      <Categories categories={mdx.frontmatter.categories} />
-      {mdx.frontmatter.banner && (
-        <Img
-          sizes={mdx.frontmatter.banner.childImageSharp.sizes}
-          alt={site.siteMetadata.keywords.join(', ')}
-        />
-      )}
+      <Post>
+        <h1 className="m-0">{mdx.frontmatter.title}</h1>
+        <small>{mdx.frontmatter.date}</small>
+        <Categories categories={mdx.frontmatter.categories} />
+        {mdx.frontmatter.banner && (
+          <Img
+            sizes={mdx.frontmatter.banner.childImageSharp.sizes}
+            alt={site.siteMetadata.keywords.join(', ')}
+          />
+        )}
 
-      <MDXRenderer>{mdx.code.body}</MDXRenderer>
-      <Pagination
-        nextPagePath={next && next.fields.slug}
-        previousPagePath={prev && prev.fields.slug}
-        nextPostTitle={next && next.fields.title}
-        prevPostTitle={prev && prev.fields.title}
-      />
+        <MDXRenderer>{mdx.code.body}</MDXRenderer>
+        <Pagination
+          nextPagePath={next && next.fields.slug}
+          previousPagePath={prev && prev.fields.slug}
+          nextPostTitle={next && next.fields.title}
+          prevPostTitle={prev && prev.fields.title}
+        />
+      </Post>
     </Layout>
   );
-}
+};
 
 export const pageQuery = graphql`
   query($id: String!) {
