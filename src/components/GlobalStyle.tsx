@@ -74,4 +74,10 @@ export const GlobalStyle = createGlobalStyle<Props>`
             box-shadow:none;
         }
     }
+    .show-for-tablet{
+    display:none;
+    ${media.tablet}{
+    display:block;
+    }
+    }
 `;

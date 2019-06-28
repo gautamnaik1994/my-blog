@@ -137,6 +137,7 @@ const createCategoryPages = (createPage, edges) => {
 
 const createTagPages = (createPage, edges) => {
   const tags = pluckTags(edges);
+  const categories = pluckCategories(edges);
   const posts = groupByTag(edges);
   Object.keys(posts).forEach((tag, index) => {
     createPaginatedPagesForCategoriesAndTags(
@@ -145,6 +146,7 @@ const createTagPages = (createPage, edges) => {
       `/tags/${tag}`,
       {
         tags,
+        categories,
         activeTag: tag,
         activeTagIndex: index,
       },
@@ -170,7 +172,9 @@ const createPosts = (createPage, edges) => {
 
 const createBlog = (createPage, edges) => {
   const categories = pluckCategories(edges);
-  createPaginatedPages(createPage, edges, '/', { categories });
+  createPaginatedPages(createPage, edges, '/', {
+    categories,
+  });
 };
 
 exports.createPages = ({ actions, graphql }) =>

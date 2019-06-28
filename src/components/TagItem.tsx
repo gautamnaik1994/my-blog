@@ -7,9 +7,11 @@ interface Props {
 }
 
 const TagItem = styled(Link)`
-  color: red;
+  & + & {
+    margin-left: 10px;
+  }
 `;
 
 export default ({ name }: Props) => (
-  <TagItem to={`tags/${name}`}>{name}</TagItem>
+  <TagItem to={`/tags/${name}`}>{name}</TagItem>
 );

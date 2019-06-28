@@ -5,6 +5,7 @@ import theme from 'styled-theming';
 import { darken } from 'polished';
 import SvgLogo from './Logo';
 import ThemeChooser from './ThemeChooser';
+import media from '../utils/MediaQueries';
 
 const NAVIGATION = [{ to: '/about', label: 'About' }];
 
@@ -27,6 +28,9 @@ const Navbar = styled.nav`
   right: 0;
   width: 100%;
   z-index: 1;
+  ${media.tablet} {
+    z-index: 2;
+  }
   button {
     margin-left: 5px;
   }
