@@ -25,18 +25,20 @@ interface Props {
     };
     categories: string[];
     activeCategoryIndex: number;
+    tags: string[];
   };
 }
 
 const Blog = ({
   data: { site, allMdx },
-  pageContext: { pagination, categories, activeCategoryIndex },
+  pageContext: { pagination, categories, activeCategoryIndex, tags },
 }: Props) => {
   const { page, nextPagePath, previousPagePath } = pagination;
 
   const posts = page.map((id: number) =>
     allMdx.edges.find((edge: { node: { id: number } }) => edge.node.id === id),
   );
+  console.log(tags);
 
   return (
     <Layout site={site}>
@@ -54,7 +56,7 @@ const Blog = ({
             date={node.frontmatter.date}
             excerpt={node.excerpt}
             tags={node.frontmatter.tags}
-            category={node.frontmatter.category}
+            category={node.frontmatter.categories}
           />
         ))}
         {posts.map(({ node }: any) => (
@@ -65,7 +67,7 @@ const Blog = ({
             date={node.frontmatter.date}
             excerpt={node.excerpt}
             tags={node.frontmatter.tags}
-            category={node.frontmatter.category}
+            category={node.frontmatter.categories}
           />
         ))}
         {posts.map(({ node }: any) => (
@@ -76,7 +78,7 @@ const Blog = ({
             date={node.frontmatter.date}
             excerpt={node.excerpt}
             tags={node.frontmatter.tags}
-            category={node.frontmatter.category}
+            category={node.frontmatter.categories}
           />
         ))}
         <Pagination

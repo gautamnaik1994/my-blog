@@ -4,6 +4,7 @@ import theme from 'styled-theming';
 import Paragraph from './mdx/Paragraph';
 import { darken } from 'polished';
 import Link from './Link';
+import TagItem from './TagItem';
 import media from '../utils/MediaQueries';
 
 const bottomPadding = 44;
@@ -26,7 +27,8 @@ const PostItem = styled.div`
   }
 `;
 const StyledParagraph = styled(Paragraph)`
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.85;
 `;
 
 const ReadMore = styled(Link)`
@@ -70,13 +72,17 @@ interface Props {
   tags: string[];
 }
 
-export default ({ link, title, date, excerpt }: Props) => (
+export default ({ link, title, date, excerpt, category, tags }: Props) => (
   <PostItem>
+    <small>{category[0]}</small>
     <h2 className="m-0">
       <Link to={link}>{title}</Link>
     </h2>
     <small>{date}</small>
     <StyledParagraph>{excerpt}</StyledParagraph>
+    {tags.map((tag, index) => (
+      <TagItem key={index} name={tag} />
+    ))}
     <ReadMore to={link}>Continue Reading</ReadMore>
   </PostItem>
 );

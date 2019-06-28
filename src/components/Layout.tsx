@@ -64,16 +64,18 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
 
   const keywords = (frontmatterKeywords || siteKeywords).join(', ');
   const description = frontmatterDescription || siteDescription;
-  const initialThemeValue = localStorage.getItem('theme') || 'light';
+  //const initialThemeValue = localStorage.getItem('theme') || 'light';
 
-  const [theme, setTheme] = useState(initialThemeValue);
+  const [theme, setTheme] = useState<string | undefined>(undefined);
 
   const setThemeValue = (val: string): void => {
     setTheme(val);
     localStorage.setItem('theme', val);
   };
 
-  useEffect(() => {});
+  useEffect(() => {
+    setThemeValue(localStorage.getItem('theme') || 'light');
+  });
 
   return (
     <Fragment>
