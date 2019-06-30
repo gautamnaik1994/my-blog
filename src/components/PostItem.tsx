@@ -70,11 +70,24 @@ interface Props {
   excerpt: string;
   category: string[];
   tags: string[];
+  wordCount: number;
+  readTime: number;
 }
 
-export default ({ link, title, date, excerpt, category, tags }: Props) => (
+export default ({
+  link,
+  title,
+  date,
+  excerpt,
+  category,
+  tags,
+  wordCount,
+  readTime,
+}: Props) => (
   <PostItem>
     <small>{category[0]}</small>
+    <small>{wordCount}</small>
+    <div>{readTime}</div>
     <h2 className="m-0">
       <Link to={link}>{title}</Link>
     </h2>

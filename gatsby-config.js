@@ -5,7 +5,7 @@ module.exports = {
     author: 'Gautam Naik',
     title: 'Gautam Blogs',
     description: 'Blog will contain blogs',
-    keywords: ['vim', 'blog', 'mappings'],
+    keywords: ['vim', 'blog', 'mappings', 'css', 'react'],
   },
   plugins: [
     {
@@ -44,11 +44,12 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Vim Blog',
-        short_name: 'GautamBlogs',
+        name: 'Gautam Blogs',
+        short_name: 'Gautam Blogs',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#525dce',

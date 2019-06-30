@@ -57,6 +57,8 @@ const Blog = ({
             excerpt={node.excerpt}
             tags={node.frontmatter.tags}
             category={node.frontmatter.categories}
+            wordCount={node.wordCount.words}
+            readTime={node.timeToRead}
           />
         ))}
         {posts.map(({ node }: any) => (
@@ -68,6 +70,8 @@ const Blog = ({
             excerpt={node.excerpt}
             tags={node.frontmatter.tags}
             category={node.frontmatter.categories}
+            wordCount={node.wordCount.words}
+            readTime={node.timeToRead}
           />
         ))}
         {posts.map(({ node }: any) => (
@@ -79,6 +83,8 @@ const Blog = ({
             excerpt={node.excerpt}
             tags={node.frontmatter.tags}
             category={node.frontmatter.categories}
+            wordCount={node.wordCount.words}
+            readTime={node.timeToRead}
           />
         ))}
         <Pagination
@@ -117,6 +123,10 @@ export const pageQuery = graphql`
             keywords
             tags
           }
+          wordCount {
+            words
+          }
+          timeToRead
         }
       }
     }
