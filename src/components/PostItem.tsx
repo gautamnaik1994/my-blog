@@ -34,7 +34,7 @@ const StyledParagraph = styled(Paragraph)`
 const ReadMore = styled(Link)`
   display: block;
   color: white;
-  background-color: teal;
+  background-color: ${props => props.theme.primary};
   text-align: center;
   padding: 10px;
   position: absolute;
@@ -70,7 +70,6 @@ interface Props {
   excerpt: string;
   category: string[];
   tags: string[];
-  wordCount: number;
   readTime: number;
 }
 
@@ -81,17 +80,16 @@ export default ({
   excerpt,
   category,
   tags,
-  wordCount,
   readTime,
 }: Props) => (
   <PostItem>
     <small>{category[0]}</small>
-    <small>{wordCount}</small>
-    <div>{readTime}</div>
     <h2 className="m-0">
       <Link to={link}>{title}</Link>
     </h2>
-    <small>{date}</small>
+    <small>
+      {date} &bull; {readTime} minutes read
+    </small>
     <StyledParagraph>{excerpt}</StyledParagraph>
     {tags.map((tag, index) => (
       <TagItem key={index} name={tag} />

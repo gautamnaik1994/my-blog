@@ -57,7 +57,6 @@ const Blog = ({
             excerpt={node.excerpt}
             tags={node.frontmatter.tags}
             category={node.frontmatter.categories}
-            wordCount={node.wordCount.words}
             readTime={node.timeToRead}
           />
         ))}
@@ -70,7 +69,6 @@ const Blog = ({
             excerpt={node.excerpt}
             tags={node.frontmatter.tags}
             category={node.frontmatter.categories}
-            wordCount={node.wordCount.words}
             readTime={node.timeToRead}
           />
         ))}
@@ -83,7 +81,6 @@ const Blog = ({
             excerpt={node.excerpt}
             tags={node.frontmatter.tags}
             category={node.frontmatter.categories}
-            wordCount={node.wordCount.words}
             readTime={node.timeToRead}
           />
         ))}

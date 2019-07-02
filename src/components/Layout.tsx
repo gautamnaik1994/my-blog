@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import { desaturate } from 'polished';
 import '../global.d.ts';
 // @ts-ignore
 import { MDXProvider } from '@mdx-js/react';
@@ -37,6 +38,8 @@ import media from '../utils/MediaQueries';
 //   frontmatter?: Frontmatter;
 //   children: {};
 // }
+//
+const primaryCol = '#3F51B5';
 
 const Grid = styled.div`
   ${media.tablet} {
@@ -93,7 +96,12 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
         />
         <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
       </Helmet>
-      <ThemeProvider theme={{ mode: theme, primary: 'teal' }}>
+      <ThemeProvider
+        theme={{
+          mode: theme,
+          primary: theme === 'light' ? primaryCol : desaturate(0.5, '#5c75ff'),
+        }}
+      >
         <Fragment>
           <GlobalStyle />
           <MDXProvider
