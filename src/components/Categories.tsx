@@ -17,7 +17,7 @@ interface CategoryProps {
 
 const CategoriesBg = theme('mode', {
   light: '#fff',
-  dark: '#2a2a2a',
+  dark: '#121212',
 });
 
 const Categories = styled.ul`
@@ -36,6 +36,7 @@ const Categories = styled.ul`
   background: ${CategoriesBg};
   transition: box-shadow 0.3s ease-in, background 0.3s ease-in;
   ${media.tablet} {
+    background: transparent;
     white-space: normal;
     overflow: hidden;
     height: calc(100vh - 250px);

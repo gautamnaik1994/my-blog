@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from './Link';
 import theme from 'styled-theming';
-import { darken } from 'polished';
+import { lighten } from 'polished';
 import SvgLogo from './Logo';
 import ThemeChooser from './ThemeChooser';
 import media from '../utils/MediaQueries';
@@ -11,7 +11,7 @@ const NAVIGATION = [{ to: '/about', label: 'About' }];
 
 const navBarBgColor = theme('mode', {
   light: '#fff',
-  dark: darken(0.8, '#e1e1e1'),
+  dark: lighten(0.15, '#121212'),
 });
 
 const Navbar = styled.nav`

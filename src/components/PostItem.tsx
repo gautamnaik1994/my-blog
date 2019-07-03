@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import theme from 'styled-theming';
 import Paragraph from './mdx/Paragraph';
-import { darken } from 'polished';
+import { darken, lighten } from 'polished';
 import Link from './Link';
 import TagItem from './TagItem';
 import media from '../utils/MediaQueries';
@@ -10,7 +10,16 @@ import media from '../utils/MediaQueries';
 const bottomPadding = 44;
 const backgroundColor = theme('mode', {
   light: '#fff',
-  dark: darken(0.7, '#e1e1e1'),
+  dark: lighten(0.05, '#121212'),
+});
+const readMoreTextColor = theme('mode', {
+  light: '#fff',
+  dark: 'black',
+});
+
+const boxShadow = theme('mode', {
+  light: '0 6px 16px #ff8705',
+  dark: '0 0px 0px 10px #121212',
 });
 
 const PostItem = styled.div`
@@ -23,7 +32,7 @@ const PostItem = styled.div`
   background: ${backgroundColor};
   border-bottom: 0;
   ${media.tablet} {
-    border-bottom: 6px solid ${props => props.theme.primary};
+    /* border-bottom: 6px solid ${props => props.theme.primary}; */
   }
 `;
 const StyledParagraph = styled(Paragraph)`
@@ -32,18 +41,26 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 const ReadMore = styled(Link)`
-  display: block;
-  color: white;
-  background-color: ${props => props.theme.primary};
-  text-align: center;
-  padding: 10px;
-  position: absolute;
-  bottom: -1px;
-  border-radius: 0 0 2px 2px;
-  right: 0;
-  left: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 63px;
+    border-radius: 50%;
+    text-align: center;
+    display: block;
+    color: black;
+    background-image: linear-gradient(#FF9913, #FF8000);
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    right: 7px;
+    transition:box-shadow 0.3s ease-in;
+    color: rgba(255, 255, 255, 0.61);
   ${media.tablet} {
-    border-radius: 0 0 2px 0px;
+    top: 30px;
+    bottom: auto;
+    right: -23px;
+    box-shadow: ${boxShadow}
+    /* border-radius: 0 0 2px 0px;
     padding: 5px 20px;
     margin: 0;
     right: 0;
@@ -59,7 +76,7 @@ const ReadMore = styled(Link)`
       left: -29px;
       top: -17px;
       background-color: ${backgroundColor};
-    }
+    } */
   }
 `;
 
@@ -83,17 +100,20 @@ export default ({
   readTime,
 }: Props) => (
   <PostItem>
-    <small>{category[0]}</small>
+    <div>{category[0].toUpperCase()}</div>
     <h2 className="m-0">
       <Link to={link}>{title}</Link>
     </h2>
     <small>
       {date} &bull; {readTime} minutes read
     </small>
+
     <StyledParagraph>{excerpt}</StyledParagraph>
     {tags.map((tag, index) => (
       <TagItem key={index} name={tag} />
     ))}
-    <ReadMore to={link}>Continue Reading</ReadMore>
+    <ReadMore to={link}>
+      <i className="material-icons">arrow_forward</i>
+    </ReadMore>
   </PostItem>
 );
