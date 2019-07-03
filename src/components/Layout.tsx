@@ -40,6 +40,7 @@ import media from '../utils/MediaQueries';
 // }
 //
 const primaryCol = '#3F51B5';
+const desaturatedPrimaryCol = '#9fa8da';
 
 const Grid = styled.div`
   ${media.tablet} {
@@ -99,7 +100,7 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
       <ThemeProvider
         theme={{
           mode: theme,
-          primary: theme === 'light' ? primaryCol : desaturate(0.5, '#5c75ff'),
+          primary: theme === 'light' ? primaryCol : desaturatedPrimaryCol,
         }}
       >
         <Fragment>

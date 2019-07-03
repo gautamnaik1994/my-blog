@@ -12,7 +12,7 @@ const themeModes = {
 //});
 const bodyBackgroundColor = theme('mode', {
   light: '#fff',
-  dark: '#2a2a2a',
+  dark: '#121212',
 });
 
 const bodyColor = theme('mode', {
