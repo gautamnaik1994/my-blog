@@ -1,11 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import theme from 'styled-theming';
 import Paragraph from './mdx/Paragraph';
 import { darken, lighten } from 'polished';
 import Link from './Link';
 import TagItem from './TagItem';
 import media from '../utils/MediaQueries';
+
+const readMoreAnimation = keyframes`
+    0%{
+        transform:translateX(-34px);
+    }
+    50%{
+        transform:translateX(0px);
+    }
+    100%{
+        transform:translateX(34px);
+    }
+
+`;
 
 const bottomPadding = 44;
 const backgroundColor = theme('mode', {
@@ -55,11 +68,17 @@ const ReadMore = styled(Link)`
     right: 7px;
     transition:box-shadow 0.3s ease-in;
     color: rgba(255, 255, 255, 0.61);
+    box-shadow: ${boxShadow};
+    overflow:hidden;
+    & :hover{
+    i{
+        animation:${readMoreAnimation} 0.5s linear 1;
+    }
+    }
   ${media.tablet} {
     top: 30px;
     bottom: auto;
     right: -23px;
-    box-shadow: ${boxShadow}
     /* border-radius: 0 0 2px 0px;
     padding: 5px 20px;
     margin: 0;
