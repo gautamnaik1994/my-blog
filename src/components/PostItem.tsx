@@ -37,14 +37,15 @@ const boxShadow = theme('mode', {
 
 const PostItem = styled.div`
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.25);
-  padding: 15px;
-  padding-bottom: ${bottomPadding}px;
+  padding: 15px 15px ${bottomPadding} 15px;
   border-radius: 5px 5px 2px 2px;
-  margin-bottom: 15px;
+  margin-bottom: 40px;
   position: relative;
   background: ${backgroundColor};
   border-bottom: 0;
   ${media.tablet} {
+  padding: 15px;
+        margin-bottom:15px;
     /* border-bottom: 6px solid ${props => props.theme.primary}; */
   }
 `;
@@ -54,48 +55,34 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 const ReadMore = styled(Link)`
-    width: 50px;
-    height: 50px;
-    line-height: 63px;
-    border-radius: 50%;
-    text-align: center;
-    display: block;
-    color: black;
-    background-image: linear-gradient(#FF9913, #FF8000);
-    text-align: center;
-    position: absolute;
-    bottom: 10px;
-    right: 7px;
-    transition:box-shadow 0.3s ease-in;
-    color: rgba(255, 255, 255, 0.61);
-    box-shadow: ${boxShadow};
-    overflow:hidden;
-    & :hover{
-    i{
-        animation:${readMoreAnimation} 0.5s linear 1;
+  width: 50px;
+  height: 50px;
+  line-height: 63px;
+  border-radius: 50%;
+  text-align: center;
+  display: block;
+  color: black;
+  background-image: linear-gradient(#ff9913, #ff8000);
+  text-align: center;
+  position: absolute;
+  bottom: -25px;
+  right: 50%;
+  transform: translateX(50%);
+  transition: box-shadow 0.3s ease-in;
+  color: rgba(255, 255, 255, 0.61);
+  box-shadow: ${boxShadow};
+  overflow: hidden;
+  & :hover {
+    i {
+      animation: ${readMoreAnimation} 0.3s linear 2;
     }
-    }
+  }
   ${media.tablet} {
+    transform: translateX(0);
+    box-shadow: ${boxShadow};
     top: 30px;
     bottom: auto;
     right: -23px;
-    /* border-radius: 0 0 2px 0px;
-    padding: 5px 20px;
-    margin: 0;
-    right: 0;
-    left: auto;
-    overflow: hidden;
-    padding-left: 25px;
-    :before {
-      content: '';
-      position: absolute;
-      width: 40px;
-      height: 50px;
-      transform: rotate(29deg);
-      left: -29px;
-      top: -17px;
-      background-color: ${backgroundColor};
-    } */
   }
 `;
 
@@ -128,9 +115,11 @@ export default ({
     </small>
 
     <StyledParagraph>{excerpt}</StyledParagraph>
-    {tags.map((tag, index) => (
-      <TagItem key={index} name={tag} />
-    ))}
+    <div>
+      {tags.map((tag, index) => (
+        <TagItem key={index} name={tag} />
+      ))}
+    </div>
     <ReadMore to={link}>
       <i className="material-icons">arrow_forward</i>
     </ReadMore>
