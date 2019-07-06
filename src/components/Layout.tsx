@@ -17,7 +17,7 @@ import { GlobalStyle } from './GlobalStyle';
 import { LayoutProps } from '../types';
 import { ThemeProvider } from 'styled-components';
 import media from '../utils/MediaQueries';
-
+import { primaryCol, desaturatedPrimaryCol } from '../utils/colors';
 //const setTheme = (theme: string): void => {
 //console.log('Change Theme');
 //switch (theme) {
@@ -39,8 +39,8 @@ import media from '../utils/MediaQueries';
 //   children: {};
 // }
 //
-const primaryCol = '#3F51B5';
-const desaturatedPrimaryCol = '#9fa8da';
+//const primaryCol = '#3F51B5';
+//const desaturatedPrimaryCol = '#9fa8da';
 
 const Grid = styled.div`
   ${media.tablet} {

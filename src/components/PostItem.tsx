@@ -6,6 +6,7 @@ import { darken, lighten } from 'polished';
 import Link from './Link';
 import TagItem from './TagItem';
 import media from '../utils/MediaQueries';
+import { darkBackgroundColor } from '../utils/colors';
 
 const readMoreAnimation = keyframes`
     0%{
@@ -23,11 +24,7 @@ const readMoreAnimation = keyframes`
 const bottomPadding = 44;
 const backgroundColor = theme('mode', {
   light: '#fff',
-  dark: lighten(0.05, '#121212'),
-});
-const readMoreTextColor = theme('mode', {
-  light: '#fff',
-  dark: 'black',
+  dark: lighten(0.05, darkBackgroundColor),
 });
 
 const boxShadow = theme('mode', {
@@ -37,16 +34,36 @@ const boxShadow = theme('mode', {
 
 const PostItem = styled.div`
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.25);
-  padding: 15px 15px ${bottomPadding} 15px;
+  padding: 15px 15px ${bottomPadding}px 15px;
   border-radius: 5px 5px 2px 2px;
   margin-bottom: 40px;
   position: relative;
   background: ${backgroundColor};
   border-bottom: 0;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    background-image: radial-gradient(
+        ellipse closest-side,
+        rgba(0, 0, 0, 0.74),
+        #1f1f1f
+      ),
+      url(https://source.unsplash.com/daily);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.75;
+  }
   ${media.tablet} {
-  padding: 15px;
-        margin-bottom:15px;
-    /* border-bottom: 6px solid ${props => props.theme.primary}; */
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  .inner {
+    position: relative;
+    z-index: 1;
   }
 `;
 const StyledParagraph = styled(Paragraph)`
@@ -106,19 +123,21 @@ export default ({
   readTime,
 }: Props) => (
   <PostItem>
-    <div>{category[0].toUpperCase()}</div>
-    <h2 className="m-0">
-      <Link to={link}>{title}</Link>
-    </h2>
-    <small>
-      {date} &bull; {readTime} minutes read
-    </small>
+    <div className="inner">
+      <div>{category[0].toUpperCase()}</div>
+      <h2 className="m-0">
+        <Link to={link}>{title}</Link>
+      </h2>
+      <small>
+        {date} &bull; {readTime} minutes read
+      </small>
 
-    <StyledParagraph>{excerpt}</StyledParagraph>
-    <div>
-      {tags.map((tag, index) => (
-        <TagItem key={index} name={tag} />
-      ))}
+      <StyledParagraph>{excerpt}</StyledParagraph>
+      <div>
+        {tags.map((tag, index) => (
+          <TagItem key={index} name={tag} />
+        ))}
+      </div>
     </div>
     <ReadMore to={link}>
       <i className="material-icons">arrow_forward</i>

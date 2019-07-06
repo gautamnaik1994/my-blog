@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 import theme from 'styled-theming';
 import media from '../utils/MediaQueries';
+import {
+  primaryCol,
+  desaturatedPrimaryCol,
+  darkBackgroundColor,
+  darkBackgroundTextColor,
+} from '../utils/colors';
 
 const themeModes = {
   DARK: 'dark',
@@ -10,14 +16,20 @@ const themeModes = {
 //[themeModes.LIGHT]: '#fff',
 //[themeModes.DARK]: '#000',
 //});
+
+const _primaryCol = theme('mode', {
+  light: primaryCol,
+  dark: desaturatedPrimaryCol,
+});
+
 const bodyBackgroundColor = theme('mode', {
   light: '#fff',
-  dark: '#121212',
+  dark: darkBackgroundColor,
 });
 
 const bodyColor = theme('mode', {
   light: '#333',
-  dark: '#e1e1e1',
+  dark: darkBackgroundTextColor,
 });
 
 interface Props {
@@ -25,13 +37,18 @@ interface Props {
 }
 
 export const GlobalStyle = createGlobalStyle<Props>`
+    :root{
+    --primary:${_primaryCol};
+    --bodyBackgroundColor:${bodyBackgroundColor};
+    --bodyColor:${bodyColor};
+    }
     html,body{
     font-family: "IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"
     }
     body {
         transition:background-color 0.3s ease-in,color 0.3s ease-in;
-        background-color: ${bodyBackgroundColor};
-        color:${bodyColor};
+        background-color: var(--bodyBackgroundColor);
+        color:var(--bodyColor);
     }
 
     button{
@@ -40,7 +57,7 @@ export const GlobalStyle = createGlobalStyle<Props>`
 
     a{
         text-decoration:none;
-        color:${props => props.theme.primary}
+        color:var(--primary);
     }
 
     ${() => {
