@@ -23,7 +23,7 @@ const Categories = styled.ul`
   padding-bottom: 15px;
   top: 60px;
   position: sticky;
-  z-index: 1;
+  z-index: 2;
   background: var(--bodyBackgroundColor);
   transition: box-shadow 0.3s ease-in, background 0.3s ease-in;
   ${media.tablet} {
@@ -44,12 +44,12 @@ export default ({ categories = [], activeCategoryIndex }: CategoryProps) => {
         if (CategorierRef && CategorierRef.current) {
           // no intersection with screen
           if (entries[0].intersectionRatio < 1) {
-            console.log('Inide intersection');
+            // console.log('Inide intersection');
             CategorierRef.current.classList.add('category-shadow');
           }
           // fully intersects with screen
           else if (entries[0].intersectionRatio === 1) {
-            console.log('Inide intersection');
+            // console.log('Inide intersection');
             CategorierRef.current.classList.remove('category-shadow');
           }
         }

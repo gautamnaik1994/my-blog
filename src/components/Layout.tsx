@@ -48,7 +48,7 @@ const Grid = styled.div`
     grid-template-columns:
       auto minmax(auto, 200px) minmax(550px, 650px) minmax(0, 200px)
       auto;
-    grid-template-rows: 250px auto;
+    grid-template-rows: auto auto;
     grid-gap: 15px;
   }
   margin-top: 60px;
@@ -68,18 +68,23 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
 
   const keywords = (frontmatterKeywords || siteKeywords).join(', ');
   const description = frontmatterDescription || siteDescription;
-  //const initialThemeValue = localStorage.getItem('theme') || 'light';
+  const initialThemeValue =
+    (typeof window !== 'undefined' &&
+      window.localStorage &&
+      localStorage.getItem('theme')) ||
+    'dark';
 
-  const [theme, setTheme] = useState<string | undefined>(undefined);
+  const [theme, setTheme] = useState<string | undefined>(initialThemeValue);
 
   const setThemeValue = (val: string): void => {
     setTheme(val);
     localStorage.setItem('theme', val);
   };
 
-  useEffect(() => {
-    setThemeValue(localStorage.getItem('theme') || 'light');
-  });
+  // useEffect(() => {
+  //   setThemeValue(localStorage.getItem('theme') || 'dark');
+  //   console.log('USE useEffect');
+  // }, [theme]);
 
   return (
     <Fragment>

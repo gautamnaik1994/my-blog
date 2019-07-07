@@ -27,10 +27,7 @@ const Navbar = styled.nav`
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 1;
-  ${media.tablet} {
-    z-index: 2;
-  }
+  z-index: 2;
   button {
     margin-left: 5px;
   }

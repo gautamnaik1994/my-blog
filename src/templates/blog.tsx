@@ -38,8 +38,6 @@ const Blog = ({
   const posts = page.map((id: number) =>
     allMdx.edges.find((edge: { node: { id: number } }) => edge.node.id === id),
   );
-  console.log(tags);
-
   return (
     <Layout site={site}>
       <Hero title="Welcome to Blog" />
