@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { darken } from 'polished';
 
@@ -15,9 +15,43 @@ const hideForLight = theme('mode', {
   light: 'none',
 });
 
-const skyColor = theme('mode', {
-  dark: '#181c30',
-  light: '#63c2c8',
+const svgColors = theme('mode', {
+  dark: css`
+    #sky {
+      fill: #181c30;
+    }
+
+    [data-name='leaves'] {
+      fill: #006705;
+    }
+    [data-name='mnt'] {
+      [data-name='main'] {
+        fill: #303030;
+      }
+    }
+    [data-name='cloud'] {
+      [data-name='light'] {
+        fill: #b6b6b6;
+      }
+      [data-name='dark'] {
+        fill: #878787;
+      }
+    }
+
+    [data-name='hill_front'] {
+      [data-name='main'] {
+        fill: #096e0e;
+      }
+    }
+    [data-name='hill_back'] {
+      [data-name='main'] {
+        fill: #0b490d;
+      }
+    }
+    #ground {
+      fill: #1b741b;
+    }
+  `,
 });
 
 const DayNightLandscape = styled.div`
@@ -35,7 +69,7 @@ const DayNightLandscape = styled.div`
     }
 
     .cls-1 {
-      fill: ${skyColor};
+      fill: #63c2c8;
     }
 
     .cls-10,
@@ -185,6 +219,7 @@ const DayNightLandscape = styled.div`
     .cls-33 {
       fill: url(#radial-gradient-2);
     }
+    ${svgColors}
   }
 `;
 
@@ -235,6 +270,7 @@ export default () => (
           xlinkHref="#radial-gradient"
         />
       </defs>
+      <title>mountains-01</title>
       <rect id="sky" className="cls-1" width="1920" height="729" />
       <g id="stars">
         <circle className="cls-2" cx="33.94" cy="228" r="3" />
@@ -267,7 +303,7 @@ export default () => (
         <circle className="cls-2" cx="800.02" cy="70.6" r="3" />
         <circle className="cls-2" cx="1002" cy="80" r="3" />
         <circle className="cls-2" cx="1216.23" cy="58.72" r="3" />
-        <circle className="cls-2" cx="1355.87" cy="80" r="3" />
+        <circle className="cls-2" cx="1355.88" cy="80" r="3" />
         <circle className="cls-2" cx="1477.45" cy="181.11" r="3" />
         <circle className="cls-2" cx="1700.15" cy="90.85" r="3" />
         <circle className="cls-2" cx="1804.26" cy="214.24" r="3" />
@@ -276,8 +312,13 @@ export default () => (
         <circle className="cls-2" cx="1558.62" cy="468.27" r="3" />
         <circle className="cls-2" cx="1892.34" cy="324.88" r="3" />
       </g>
-      <g id="mnt">
-        <path id="Vector" className="cls-3" d="M650.17,319,480,608.36H789Z" />
+      <g id="mnt" data-name="mnt">
+        <path
+          id="main"
+          data-name="main"
+          className="cls-3"
+          d="M650.17,319,480,608.36H789Z"
+        />
         <path
           id="Vector_2"
           data-name="Vector 2"
@@ -292,8 +333,8 @@ export default () => (
       </g>
       <g id="mnt-2" data-name="mnt">
         <path
-          id="Vector_3"
-          data-name="Vector 3"
+          id="main-2"
+          data-name="main"
           className="cls-3"
           d="M813.64,216.17,632.24,608H961.63Z"
         />
@@ -312,8 +353,8 @@ export default () => (
       </g>
       <g id="mnt-3" data-name="mnt">
         <path
-          id="Vector_5"
-          data-name="Vector 5"
+          id="main-3"
+          data-name="main"
           className="cls-3"
           d="M963.49,350,830,608h242.41Z"
         />
@@ -332,8 +373,8 @@ export default () => (
       </g>
       <g id="mnt-4" data-name="mnt">
         <path
-          id="Vector_7"
-          data-name="Vector 7"
+          id="main-4"
+          data-name="main"
           className="cls-3"
           d="M1186.42,158,963,608h405.71Z"
         />
@@ -350,9 +391,9 @@ export default () => (
           d="M963,606.43h350.41l-60.45-209-39.73,27.23-8.15-90.32L1165.85,350l20.57-192Z"
         />
       </g>
-      <g id="tree">
+      <g id="tree" data-name="tree">
         <path
-          id="Polygon"
+          id="leaves"
           className="cls-6"
           d="M524.11,470l14.82,61.75H509.29Z"
         />
@@ -372,10 +413,10 @@ export default () => (
           height="9.62"
         />
       </g>
-      <g id="hill">
+      <g id="hill_back" data-name="hill_back">
         <path
-          id="Vector_9"
-          data-name="Vector 9"
+          id="main-5"
+          data-name="main"
           className="cls-9"
           d="M368.43,607.71a67.17,67.17,0,0,1-8.43,0h8.43c16.06-.93,42.86-6.89,65.49-26.21,34.11-29.12,48.58-46,74.43-53.58s42.38-6.4,60.47,3.49,32,27.38,59.44,45.43c28.77,19,41.35,23.3,83.74,30.87Z"
         />
@@ -385,14 +426,14 @@ export default () => (
         />
       </g>
       <path
-        id="hill_back"
+        id="hill_dark_b"
         className="cls-11"
         d="M506.35,619.78a87,87,0,0,1-12.35,0h12.35c23.54-1.54,62.83-11.45,96-43.56,50-48.39,71.23-76.46,109.11-89s62.13-10.65,88.65,5.81,47,45.49,87.14,75.49C929.42,600,947.87,607.2,1010,619.78Z"
       />
       <g id="tree-2" data-name="tree">
         <path
-          id="Polygon_2"
-          data-name="Polygon 2"
+          id="leaves-2"
+          data-name="leaves"
           className="cls-6"
           d="M629.11,504l14.82,61.75H614.29Z"
         />
@@ -412,10 +453,10 @@ export default () => (
           height="9.62"
         />
       </g>
-      <g id="hill-2" data-name="hill">
+      <g id="hill_front" data-name="hill_front">
         <path
-          id="Vector_11"
-          data-name="Vector 11"
+          id="main-6"
+          data-name="main"
           className="cls-12"
           d="M410.15,607.72a68.65,68.65,0,0,1-8.15,0h8.15c15.54-.79,41.46-5.91,63.35-22.5,33-25,47-39.5,72-46s41-5.5,58.5,3,31,23.5,57.5,39c27.83,16.28,40,20,81,26.5Z"
         />
@@ -425,8 +466,7 @@ export default () => (
         />
       </g>
       <path
-        id="hill_back-2"
-        data-name="hill_back"
+        id="hill_dark_f"
         className="cls-13"
         d="M870.24,607.78a115.65,115.65,0,0,1-14.24,0h14.24c27.15-1.55,72.45-11.54,110.7-43.87,57.67-48.73,82.13-77,125.82-89.67s71.64-10.73,102.22,5.84,54.17,45.82,100.48,76c48.62,31.73,69.9,39,141.54,51.67Z"
       />
@@ -505,10 +545,10 @@ export default () => (
           r="18.05"
         />
       </g>
-      <g id="hill-3" data-name="hill">
+      <g id="hill_back-2" data-name="hill_back">
         <path
-          id="Vector_13"
-          data-name="Vector 13"
+          id="main-7"
+          data-name="main"
           className="cls-9"
           d="M1144.69,607.66a65.82,65.82,0,0,1-9.77,0h9.77c18.62-1.26,49.69-9.41,75.92-35.79,39.55-39.75,56.33-62.81,86.29-73.15S1356,490,1377,503.49s37.16,37.37,68.91,62c33.35,25.89,47.94,31.81,97.08,42.15Z"
         />
@@ -519,8 +559,8 @@ export default () => (
       </g>
       <g id="tree-3" data-name="tree">
         <path
-          id="Polygon_3"
-          data-name="Polygon 3"
+          id="leaves-3"
+          data-name="leaves"
           className="cls-6"
           d="M1293.33,457l16.75,69.78h-33.49Z"
         />
@@ -540,10 +580,10 @@ export default () => (
           height="10.88"
         />
       </g>
-      <g id="hill-4" data-name="hill">
+      <g id="hill_front-2" data-name="hill_front">
         <path
-          id="Vector_14"
-          data-name="Vector 14"
+          id="main-8"
+          data-name="main"
           className="cls-12"
           d="M1116.25,607.68a73.45,73.45,0,0,1-9.77,0h9.77c18.62-1.08,49.69-8.08,75.92-30.72,39.55-34.13,56.33-53.93,86.29-62.81s49.14-7.51,70.11,4.1,37.16,32.09,68.91,53.25c33.35,22.22,47.94,27.31,97.08,36.18Z"
         />
@@ -558,13 +598,21 @@ export default () => (
         className="cls-20"
         d="M1127,607H728c70.17,19.8,95.39,65.43,128.65,85.59,39,23.63,104.65,12.68,153.9-7C1053.64,668.32,1087,625.52,1127,607Z"
       />
-      <g id="cloud">
+      <g id="cloud" data-name="cloud">
         <path
           id="dark"
+          data-name="dark"
           className="cls-21"
           d="M622.91,243h27a20.5,20.5,0,0,1,20.5,20.5h0a20.5,20.5,0,0,1-20.5,20.5h-27a20.5,20.5,0,0,1-20.5-20.5h0A20.5,20.5,0,0,1,622.91,243Z"
         />
-        <circle id="light" className="cls-2" cx="649.91" cy="254.51" r="29.5" />
+        <circle
+          id="light"
+          data-name="light"
+          className="cls-2"
+          cx="649.91"
+          cy="254.51"
+          r="29.5"
+        />
         <path
           id="light-2"
           data-name="light"
@@ -619,8 +667,8 @@ export default () => (
       </g>
       <g id="tree-4" data-name="tree">
         <path
-          id="Polygon_12"
-          data-name="Polygon 12"
+          id="leaves-4"
+          data-name="leaves"
           className="cls-6"
           d="M504.11,524l14.82,61.75H489.29Z"
         />
@@ -642,8 +690,8 @@ export default () => (
       </g>
       <g id="tree-5" data-name="tree">
         <path
-          id="Polygon_13"
-          data-name="Polygon 13"
+          id="leaves-5"
+          data-name="leaves"
           className="cls-6"
           d="M444.11,514l14.82,61.75H429.29Z"
         />
@@ -665,8 +713,8 @@ export default () => (
       </g>
       <g id="tree-6" data-name="tree">
         <path
-          id="Polygon_14"
-          data-name="Polygon 14"
+          id="leaves-6"
+          data-name="leaves"
           className="cls-6"
           d="M663.11,530l14.82,61.75H648.29Z"
         />
@@ -688,8 +736,8 @@ export default () => (
       </g>
       <g id="tree-7" data-name="tree">
         <path
-          id="Polygon_15"
-          data-name="Polygon 15"
+          id="leaves-7"
+          data-name="leaves"
           className="cls-6"
           d="M579.11,499l14.82,61.75H564.29Z"
         />
@@ -711,8 +759,8 @@ export default () => (
       </g>
       <g id="tree-8" data-name="tree">
         <path
-          id="Polygon_16"
-          data-name="Polygon 16"
+          id="leaves-8"
+          data-name="leaves"
           className="cls-6"
           d="M1249.33,492l16.75,69.78h-33.49Z"
         />
@@ -734,8 +782,8 @@ export default () => (
       </g>
       <g id="tree-9" data-name="tree">
         <path
-          id="Polygon_17"
-          data-name="Polygon 17"
+          id="leaves-9"
+          data-name="leaves"
           className="cls-6"
           d="M1188.33,521l16.75,69.78h-33.49Z"
         />
@@ -757,8 +805,8 @@ export default () => (
       </g>
       <g id="tree-10" data-name="tree">
         <path
-          id="Polygon_18"
-          data-name="Polygon 18"
+          id="leaves-10"
+          data-name="leaves"
           className="cls-6"
           d="M1453.33,502l16.75,69.78h-33.49Z"
         />
@@ -780,8 +828,8 @@ export default () => (
       </g>
       <g id="tree-11" data-name="tree">
         <path
-          id="Polygon_19"
-          data-name="Polygon 19"
+          id="leaves-11"
+          data-name="leaves"
           className="cls-6"
           d="M1372.33,440l16.75,69.78h-33.49Z"
         />
@@ -803,8 +851,8 @@ export default () => (
       </g>
       <g id="tree-12" data-name="tree">
         <path
-          id="Polygon_20"
-          data-name="Polygon 20"
+          id="leaves-12"
+          data-name="leaves"
           className="cls-6"
           d="M1333.33,515l16.75,69.78h-33.49Z"
         />
@@ -826,28 +874,6 @@ export default () => (
       </g>
       <g id="boat" data-name="boat">
         <path
-          id="Polygon_21"
-          data-name="Polygon 21"
-          className="cls-4"
-          d="M816.12,518.84,863,593.21H769.25Z"
-        />
-        <rect
-          className="cls-22"
-          x="815.18"
-          y="504"
-          width="2.06"
-          height="92.56"
-        />
-        <path
-          id="Rectangle_16"
-          data-name="Rectangle 16"
-          className="cls-23"
-          d="M762.21,595.12h108l-6.38,11.34H769.13Z"
-        />
-        <path className="cls-24" d="M833.53,510.19l-15.46,5.35V504.83Z" />
-      </g>
-      <g id="boat-2" data-name="boat">
-        <path
           id="Polygon_22"
           data-name="Polygon 22"
           className="cls-4"
@@ -867,6 +893,28 @@ export default () => (
           d="M990.15,599.34h78.65l-4.65,8.25h-69Z"
         />
         <path className="cls-24" d="M1042.08,537.5l-11.26,3.9v-7.8Z" />
+      </g>
+      <g id="boat-2" data-name="boat">
+        <path
+          id="Polygon_21"
+          data-name="Polygon 21"
+          className="cls-4"
+          d="M816.12,518.84,863,593.21H769.25Z"
+        />
+        <rect
+          className="cls-22"
+          x="815.18"
+          y="504"
+          width="2.06"
+          height="92.56"
+        />
+        <path
+          id="Rectangle_16"
+          data-name="Rectangle 16"
+          className="cls-23"
+          d="M762.21,595.12h108l-6.38,11.34H769.13Z"
+        />
+        <path className="cls-24" d="M833.53,510.19l-15.46,5.35V504.83Z" />
       </g>
       <g id="Balloon" data-name="Balloon">
         <polyline

@@ -47,12 +47,12 @@ const PostItem = styled.div`
     right: 0;
     width: 80%;
     height: 80%;
-    background-image: radial-gradient(
-        ellipse closest-side,
-        rgba(0, 0, 0, 0.74),
-        #1f1f1f
-      ),
-      url(https://source.unsplash.com/daily);
+    //background-image: radial-gradient(
+    //ellipse closest-side,
+    //rgba(0, 0, 0, 0.74),
+    //#1f1f1f
+    //),
+    //url(https://source.unsplash.com/daily);
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.75;
