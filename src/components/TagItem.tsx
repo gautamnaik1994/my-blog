@@ -7,7 +7,11 @@ import compose from '../utils/compose';
 
 const boxShadow = theme('mode', {
   light: (props: any) =>
-    `0 3px 6px 0px ${transparentize(0.6, props.theme.primary)}`,
+    `0 3px var(--blur) 0px ${transparentize(0.6, props.theme.primary)}`,
+});
+
+const backgroundColor = theme('mode', {
+  dark: (props: any) => transparentize(0.4, props.theme.primary),
 });
 
 const tone = compose(
@@ -24,6 +28,7 @@ interface Props {
 }
 
 const TagItem = styled(Link)`
+  --blur: 7px;
   padding: 5px 8px;
   background: ${props => transparentize(0.6, props.theme.primary)};
   border-radius: 5px;
@@ -32,8 +37,13 @@ const TagItem = styled(Link)`
   letter-spacing: 0.015rem;
   box-shadow: ${boxShadow};
   color: ${textColor};
+  transition: all 0.2s ease-in;
+  :hover {
+    --blur: 20px;
+    background: ${backgroundColor};
+  }
   & + & {
-    margin-left: 5px;
+    margin-left: 7px;
   }
 `;
 

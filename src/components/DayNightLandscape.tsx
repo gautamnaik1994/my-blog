@@ -51,21 +51,32 @@ const svgColors = theme('mode', {
     #ground {
       fill: #1b741b;
     }
+    [data-name='Balloon'] {
+      transform: translateY(100vh);
+      transition: transform 1s ease-in;
+    }
+    [data-name='boat'] {
+      transform: translateX(-50%);
+      transition: transform 1s ease-in;
+    }
   `,
 });
 
 const DayNightLandscape = styled.div`
   svg {
+    & * {
+      transition: all 0.3s ease-in;
+    }
     #sun,
     [data-name='Balloon'],
     [data-name='boat'] {
-      display: ${hideForDark};
+      //display: ${hideForDark};
     }
 
     #plane,
     #stars,
     [data-name='beam'] {
-      display: ${hideForLight};
+      //display: ${hideForLight};
     }
 
     .cls-1 {
