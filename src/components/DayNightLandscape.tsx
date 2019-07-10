@@ -7,6 +7,16 @@ import { darken } from 'polished';
 //   light: {},
 //   dark: {},
 // });
+//
+
+const plane = keyframes`
+0% {
+        transform: translateX(80%);
+          }
+      100% {
+              transform: translateX(-30%);
+          }
+`;
 const beamAnim = keyframes`
     0%{
         transform:rotateY(0deg);
@@ -69,6 +79,9 @@ const svgColors = theme('mode', {
     }
     #boat-2 {
       transform: translateX(500px);
+    }
+    #plane {
+      //animation: ${plane} 5s linear infinite;
     }
   `,
 });

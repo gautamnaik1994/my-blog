@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import theme from 'styled-theming';
 import Paragraph from './mdx/Paragraph';
 import { darken, lighten } from 'polished';
@@ -103,6 +103,12 @@ const ReadMore = styled(Link)`
   }
 `;
 
+const Category = styled.div`
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+`;
+
 interface Props {
   link: string;
   title: string;
@@ -124,7 +130,7 @@ export default ({
 }: Props) => (
   <PostItem>
     <div className="inner">
-      <div>{category[0].toUpperCase()}</div>
+      <Category>{category[0].toUpperCase()}</Category>
       <h2 className="m-0">
         <Link to={link}>{title}</Link>
       </h2>
