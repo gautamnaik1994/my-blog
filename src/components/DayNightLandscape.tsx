@@ -9,13 +9,10 @@ import { darken } from 'polished';
 // });
 const beamAnim = keyframes`
     0%{
-        transform:rotate(0deg);
-    }
-    50%{
-        transform:rotate(-30deg);
+        transform:rotateY(0deg);
     }
     100%{
-        transform:rotate(30deg);
+        transform:rotateY(360deg);
     }
 
 `;
@@ -67,9 +64,11 @@ const svgColors = theme('mode', {
       transform: translateY(100vh);
       transition: transform 1s ease-in;
     }
-    [data-name='boat'] {
-      transform: translateX(-50%);
-      transition: transform 1s ease-in;
+    #boat {
+      transform: translateX(230px);
+    }
+    #boat-2 {
+      transform: translateX(500px);
     }
   `,
 });
@@ -82,6 +81,9 @@ const DayNightLandscape = styled.div`
     #sun {
       display: ${hideForDark};
     }
+    #Lighthouse {
+      perspective: 200px;
+    }
 
     #plane,
     #stars,
@@ -89,7 +91,14 @@ const DayNightLandscape = styled.div`
       display: ${hideForLight};
     }
     [data-name='beam'] {
+      transform-origin: 925px 385px;
       animation: ${beamAnim} 2s linear infinite;
+    }
+    #boat {
+      transition: transform 1s ease-in;
+    }
+    #boat-2 {
+      transition: transform 1.5s ease-in;
     }
 
     .cls-1 {
