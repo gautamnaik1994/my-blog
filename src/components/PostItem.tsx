@@ -4,7 +4,8 @@ import theme from 'styled-theming';
 import Paragraph from './mdx/Paragraph';
 import { darken, lighten } from 'polished';
 import Link from './Link';
-import TagItem from './TagItem';
+import Badge from './Badge';
+import CategoryItem from './CategoryItem';
 import media from '../utils/MediaQueries';
 import { darkBackgroundColor } from '../utils/colors';
 
@@ -130,7 +131,6 @@ export default ({
 }: Props) => (
   <PostItem>
     <div className="inner">
-      <Category>{category[0].toUpperCase()}</Category>
       <h2 className="m-0">
         <Link to={link}>{title}</Link>
       </h2>
@@ -138,12 +138,18 @@ export default ({
         {date} &bull; {readTime} minutes read
       </small>
 
+      <div>
+        <i>In&nbsp;</i>
+        <Badge name={category[0]} />
+      </div>
       <StyledParagraph>{excerpt}</StyledParagraph>
+      {/*
       <div>
         {tags.map((tag, index) => (
-          <TagItem key={index} name={tag} />
+          <Badge key={index} name={tag} />
         ))}
-      </div>
+    </div>
+      */}
     </div>
     <ReadMore to={link}>
       <i className="material-icons">arrow_forward</i>

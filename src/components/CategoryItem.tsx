@@ -1,8 +1,10 @@
 import React, { Fragment, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
+import { transparentize, lighten, desaturate } from 'polished';
 import Link from './Link';
 import media from '../utils/MediaQueries';
+import compose from '../utils/compose';
 
 interface CategoryItemProps {
   activeCategory: boolean;
@@ -12,14 +14,41 @@ interface Props {
   category: string;
 }
 
-const CategoryItem = styled.li<CategoryItemProps>`
+const tone = compose(
+  desaturate(0.2),
+  lighten(0.1),
+);
+
+const textColor = theme('mode', {
+  dark: (props: any) => tone(props.theme.primary),
+});
+
+const boxShadow = theme('mode', {
+  light: (props: any) =>
+    `0 3px var(--blur) 0px ${transparentize(0.6, props.theme.primary)}`,
+});
+
+const backgroundColor = theme('mode', {
+  dark: (props: any) => transparentize(0.4, props.theme.primary),
+});
+
+const CategoryItem = styled(Link)<CategoryItemProps>`
+  --blur: 7px;
   display: inline-block;
-  padding: 3px 8px;
-  color: #626262;
+  padding: 5px 8px;
+  color: ${textColor};
   text-transform: uppercase;
   font-size: 12px;
-  font-weight: bold;
+  letter-spacing: 0.015rem;
+  box-shadow: ${boxShadow};
+  font-weight: 700;
+  transition: all 0.2s ease-in;
   position: relative;
+  cursor: pointer;
+  :hover {
+    --blur: 20px;
+    background: ${backgroundColor};
+  }
   ${props =>
     props.activeCategory &&
     css`
@@ -51,17 +80,17 @@ const CategoryItem = styled.li<CategoryItemProps>`
         transform: translateX(-50%);
       }
     `};
-  a {
-    color: grey;
-  }
+
+  color: grey;
 
   ${media.tablet} {
-    border: 1px solid #03a9f4;
     padding: 3px 8px;
     border-radius: 3px;
     margin: 5px;
-    background-color: ${props => (props.activeCategory ? 'red' : ' #03A9F4')};
-    box-shadow: 0 0 6px 2px rgba(3, 169, 244, 0.21);
+    background-color: ${props =>
+      props.activeCategory
+        ? '#4f69fd'
+        : transparentize(0.6, props.theme.primary)};
     text-transform: capitalize;
     ${props =>
       props.activeCategory &&
@@ -71,14 +100,12 @@ const CategoryItem = styled.li<CategoryItemProps>`
         }
       `};
 
-    a {
-      color: white;
-    }
+    color: white;
   }
 `;
 
 export default ({ category, activeCategory }: Props) => (
-  <CategoryItem activeCategory={activeCategory}>
-    <Link to={`/categories/${category}`}>{category}</Link>
+  <CategoryItem to={`/categories/${category}`} activeCategory={activeCategory}>
+    {category}
   </CategoryItem>
 );

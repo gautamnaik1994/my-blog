@@ -27,7 +27,7 @@ interface Props {
   name: string;
 }
 
-const TagItem = styled(Link)`
+const Badge = styled(Link)`
   --blur: 7px;
   padding: 5px 8px;
   background: ${props => transparentize(0.6, props.theme.primary)};
@@ -38,6 +38,7 @@ const TagItem = styled(Link)`
   box-shadow: ${boxShadow};
   color: ${textColor};
   transition: all 0.2s ease-in;
+  cursor: pointer;
   :hover {
     --blur: 20px;
     background: ${backgroundColor};
@@ -47,6 +48,4 @@ const TagItem = styled(Link)`
   }
 `;
 
-export default ({ name }: Props) => (
-  <TagItem to={`/tags/${name}`}>{name}</TagItem>
-);
+export default ({ name }: Props) => <Badge to={`/tags/${name}`}>{name}</Badge>;
