@@ -97,4 +97,8 @@ export const GlobalStyle = createGlobalStyle<Props>`
     display:block;
     }
     }
+    .half-rem-mt{
+    margin-top:0.5rem;
+    }
+
 `;

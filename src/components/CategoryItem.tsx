@@ -40,7 +40,6 @@ const CategoryItem = styled(Link)<CategoryItemProps>`
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.015rem;
-  box-shadow: ${boxShadow};
   font-weight: 700;
   transition: all 0.2s ease-in;
   position: relative;
@@ -81,8 +80,6 @@ const CategoryItem = styled(Link)<CategoryItemProps>`
       }
     `};
 
-  color: grey;
-
   ${media.tablet} {
     padding: 3px 8px;
     border-radius: 3px;
@@ -98,11 +95,7 @@ const CategoryItem = styled(Link)<CategoryItemProps>`
         &:after {
           display: none;
         }
-      `};
-
-    color: white;
-  }
-`;
+      `};`;
 
 export default ({ category, activeCategory }: Props) => (
   <CategoryItem to={`/categories/${category}`} activeCategory={activeCategory}>

@@ -138,8 +138,7 @@ export default ({
         {date} &bull; {readTime} minutes read
       </small>
 
-      <div>
-        <i>In&nbsp;</i>
+      <div className="half-rem-mt">
         <Badge name={category[0]} />
       </div>
       <StyledParagraph>{excerpt}</StyledParagraph>
