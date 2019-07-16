@@ -81,6 +81,7 @@ const CategoryItem = styled(Link)<CategoryItemProps>`
     `};
 
   ${media.tablet} {
+  box-shadow: ${boxShadow};
     padding: 3px 8px;
     border-radius: 3px;
     margin: 5px;
