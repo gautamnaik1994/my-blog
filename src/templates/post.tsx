@@ -8,6 +8,7 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import Layout from '../components/Layout';
 import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
+import Badge from '../components/Badge';
 import { Frontmatter, SiteMetadata, Site, Mdx, PageContext } from '../types';
 
 // const CategoryList = ({ list = [] }) => (
@@ -42,15 +43,19 @@ export default ({
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
       <Post>
-        <h1 className="m-0">{mdx.frontmatter.title}</h1>
+        <h1 className="mb-0">{mdx.frontmatter.title}</h1>
         <small>{mdx.frontmatter.date}</small>
-        <Categories categories={mdx.frontmatter.categories} />
+        <div className="half-rem-mt">
+          <Badge name={mdx.frontmatter.categories[0]} />
+        </div>
+        {/*
         {mdx.frontmatter.banner && (
           <Img
             sizes={mdx.frontmatter.banner.childImageSharp.sizes}
             alt={site.siteMetadata.keywords.join(', ')}
           />
         )}
+        */}
 
         <MDXRenderer>{mdx.code.body}</MDXRenderer>
         <Pagination

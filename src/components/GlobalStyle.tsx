@@ -81,6 +81,9 @@ export const GlobalStyle = createGlobalStyle<Props>`
     .m-0{
         margin:0!important;
     }
+    .mb-0{
+        margin-bottom:0!important;
+    }
     .date{
         color: #9E9E9E;
     }
