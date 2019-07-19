@@ -1,28 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 // @ts-ignore
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
-
 import Layout from '../components/Layout';
-import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
 import Badge from '../components/Badge';
-import { Frontmatter, SiteMetadata, Site, Mdx, PageContext } from '../types';
+import { Site, Mdx, PageContext } from '../types';
 
-// const CategoryList = ({ list = [] }) => (
-//   <Fragment>
-//     Categories:
-//     <ul>
-//       {list.map(category => (
-//         <li key={category}>
-//           <Link to={`/categories/${category}`}>{category}</Link>
-//         </li>
-//       ))}
-//     </ul>
-//   </Fragment>
-// );
+const Banner = styled.div`
+  grid-column: 1/-1;
+  height: 250px;
+  overflow: hidden;
+`;
 
 const Post = styled.div`
   grid-column: 3/4;
@@ -42,21 +33,28 @@ export default ({
 }: Props) => {
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
-      <Post>
-        <h1 className="mb-0">{mdx.frontmatter.title}</h1>
-        <small>{mdx.frontmatter.date}</small>
-        <div className="half-rem-mt">
-          <Badge name={mdx.frontmatter.categories[0]} />
-        </div>
-        {/*
+      <Banner>
         {mdx.frontmatter.banner && (
           <Img
             sizes={mdx.frontmatter.banner.childImageSharp.sizes}
             alt={site.siteMetadata.keywords.join(', ')}
           />
         )}
-        */}
+      </Banner>
 
+      <Post>
+        <h1
+          css={`
+            font-size: 48px;
+          `}
+          className="mb-0"
+        >
+          {mdx.frontmatter.title}
+        </h1>
+        <small>{mdx.frontmatter.date}</small>
+        <div className="half-rem-mt">
+          <Badge name={mdx.frontmatter.categories[0]} />
+        </div>
         <MDXRenderer>{mdx.code.body}</MDXRenderer>
         <Pagination
           nextPagePath={next && next.fields.slug}

@@ -95,13 +95,12 @@ export const GlobalStyle = createGlobalStyle<Props>`
         }
     }
     .show-for-tablet{
-    display:none;
-    ${media.tablet}{
-    display:block;
-    }
+        display:none;
+        ${media.tablet}{
+            display:block;
+        }
     }
     .half-rem-mt{
-    margin-top:0.5rem;
+        margin-top:0.5rem;
     }
-
 `;
