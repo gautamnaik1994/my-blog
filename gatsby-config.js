@@ -1,15 +1,11 @@
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    siteUrl: 'https://vimblog.netlify.com/',
+    siteUrl: 'https://gautamblogs.netlify.com/',
     author: 'Gautam Naik',
-    title: 'Vim Blog',
-    description: 'Blog will contain Vim tips, tricks and mappings',
-    keywords: [
-      'vim',
-      'blog',
-      'mappings'
-    ],
+    title: 'Gautam Blogs',
+    description: 'Blog will contain blogs',
+    keywords: ['vim', 'blog', 'mappings', 'css', 'react'],
   },
   plugins: [
     {
@@ -42,16 +38,18 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Blog will contain Vim tips, tricks and mappings',
-        short_name: 'VimBlog',
+        name: 'Gautam Blogs',
+        short_name: 'Gautam Blogs',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#525dce',

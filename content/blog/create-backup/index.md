@@ -1,11 +1,11 @@
 ---
-slug: '/graphql-book'
-date: '2014-07-18T13:35:13.234Z'
-title: 'The Road to GraphQL'
-description: 'GraphQL Description ...'
-categories: [ 'web dev']
-tags: ['graphql', 'javascript', 'react']
-keywords: ['graphql', 'book']
+slug: '/create-backup'
+date: '2015-07-18T13:35:13.234Z'
+title: 'Create quick backup'
+description: 'Pressing Esc key is tiring as the finger has to move to the corner...'
+categories: ['vim']
+tags: ['vim', 'keymaps', 'react']
+keywords: ['vim', 'keymap']
 banner: './images/banner.jpg'
 ---
 

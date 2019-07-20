@@ -13,6 +13,7 @@ A starter project in [Gatsby.js](https://www.gatsbyjs.org/) with [MDX](https://g
 * Prism.js: Syntax Highlighting
 * Pagination
 * Categories
+* Tags
 * External Dependencies (e.g. YouTube Player in MDX)
 
 ## Setup
@@ -20,7 +21,7 @@ A starter project in [Gatsby.js](https://www.gatsbyjs.org/) with [MDX](https://g
 * `git clone git@github.com:rwieruch/gatsby-mdx-blog-starter-project.git`
 * `cd gatsby-mdx-blog-starter-project`
 * `npm install`
-* `gatsby develop`
+* `npm start`
 * visit http://localhost:8000
 
 ## Setup via Gatsby CLI

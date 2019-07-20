@@ -1,6 +1,6 @@
 const path = require('path');
 
-const PAGINATION_OFFSET = 5;
+const PAGINATION_OFFSET = 2;
 
 const pluckCategories = edges =>
   Object.keys(
@@ -26,50 +26,31 @@ const groupByCategory = edges =>
     return acc;
   }, {});
 
-const createCategoryPages = (createPage, edges) => {
-  const categories = pluckCategories(edges);
+const pluckTags = edges =>
+  Object.keys(
+    edges.reduce((acc, value) => {
+      value.node.fields.tags.forEach(tag => {
+        if (!acc[tag]) {
+          acc[tag] = tag;
+        }
+      });
 
-  const posts = groupByCategory(edges);
+      return acc;
+    }, {}),
+  );
 
-  Object.keys(posts).forEach(category => {
-    createPaginatedPages(
-      createPage,
-      posts[category],
-      `/categories/${category}`,
-      { categories, activeCategory: category },
-    );
-  });
-};
-
-const createPosts = (createPage, edges) => {
-  edges.forEach(({ node }, i) => {
-    const prev = i === 0 ? null : edges[i - 1].node;
-    const next = i === edges.length - 1 ? null : edges[i + 1].node;
-
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(`./src/templates/post.js`),
-      context: {
-        id: node.id,
-        prev,
-        next,
-      },
+const groupByTag = edges =>
+  edges.reduce((acc, value) => {
+    value.node.fields.tags.forEach(tag => {
+      if (!acc[tag]) {
+        acc[tag] = [];
+      }
+      acc[tag].push(value);
     });
-  });
-};
+    return acc;
+  }, {});
 
-const createBlog = (createPage, edges) => {
-  const categories = pluckCategories(edges);
-
-  createPaginatedPages(createPage, edges, '/blog', { categories });
-};
-
-const createPaginatedPages = (
-  createPage,
-  edges,
-  pathPrefix,
-  context,
-) => {
+const createPaginatedPages = (createPage, edges, pathPrefix, context) => {
   const pages = edges.reduce((acc, value, index) => {
     const pageIndex = Math.floor(index / PAGINATION_OFFSET);
 
@@ -83,25 +64,116 @@ const createPaginatedPages = (
   }, []);
 
   pages.forEach((page, index) => {
-    const previousPagePath = `${pathPrefix}/${index + 1}`;
-    const nextPagePath =
-      index === 1 ? pathPrefix : `${pathPrefix}/${index - 1}`;
-
+    const nextPagePath = index === pages.length - 1 ? null : `/${index + 1}`;
+    const previousPagePath = index === 0 ? null : `/${index - 1}`;
     createPage({
-      path: index > 0 ? `${pathPrefix}/${index}` : `${pathPrefix}`,
-      component: path.resolve(`src/templates/blog.js`),
+      path: index > 0 ? `/${index}` : `${pathPrefix}`,
+      component: path.resolve(`src/templates/blog.tsx`),
       context: {
         pagination: {
           page,
-          nextPagePath: index === 0 ? null : nextPagePath,
-          previousPagePath:
-            index === pages.length - 1 ? null : previousPagePath,
+          nextPagePath: nextPagePath,
+          previousPagePath: index === 1 ? pathPrefix : previousPagePath,
           pageCount: pages.length,
           pathPrefix,
         },
         ...context,
       },
     });
+  });
+};
+
+const createPaginatedPagesForCategoriesAndTags = (
+  createPage,
+  edges,
+  pathPrefix,
+  context,
+) => {
+  const pages = edges.reduce((acc, value, index) => {
+    const pageIndex = Math.floor(index / PAGINATION_OFFSET);
+    if (!acc[pageIndex]) {
+      acc[pageIndex] = [];
+    }
+    acc[pageIndex].push(value.node.id);
+    return acc;
+  }, []);
+  pages.forEach((page, index) => {
+    const nextPagePath =
+      index === pages.length - 1 ? null : `${pathPrefix}/${index + 1}`;
+    const previousPagePath = index === 0 ? null : `${pathPrefix}/${index - 1}`;
+    createPage({
+      path: index > 0 ? `${pathPrefix}/${index}` : `${pathPrefix}`,
+      component: path.resolve(`src/templates/blog.tsx`),
+      context: {
+        pagination: {
+          page,
+          nextPagePath: nextPagePath,
+          previousPagePath: index === 1 ? pathPrefix : previousPagePath,
+          pageCount: pages.length,
+          pathPrefix,
+        },
+        ...context,
+      },
+    });
+  });
+};
+
+const createCategoryPages = (createPage, edges) => {
+  const categories = pluckCategories(edges);
+  const posts = groupByCategory(edges);
+  Object.keys(posts).forEach((category, index) => {
+    createPaginatedPagesForCategoriesAndTags(
+      createPage,
+      posts[category],
+      `/categories/${category}`,
+      {
+        categories,
+        activeCategory: category,
+        activeCategoryIndex: index,
+      },
+    );
+  });
+};
+
+const createTagPages = (createPage, edges) => {
+  const tags = pluckTags(edges);
+  const categories = pluckCategories(edges);
+  const posts = groupByTag(edges);
+  Object.keys(posts).forEach((tag, index) => {
+    createPaginatedPagesForCategoriesAndTags(
+      createPage,
+      posts[tag],
+      `/tags/${tag}`,
+      {
+        tags,
+        categories,
+        activeTag: tag,
+        activeTagIndex: index,
+      },
+    );
+  });
+};
+
+const createPosts = (createPage, edges) => {
+  edges.forEach(({ node }, i) => {
+    const prev = i === 0 ? null : edges[i - 1].node;
+    const next = i === edges.length - 1 ? null : edges[i + 1].node;
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/post.tsx`),
+      context: {
+        id: node.id,
+        prev,
+        next,
+      },
+    });
+  });
+};
+
+const createBlog = (createPage, edges) => {
+  const categories = pluckCategories(edges);
+  createPaginatedPages(createPage, edges, '/', {
+    categories,
   });
 };
 
@@ -117,6 +189,7 @@ exports.createPages = ({ actions, graphql }) =>
               title
               slug
               categories
+              tags
             }
             code {
               scope
@@ -131,10 +204,11 @@ exports.createPages = ({ actions, graphql }) =>
     }
 
     const { edges } = data.allMdx;
-
+    // createIBlog(actions.createPage, edges);
     createBlog(actions.createPage, edges);
     createPosts(actions.createPage, edges);
     createCategoryPages(actions.createPage, edges);
+    createTagPages(actions.createPage, edges);
   });
 
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -150,10 +224,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-
   if (node.internal.type === `Mdx`) {
     const parent = getNode(node.parent);
-
     createNodeField({
       name: 'id',
       node,
@@ -194,6 +266,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: 'categories',
       node,
       value: node.frontmatter.categories || [],
+    });
+
+    createNodeField({
+      name: 'tags',
+      node,
+      value: node.frontmatter.tags || [],
     });
 
     createNodeField({

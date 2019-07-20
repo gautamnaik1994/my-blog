@@ -1,7 +1,14 @@
 import React from 'react';
 import GatsbyLink from 'gatsby-link';
 
-const Link = ({ children, to, ...other }) => {
+interface Props {
+  children: React.ReactNode;
+  to: string;
+  other?: {};
+  css?: any;
+}
+
+const Link = ({ children, to, ...other }: Props) => {
   const internal = /^\/(?!\/)/.test(to);
 
   if (internal) {
