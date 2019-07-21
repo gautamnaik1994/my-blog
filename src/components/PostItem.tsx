@@ -29,12 +29,12 @@ const backgroundColor = theme('mode', {
 });
 
 const boxShadow = theme('mode', {
-  light: '0 6px 16px #ff8705',
+  light: '0 6px 16px -4px #ff8705',
   dark: '0 0px 0px 10px #121212',
 });
 
 const PostItem = styled.div`
-  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 7px -3px rgba(0, 0, 0, 0.25);
   padding: 15px 15px ${bottomPadding}px 15px;
   border-radius: 5px 5px 2px 2px;
   margin-bottom: 40px;
@@ -75,8 +75,8 @@ const StyledParagraph = styled(Paragraph)`
 const ReadMore = styled(Link)`
   width: 50px;
   height: 50px;
-  line-height: 63px;
   border-radius: 50%;
+  padding: 14px;
   text-align: center;
   display: block;
   color: black;
@@ -90,6 +90,9 @@ const ReadMore = styled(Link)`
   color: rgba(255, 255, 255, 0.61);
   box-shadow: ${boxShadow};
   overflow: hidden;
+  i {
+    display: inline-block;
+  }
   & :hover {
     i {
       animation: ${readMoreAnimation} 0.3s linear 2;
@@ -151,7 +154,7 @@ export default ({
       */}
     </div>
     <ReadMore to={link}>
-      <i className="material-icons">arrow_forward</i>
+      <i className="icon-arrow" />
     </ReadMore>
   </PostItem>
 );

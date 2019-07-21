@@ -72,17 +72,18 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
     (typeof window !== 'undefined' &&
       window.localStorage &&
       localStorage.getItem('theme')) ||
-    'dark';
+    'light';
 
   const [theme, setTheme] = useState<string | undefined>(initialThemeValue);
 
-  const setThemeValue = (val: string): void => {
-    setTheme(val);
-    localStorage.setItem('theme', val);
+  const toggleTheme = (): void => {
+    const currentTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(currentTheme);
+    localStorage.setItem('theme', currentTheme);
   };
 
   // useEffect(() => {
-  //   setThemeValue(localStorage.getItem('theme') || 'dark');
+  //   toggleTheme(localStorage.getItem('theme') || 'dark');
   //   console.log('USE useEffect');
   // }, [theme]);
 
@@ -101,8 +102,8 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
           rel="stylesheet"
         />
         <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"
+          href="https://i.icomoon.io/public/temp/dc47d58d99/blog/style.css"
         />
         <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
       </Helmet>
@@ -121,7 +122,7 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
             }}
           >
             <Fragment>
-              <Navbar setTheme={setThemeValue} />
+              <Navbar toggleTheme={toggleTheme} />
               <Grid>{children}</Grid>
             </Fragment>
           </MDXProvider>

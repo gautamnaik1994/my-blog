@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Link from './Link';
 
 const PaginationWrapper = styled.div`
-  &:after {
+  :after {
     content: '';
     display: table;
   }

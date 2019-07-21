@@ -87,12 +87,13 @@ const CategoryItem = styled(Link)<CategoryItemProps>`
     margin: 5px;
     background-color: ${props =>
       props.activeCategory
-        ? '#4f69fd'
+        ? props.theme.primary
         : transparentize(0.6, props.theme.primary)};
     text-transform: capitalize;
     ${props =>
       props.activeCategory &&
       css`
+        color: #fff;
         &:after {
           display: none;
         }

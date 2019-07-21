@@ -7,7 +7,7 @@ import compose from '../utils/compose';
 
 const boxShadow = theme('mode', {
   light: (props: any) =>
-    `0 3px var(--blur) 0px ${transparentize(0.6, props.theme.primary)}`,
+    `0 3px var(--blur) -2px ${transparentize(0.6, props.theme.primary)}`,
 });
 
 const backgroundColor = theme('mode', {

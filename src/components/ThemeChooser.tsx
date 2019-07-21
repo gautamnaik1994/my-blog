@@ -1,17 +1,44 @@
 import React from 'react';
 import styled from 'styled-components';
+import theme from 'styled-theming';
 
-const ThemeChooser = styled.span`
+const iconYPos = theme('mode', {
+  light: 'translateY(0)',
+  dark: 'translateY(-34px)',
+});
+
+const ThemeChooser = styled.button`
   display: inline-block;
+  height: 34px;
+  overflow: hidden;
+  width: 34px;
+  overflow: hidden;
+  padding: 4px;
+  border: none;
+  outline: none;
+  font-size: 25px;
+  div {
+    transition: transform 0.1s linear;
+    transform: ${iconYPos};
+  }
+  i {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .icon-moon {
+    transform: rotate(-39deg);
+  }
 `;
 
 interface Props {
-  setTheme: (theme: string) => void;
+  toggleTheme: () => void;
 }
 
-export default ({ setTheme }: Props) => (
-  <ThemeChooser>
-    <button onClick={() => setTheme('dark')}>Dark</button>
-    <button onClick={() => setTheme('light')}>Light</button>
+export default ({ toggleTheme }: Props) => (
+  <ThemeChooser onClick={toggleTheme}>
+    <div>
+      <i className="icon-moon"></i>
+      <i className="icon-sun"></i>
+    </div>
   </ThemeChooser>
 );
