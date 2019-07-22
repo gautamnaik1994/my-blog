@@ -7,7 +7,7 @@ import SvgLogo from './Logo';
 import ThemeChooser from './ThemeChooser';
 import media from '../utils/MediaQueries';
 
-const NAVIGATION = [{ to: '/about', label: 'About' }];
+const NAVIGATION = [{ to: 'https://gautamnaik.netlify.com/', label: 'About' }];
 
 const navBarBgColor = theme('mode', {
   light: '#fff',
@@ -42,11 +42,11 @@ const HomeLink = styled(Link)`
 `;
 
 interface Props {
-  setTheme: (theme: string) => void;
+  toggleTheme: () => void;
   className?: any;
 }
 
-export default ({ setTheme, className }: Props) => (
+export default ({ toggleTheme, className }: Props) => (
   <Navbar className={className}>
     <HomeLink to="/">
       <SvgLogo />
@@ -56,6 +56,6 @@ export default ({ setTheme, className }: Props) => (
         {navigation.label}
       </Link>
     ))}
-    <ThemeChooser setTheme={setTheme} />
+    <ThemeChooser toggleTheme={toggleTheme} />
   </Navbar>
 );

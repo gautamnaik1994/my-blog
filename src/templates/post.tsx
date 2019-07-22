@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import styled, { css } from 'styled-components';
 // @ts-ignore
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import media from '../utils/MediaQueries';
 import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
 import Badge from '../components/Badge';
@@ -16,6 +17,7 @@ const Banner = styled.div`
 `;
 
 const Post = styled.div`
+  padding: 0 15px;
   grid-column: 3/4;
 `;
 
@@ -26,6 +28,13 @@ interface Props {
   };
   pageContext: PageContext;
 }
+
+const Title = styled.h1`
+  margin-bottom: 0;
+  ${media.tablet} {
+    font-size: 48px;
+  }
+`;
 
 export default ({
   data: { site, mdx },
@@ -43,14 +52,7 @@ export default ({
       </Banner>
 
       <Post>
-        <h1
-          css={`
-            font-size: 48px;
-          `}
-          className="mb-0"
-        >
-          {mdx.frontmatter.title}
-        </h1>
+        <Title>{mdx.frontmatter.title}</Title>
         <small>{mdx.frontmatter.date}</small>
         <div className="half-rem-mt">
           <Badge name={mdx.frontmatter.categories[0]} />

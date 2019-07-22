@@ -44,12 +44,10 @@ export default ({ categories = [], activeCategoryIndex }: CategoryProps) => {
         if (CategorierRef && CategorierRef.current) {
           // no intersection with screen
           if (entries[0].intersectionRatio < 1) {
-            // console.log('Inide intersection');
             CategorierRef.current.classList.add('category-shadow');
           }
           // fully intersects with screen
           else if (entries[0].intersectionRatio === 1) {
-            // console.log('Inide intersection');
             CategorierRef.current.classList.remove('category-shadow');
           }
         }
