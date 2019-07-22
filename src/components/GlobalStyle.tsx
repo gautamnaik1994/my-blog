@@ -6,6 +6,7 @@ import {
   desaturatedPrimaryCol,
   darkBackgroundColor,
   darkBackgroundTextColor,
+  accentColor,
 } from '../utils/colors';
 
 const themeModes = {
@@ -39,6 +40,7 @@ interface Props {
 export const GlobalStyle = createGlobalStyle<Props>`
     :root{
     --primary:${_primaryCol};
+    --accent:${accentColor};
     --bodyBackgroundColor:${bodyBackgroundColor};
     --bodyColor:${bodyColor};
     }

@@ -23,6 +23,11 @@ const textColor = theme('mode', {
   dark: (props: any) => tone(props.theme.primary),
 });
 
+const textColorTablet = theme('mode', {
+  dark: '#333',
+  light: '#fff',
+});
+
 const boxShadow = theme('mode', {
   light: (props: any) =>
     `0 3px var(--blur) 0px ${transparentize(0.6, props.theme.primary)}`,
@@ -93,7 +98,7 @@ const CategoryItem = styled(Link)<CategoryItemProps>`
     ${props =>
       props.activeCategory &&
       css`
-        color: #fff;
+        color: ${textColorTablet};
         &:after {
           display: none;
         }

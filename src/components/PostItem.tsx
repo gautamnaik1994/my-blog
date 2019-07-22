@@ -34,9 +34,9 @@ const boxShadow = theme('mode', {
 });
 
 const PostItem = styled.div`
-  box-shadow: 0px 3px 7px -3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 9px -2px rgba(0, 0, 0, 0.25);
   padding: 15px 15px ${bottomPadding}px 15px;
-  border-radius: 5px 5px 2px 2px;
+  border-radius: 5px;
   margin-bottom: 40px;
   position: relative;
   background: ${backgroundColor};

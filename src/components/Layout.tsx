@@ -10,6 +10,7 @@ import 'prismjs/themes/prism-okaidia.css';
 import 'sanitize.css';
 import 'sanitize.css/typography.css';
 import 'sanitize.css/forms.css';
+import '../styles/style.css';
 import Navbar from './Navbar';
 import Hero from './Hero';
 import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
@@ -48,7 +49,7 @@ const Grid = styled.div`
     grid-template-columns:
       auto minmax(auto, 200px) minmax(550px, 650px) minmax(0, 200px)
       auto;
-    grid-template-rows: auto auto;
+    grid-template-rows: 250px auto;
     grid-gap: 15px;
   }
   margin-top: 60px;
@@ -100,10 +101,6 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
         <link
           href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,700|Merriweather:400,400i,700&display=swap"
           rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://i.icomoon.io/public/temp/dc47d58d99/blog/style.css"
         />
         <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
       </Helmet>

@@ -17,16 +17,16 @@ const ThemeChooser = styled.button`
   border: none;
   outline: none;
   font-size: 25px;
-  div {
+  span {
+    display: inline-block;
+  }
+  .i-container {
     transition: transform 0.1s linear;
     transform: ${iconYPos};
   }
   i {
     display: block;
     margin-bottom: 10px;
-  }
-  .icon-moon {
-    transform: rotate(-39deg);
   }
 `;
 
@@ -36,9 +36,10 @@ interface Props {
 
 export default ({ toggleTheme }: Props) => (
   <ThemeChooser onClick={toggleTheme}>
-    <div>
+    <span className="i-container">
       <i className="icon-moon"></i>
       <i className="icon-sun"></i>
-    </div>
+    </span>
+    <span>Theme</span>
   </ThemeChooser>
 );
