@@ -7,7 +7,7 @@ const bgAnim = keyframes`
         transform:translateX(0);
     }
     100%{
-        transform:translateX(-550px);
+        transform:translateX(-2180px);
     }
 
 `;
@@ -32,11 +32,11 @@ const Hero = styled.header`
     background-size: 100%;
     position: absolute;
     left: 0;
-    right: -550px;
+    width: 6540px;
     top: 0;
     bottom: 0;
     background-image: url('abstractbg.svg');
-    animation: ${bgAnim} 50s infinite linear;
+    animation: ${bgAnim} 54s infinite linear;
     ${media.tablet} {
       height: auto;
       background-size: 66%;
