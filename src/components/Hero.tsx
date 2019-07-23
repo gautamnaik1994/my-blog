@@ -29,17 +29,16 @@ const Hero = styled.header`
 
   .img-bg {
     background-position: center;
-    background-size: 100%;
+    background-size: 14%;
     position: absolute;
     left: 0;
     width: 6540px;
     top: 0;
     bottom: 0;
     background-image: url('abstractbg.svg');
-    animation: ${bgAnim} 54s infinite linear;
+    animation: ${bgAnim} 300s infinite linear;
     ${media.tablet} {
       height: auto;
-      background-size: 66%;
     }
   }
   ${media.tablet} {
