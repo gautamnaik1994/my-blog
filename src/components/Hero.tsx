@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import styled, { keyframes } from 'styled-components';
 import media from '../utils/MediaQueries';
+import Logo from './Logo';
 
 const bgAnim = keyframes`
     0%{
@@ -25,6 +26,17 @@ const Hero = styled.header`
   );
   overflow: hidden;
   .inner {
+    background-color: white;
+    position: absolute;
+    padding: 8px 16px;
+    border-radius: 6px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 7px 0px #8b8b8b;
+    svg {
+      width: 20px;
+    }
   }
 
   .img-bg {
@@ -53,6 +65,8 @@ interface Props {
 export default ({ title }: Props) => (
   <Hero>
     <div className="img-bg"></div>
-    <div className="inner"></div>
+    <div className="inner">
+      <Logo />
+    </div>
   </Hero>
 );

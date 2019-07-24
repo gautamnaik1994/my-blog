@@ -36,9 +36,15 @@ const Navbar = styled.nav`
 const HomeLink = styled(Link)`
   width: 60px;
   height: 60px;
-  display: inline-block;
   margin-right: auto;
   padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 interface Props {
