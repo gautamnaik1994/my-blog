@@ -49,7 +49,7 @@ const Grid = styled.div`
     grid-template-columns:
       auto minmax(auto, 200px) minmax(550px, 650px) minmax(0, 200px)
       auto;
-    grid-template-rows: minmax(0, 50vh) auto;
+    //grid-template-rows: minmax(0, 50vh) auto;
     grid-gap: 15px;
   }
   margin-top: 60px;
