@@ -1,21 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
-import theme from 'styled-theming';
 
-const LogoColor = theme('mode', {
-  light: 'black',
-  dark: 'white',
-});
+interface Props {
+  className?: string;
+}
 
-const Logo = styled.svg`
-  transition: fill 0.3s ease-in;
-  && {
-    fill: ${LogoColor};
-  }
-`;
-
-export default () => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 230">
+export default ({ className }: Props) => (
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 128 230"
+  >
     <path
       fill="url(#paint0_linear)"
       d="M127.86 52.172c0 28.815-23.359 52.173-52.173 52.173H62.971c4.102-19.251 16.565-37.792 39.997-56.475-25.685 7.392-45.232 31.28-58.33 56.475l-37.727.001A6.912 6.912 0 010 97.434V6.912A6.911 6.911 0 016.911 0h68.52L75.688 0c28.814 0 52.173 23.358 52.173 52.172z"

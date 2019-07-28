@@ -12,7 +12,6 @@ import { Site, Mdx, PageContext } from '../types';
 
 const Banner = styled.div`
   grid-column: 1/-1;
-  height: 250px;
   overflow: hidden;
 `;
 

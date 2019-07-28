@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 //import Img from 'gatsby-image';
 import styled from 'styled-components';
@@ -27,20 +27,41 @@ interface Props {
     activeCategoryIndex: number;
     tags: string[];
   };
+  location?: any;
 }
 
 const Blog = ({
   data: { site, allMdx },
   pageContext: { pagination, categories, activeCategoryIndex, tags },
+  location: { state },
 }: Props) => {
   const { page, nextPagePath, previousPagePath } = pagination;
 
   const posts = page.map((id: number) =>
     allMdx.edges.find((edge: { node: { id: number } }) => edge.node.id === id),
   );
+
+  const [showHero, setShowHero] = useState<boolean>(true);
+
+  //useEffect(() => {
+  //console.log('Called Effects');
+  //if (state && state.fromCategoryItem) {
+  ////setShowHero(false);
+  //setScrollPos(300);
+  //console.log('Called Effects inside');
+  ////window.scrollTo(0, 300);
+  //}
+  //}, [pathname]);
+  useLayoutEffect(() => {
+    console.log('Called Layout Effects');
+    if (state && state.fromCategoryItem) {
+      //setShowHero(false);
+    }
+  }, []);
+
   return (
     <Layout site={site}>
-      <Hero title="Welcome to Blog" />
+      {showHero && <Hero title="Welcome to Blog" />}
       <Categories
         activeCategoryIndex={activeCategoryIndex}
         categories={categories}

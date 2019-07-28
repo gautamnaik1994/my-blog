@@ -6,6 +6,7 @@ interface Props {
   to: string;
   other?: {};
   css?: any;
+  state?: {};
 }
 
 const Link = ({ children, to, ...other }: Props) => {
