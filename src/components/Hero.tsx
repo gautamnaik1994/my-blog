@@ -16,15 +16,14 @@ const bgAnim = keyframes`
 const StyledLogo = styled(Logo)`
   width: 22px;
   background-color: white;
-  padding: 9px 19px;
+  padding: 10px 19px;
   border-radius: 10px;
   box-shadow: 0 0 7px 0px #8b8b8b;
   box-sizing: content-box;
   ${media.tablet} {
     width: 31px;
-    background-color: white;
-    padding: 10px 26px;
-    border-radius: 10px;
+    padding: 14px 26px;
+    border-radius: 11px;
   }
 `;
 
