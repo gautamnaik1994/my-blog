@@ -75,42 +75,44 @@ const Blog = ({
         categories={categories}
       />
       <BlogWrapper>
-        {posts.map(({ node }: any) => (
-          <PostItem
-            key={node.id}
-            link={node.frontmatter.slug}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
-            excerpt={node.excerpt}
-            tags={node.frontmatter.tags}
-            category={node.frontmatter.categories}
-            readTime={node.timeToRead}
-          />
-        ))}
-        {posts.map(({ node }: any) => (
-          <PostItem
-            key={node.id}
-            link={node.frontmatter.slug}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
-            excerpt={node.excerpt}
-            tags={node.frontmatter.tags}
-            category={node.frontmatter.categories}
-            readTime={node.timeToRead}
-          />
-        ))}
-        {posts.map(({ node }: any) => (
-          <PostItem
-            key={node.id}
-            link={node.frontmatter.slug}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
-            excerpt={node.excerpt}
-            tags={node.frontmatter.tags}
-            category={node.frontmatter.categories}
-            readTime={node.timeToRead}
-          />
-        ))}
+        <div>
+          {posts.map(({ node }: any) => (
+            <PostItem
+              key={node.id}
+              link={node.frontmatter.slug}
+              title={node.frontmatter.title}
+              date={node.frontmatter.date}
+              excerpt={node.excerpt}
+              tags={node.frontmatter.tags}
+              category={node.frontmatter.categories}
+              readTime={node.timeToRead}
+            />
+          ))}
+          {posts.map(({ node }: any) => (
+            <PostItem
+              key={node.id}
+              link={node.frontmatter.slug}
+              title={node.frontmatter.title}
+              date={node.frontmatter.date}
+              excerpt={node.excerpt}
+              tags={node.frontmatter.tags}
+              category={node.frontmatter.categories}
+              readTime={node.timeToRead}
+            />
+          ))}
+          {posts.map(({ node }: any) => (
+            <PostItem
+              key={node.id}
+              link={node.frontmatter.slug}
+              title={node.frontmatter.title}
+              date={node.frontmatter.date}
+              excerpt={node.excerpt}
+              tags={node.frontmatter.tags}
+              category={node.frontmatter.categories}
+              readTime={node.timeToRead}
+            />
+          ))}
+        </div>
         <Pagination
           nextPagePath={nextPagePath}
           previousPagePath={previousPagePath}

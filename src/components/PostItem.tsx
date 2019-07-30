@@ -38,6 +38,9 @@ const PostItem = styled.div`
   padding: 15px 15px ${bottomPadding}px 15px;
   border-radius: 5px;
   margin-bottom: 40px;
+  &:last-child {
+    margin-bottom: 100px;
+  }
   position: relative;
   background: ${backgroundColor};
   border-bottom: 0;
@@ -61,6 +64,9 @@ const PostItem = styled.div`
   ${media.tablet} {
     padding: 15px;
     margin-bottom: 15px;
+  }
+  &:last-child {
+    margin-bottom: 100px;
   }
   .inner {
     position: relative;

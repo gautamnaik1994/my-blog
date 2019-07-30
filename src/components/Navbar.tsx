@@ -1,11 +1,10 @@
+import { lighten } from 'polished';
 import React from 'react';
 import styled from 'styled-components';
-import Link from './Link';
 import theme from 'styled-theming';
-import { lighten } from 'polished';
+import Link from './Link';
 import SvgLogo from './Logo';
 import ThemeChooser from './ThemeChooser';
-import media from '../utils/MediaQueries';
 
 const NAVIGATION = [{ to: 'https://gautamnaik.netlify.com/', label: 'About' }];
 
@@ -42,8 +41,8 @@ const HomeLink = styled(Link)`
   justify-content: center;
   align-items: center;
   svg {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
 `;
 
