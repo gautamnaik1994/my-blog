@@ -53,11 +53,11 @@ interface Props {
 
 export default ({ toggleTheme, className }: Props) => (
   <Navbar className={className}>
-    <HomeLink to="/">
+    <HomeLink title="Gautam Blogs" to="/">
       <SvgLogo />
     </HomeLink>
     {NAVIGATION.map(navigation => (
-      <Link key={navigation.label} to={navigation.to}>
+      <Link key={navigation.label} title={navigation.label} to={navigation.to}>
         {navigation.label}
       </Link>
     ))}

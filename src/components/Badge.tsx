@@ -48,4 +48,8 @@ const Badge = styled(Link)`
   }
 `;
 
-export default ({ name }: Props) => <Badge to={`/tags/${name}`}>{name}</Badge>;
+export default ({ name }: Props) => (
+  <Badge title={name} to={`/tags/${name}`}>
+    {name}
+  </Badge>
+);

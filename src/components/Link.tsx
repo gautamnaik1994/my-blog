@@ -8,21 +8,22 @@ interface Props {
   css?: any;
   state?: {};
   className?: string;
+  title?: string;
 }
 
-const Link = ({ children, to, ...other }: Props) => {
+const Link = ({ children, to, title, ...other }: Props) => {
   const internal = /^\/(?!\/)/.test(to);
 
   if (internal) {
     return (
-      <GatsbyLink to={to} {...other}>
+      <GatsbyLink title={title} to={to} {...other}>
         {children}
       </GatsbyLink>
     );
   }
 
   return (
-    <a href={to} {...other}>
+    <a href={to} title={title} {...other}>
       {children}
     </a>
   );

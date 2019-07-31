@@ -20,12 +20,13 @@ const PaginationWrapper = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 10px 12px;
+  //padding: 10px 12px;
   background-color: ${navBarBgColor};
   border-radius: 20px 20px 0 0;
   z-index: 1;
   box-shadow: 0px -1px 9px -2px rgba(0, 0, 0, 0.25);
   a {
+    margin: 10px;
     background-color: var(--primary);
     padding: 3px 10px;
     color: ${color};
@@ -66,9 +67,9 @@ const PaginationWrapper = styled.div`
   ${media.tablet} {
     position: static;
     background-color: transparent;
-    padding: 5px 0 35px 0;
-    max-width: 200px;
     a {
+      margin: 0;
+      max-width: 200px;
       border-radius: 4px;
       &.left {
         border-top-left-radius: 4px;
@@ -95,12 +96,12 @@ export default ({
 }: Props) => (
   <PaginationWrapper>
     {previousPagePath && (
-      <Link className="left" to={previousPagePath}>
+      <Link className="left" title={prevPostTitle} to={previousPagePath}>
         {prevPostTitle}
       </Link>
     )}
     {nextPagePath && (
-      <Link className="right" to={nextPagePath}>
+      <Link className="right" title={nextPostTitle} to={nextPagePath}>
         {nextPostTitle}
       </Link>
     )}
