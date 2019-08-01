@@ -40,6 +40,5 @@ export default ({ toggleTheme }: Props) => (
       <i className="icon-moon"></i>
       <i className="icon-sun"></i>
     </span>
-    <span>Theme</span>
   </ThemeChooser>
 );

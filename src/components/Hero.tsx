@@ -16,15 +16,14 @@ const bgAnim = keyframes`
 const StyledLogo = styled(Logo)`
   width: 22px;
   background-color: white;
-  padding: 9px 19px;
+  padding: 10px 19px;
   border-radius: 10px;
   box-shadow: 0 0 7px 0px #8b8b8b;
   box-sizing: content-box;
   ${media.tablet} {
     width: 31px;
-    background-color: white;
-    padding: 10px 26px;
-    border-radius: 10px;
+    padding: 14px 26px;
+    border-radius: 11px;
   }
 `;
 
@@ -51,11 +50,13 @@ const Name = styled.div<NameProps>`
   }
 `;
 
-const Hero = styled.header`
-  grid-row: 1/2;
+interface HeroProps {
+  showHero: boolean;
+}
+
+const Hero = styled.header<HeroProps>`
   position: relative;
-  height: 300px;
-  grid-column: 1/-1;
+  height: ${props => (props.showHero ? 30 : 0)}vh;
   background: rgba(0, 132, 255, 1);
   background-image: linear-gradient(
     243.4deg,
@@ -91,7 +92,7 @@ const Hero = styled.header`
     }
   }
   ${media.tablet} {
-    height: auto;
+    height: ${props => (props.showHero ? 50 : 0)}vh;
   }
   .img-bg-2 {
     background-image: url('abstractbgOther.svg');
@@ -101,15 +102,16 @@ const Hero = styled.header`
 
 interface Props {
   title: string;
+  showHero: boolean;
 }
 
-export default ({ title }: Props) => {
+export default ({ title, showHero }: Props) => {
   const [marginLeft, setMarginLeft] = useState<number>(-200);
   useEffect(() => {
     setMarginLeft(0);
   }, []);
   return (
-    <Hero>
+    <Hero showHero={showHero}>
       <div className="img-bg"></div>
       <div className="img-bg img-bg-2"></div>
       <div className="inner-container">

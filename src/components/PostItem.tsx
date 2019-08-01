@@ -38,6 +38,9 @@ const PostItem = styled.div`
   padding: 15px 15px ${bottomPadding}px 15px;
   border-radius: 5px;
   margin-bottom: 40px;
+  &:last-child {
+    margin-bottom: 100px;
+  }
   position: relative;
   background: ${backgroundColor};
   border-bottom: 0;
@@ -61,6 +64,9 @@ const PostItem = styled.div`
   ${media.tablet} {
     padding: 15px;
     margin-bottom: 15px;
+  }
+  &:last-child {
+    margin-bottom: 100px;
   }
   .inner {
     position: relative;
@@ -135,7 +141,9 @@ export default ({
   <PostItem>
     <div className="inner">
       <h2 className="m-0">
-        <Link to={link}>{title}</Link>
+        <Link title={title} to={link}>
+          {title}
+        </Link>
       </h2>
       <small>
         {date} &bull; {readTime} minutes read
@@ -153,7 +161,7 @@ export default ({
     </div>
       */}
     </div>
-    <ReadMore to={link}>
+    <ReadMore title="Read More" to={link}>
       <i className="icon-arrow" />
     </ReadMore>
   </PostItem>

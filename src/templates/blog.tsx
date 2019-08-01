@@ -15,6 +15,11 @@ const BlogWrapper = styled.div`
   padding: 0px 10px;
 `;
 
+const HeroWrapper = styled.div`
+  //grid-row: 1/2;
+  grid-column: 1/-1;
+`;
+
 interface Props {
   data: { site: Site; allMdx: { edges: [] } };
   pageContext: {
@@ -55,54 +60,59 @@ const Blog = ({
   useLayoutEffect(() => {
     console.log('Called Layout Effects');
     if (state && state.fromCategoryItem) {
-      //setShowHero(false);
+      console.log('Layout Effects indide');
+      setShowHero(false);
     }
   }, []);
 
   return (
     <Layout site={site}>
-      {showHero && <Hero title="Welcome to Blog" />}
+      <HeroWrapper>
+        <Hero showHero={showHero} title="Welcome to Blog" />
+      </HeroWrapper>
       <Categories
         activeCategoryIndex={activeCategoryIndex}
         categories={categories}
       />
       <BlogWrapper>
-        {posts.map(({ node }: any) => (
-          <PostItem
-            key={node.id}
-            link={node.frontmatter.slug}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
-            excerpt={node.excerpt}
-            tags={node.frontmatter.tags}
-            category={node.frontmatter.categories}
-            readTime={node.timeToRead}
-          />
-        ))}
-        {posts.map(({ node }: any) => (
-          <PostItem
-            key={node.id}
-            link={node.frontmatter.slug}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
-            excerpt={node.excerpt}
-            tags={node.frontmatter.tags}
-            category={node.frontmatter.categories}
-            readTime={node.timeToRead}
-          />
-        ))}
-        {posts.map(({ node }: any) => (
-          <PostItem
-            key={node.id}
-            link={node.frontmatter.slug}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
-            excerpt={node.excerpt}
-            tags={node.frontmatter.tags}
-            category={node.frontmatter.categories}
-            readTime={node.timeToRead}
-          />
-        ))}
+        <div>
+          {posts.map(({ node }: any) => (
+            <PostItem
+              key={node.id}
+              link={node.frontmatter.slug}
+              title={node.frontmatter.title}
+              date={node.frontmatter.date}
+              excerpt={node.excerpt}
+              tags={node.frontmatter.tags}
+              category={node.frontmatter.categories}
+              readTime={node.timeToRead}
+            />
+          ))}
+          {posts.map(({ node }: any) => (
+            <PostItem
+              key={node.id}
+              link={node.frontmatter.slug}
+              title={node.frontmatter.title}
+              date={node.frontmatter.date}
+              excerpt={node.excerpt}
+              tags={node.frontmatter.tags}
+              category={node.frontmatter.categories}
+              readTime={node.timeToRead}
+            />
+          ))}
+          {posts.map(({ node }: any) => (
+            <PostItem
+              key={node.id}
+              link={node.frontmatter.slug}
+              title={node.frontmatter.title}
+              date={node.frontmatter.date}
+              excerpt={node.excerpt}
+              tags={node.frontmatter.tags}
+              category={node.frontmatter.categories}
+              readTime={node.timeToRead}
+            />
+          ))}
+        </div>
         <Pagination
           nextPagePath={nextPagePath}
           previousPagePath={previousPagePath}

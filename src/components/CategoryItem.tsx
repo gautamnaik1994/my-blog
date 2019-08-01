@@ -106,6 +106,7 @@ const CategoryItem = styled(Link)<CategoryItemProps>`
 
 export default ({ category, activeCategory }: Props) => (
   <CategoryItem
+    title={category}
     state={{ fromCategoryItem: true }}
     to={`/categories/${category}`}
     activeCategory={activeCategory}
