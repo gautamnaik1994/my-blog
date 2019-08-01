@@ -141,7 +141,9 @@ export default ({
   <PostItem>
     <div className="inner">
       <h2 className="m-0">
-        <Link to={link}>{title}</Link>
+        <Link title={title} to={link}>
+          {title}
+        </Link>
       </h2>
       <small>
         {date} &bull; {readTime} minutes read
@@ -159,7 +161,7 @@ export default ({
     </div>
       */}
     </div>
-    <ReadMore to={link}>
+    <ReadMore title="Read More" to={link}>
       <i className="icon-arrow" />
     </ReadMore>
   </PostItem>

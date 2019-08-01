@@ -8,7 +8,7 @@ interface Props {
   css?: any;
   state?: {};
   className?: string;
-  title?: string;
+  title: string;
 }
 
 const Link = ({ children, to, title, ...other }: Props) => {
