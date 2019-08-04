@@ -49,7 +49,7 @@ const Badge = styled(Link)`
 `;
 
 export default ({ name }: Props) => (
-  <Badge title={name} to={`/tags/${name}`}>
+  <Badge title={name} to={`/categories/${name}`}>
     {name}
   </Badge>
 );

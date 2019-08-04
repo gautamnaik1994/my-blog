@@ -13,6 +13,7 @@ import 'sanitize.css/forms.css';
 import '../styles/style.css';
 import Navbar from './Navbar';
 import Hero from './Hero';
+import Footer from './Footer';
 import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
 import { GlobalStyle } from './GlobalStyle';
 import { LayoutProps } from '../types';
@@ -121,6 +122,7 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
             <Fragment>
               <Navbar toggleTheme={toggleTheme} />
               <Grid>{children}</Grid>
+              <Footer />
             </Fragment>
           </MDXProvider>
         </Fragment>
