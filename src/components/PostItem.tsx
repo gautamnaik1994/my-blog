@@ -66,7 +66,7 @@ const PostItem = styled.div`
     margin-bottom: 15px;
   }
   &:last-child {
-    margin-bottom: 100px;
+    margin-bottom: 40px;
   }
   .inner {
     position: relative;

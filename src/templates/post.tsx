@@ -58,6 +58,7 @@ export default ({
         </div>
         <MDXRenderer>{mdx.code.body}</MDXRenderer>
         <Pagination
+          insidePost
           nextPagePath={next && next.fields.slug}
           previousPagePath={prev && prev.fields.slug}
           nextPostTitle={next && next.fields.title}
