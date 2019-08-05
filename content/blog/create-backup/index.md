@@ -1,6 +1,6 @@
 ---
 slug: '/create-backup'
-date: '2015-07-18T13:35:13.234Z'
+date: '2019-07-18T13:35:13.234Z'
 title: 'Create quick backup'
 description: 'Pressing Esc key is tiring as the finger has to move to the corner...'
 categories: ['vim']
