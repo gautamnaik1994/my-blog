@@ -6,7 +6,7 @@ import { desaturate } from 'polished';
 import '../global.d.ts';
 // @ts-ignore
 import { MDXProvider } from '@mdx-js/react';
-import 'prismjs/themes/prism-okaidia.css';
+import 'prismjs/themes/prism-tomorrow.css';
 import 'sanitize.css';
 import 'sanitize.css/typography.css';
 import 'sanitize.css/forms.css';

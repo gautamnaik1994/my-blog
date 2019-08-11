@@ -53,7 +53,7 @@ export default ({
       <Post>
         <Title>{mdx.frontmatter.title}</Title>
         <small>{mdx.frontmatter.date}</small>
-        <div className="half-rem-mt">
+        <div className="half-rem-mt two-rem-mb">
           <Badge name={mdx.frontmatter.categories[0]} />
         </div>
         <MDXRenderer>{mdx.code.body}</MDXRenderer>

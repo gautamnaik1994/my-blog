@@ -88,6 +88,7 @@ const Blog = ({
               readTime={node.timeToRead}
             />
           ))}
+          {/*
           {posts.map(({ node }: any) => (
             <PostItem
               key={node.id}
@@ -112,6 +113,7 @@ const Blog = ({
               readTime={node.timeToRead}
             />
           ))}
+          */}
         </div>
         <Pagination
           nextPagePath={nextPagePath}

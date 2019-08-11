@@ -33,6 +33,8 @@ module.exports = {
               classPrefix: 'language-',
               inlineCodeMarker: null,
               aliases: {},
+              noInlineHighlight: false,
+              showLineNumbers: false,
             },
           },
         ],
