@@ -9,7 +9,19 @@ import PostItem from '../components/PostItem';
 import Categories from '../components/Categories';
 import Pagination from '../components/Pagination';
 import { Frontmatter, SiteMetadata, Site } from '../types';
+import media from '../utils/MediaQueries';
 
+const Grid = styled.div`
+  ${media.tablet} {
+    display: grid;
+    grid-template-columns:
+      auto minmax(auto, 200px) minmax(550px, 650px) minmax(0, 200px)
+      auto;
+    //grid-template-rows: minmax(0, 50vh) auto;
+    grid-gap: 15px;
+  }
+  margin-top: 60px;
+`;
 const BlogWrapper = styled.div`
   grid-column: 3/4;
   padding: 0px 10px;
@@ -67,59 +79,61 @@ const Blog = ({
 
   return (
     <Layout site={site}>
-      <HeroWrapper>
-        <Hero showHero={showHero} title="Welcome to Blog" />
-      </HeroWrapper>
-      <Categories
-        activeCategoryIndex={activeCategoryIndex}
-        categories={categories}
-      />
-      <BlogWrapper>
-        <div>
-          {posts.map(({ node }: any) => (
-            <PostItem
-              key={node.id}
-              link={node.frontmatter.slug}
-              title={node.frontmatter.title}
-              date={node.frontmatter.date}
-              excerpt={node.excerpt}
-              tags={node.frontmatter.tags}
-              category={node.frontmatter.categories}
-              readTime={node.timeToRead}
-            />
-          ))}
-          {/*
-          {posts.map(({ node }: any) => (
-            <PostItem
-              key={node.id}
-              link={node.frontmatter.slug}
-              title={node.frontmatter.title}
-              date={node.frontmatter.date}
-              excerpt={node.excerpt}
-              tags={node.frontmatter.tags}
-              category={node.frontmatter.categories}
-              readTime={node.timeToRead}
-            />
-          ))}
-          {posts.map(({ node }: any) => (
-            <PostItem
-              key={node.id}
-              link={node.frontmatter.slug}
-              title={node.frontmatter.title}
-              date={node.frontmatter.date}
-              excerpt={node.excerpt}
-              tags={node.frontmatter.tags}
-              category={node.frontmatter.categories}
-              readTime={node.timeToRead}
-            />
-          ))}
-          */}
-        </div>
-        <Pagination
-          nextPagePath={nextPagePath}
-          previousPagePath={previousPagePath}
+      <Grid>
+        <HeroWrapper>
+          <Hero showHero={showHero} title="Welcome to Blog" />
+        </HeroWrapper>
+        <Categories
+          activeCategoryIndex={activeCategoryIndex}
+          categories={categories}
         />
-      </BlogWrapper>
+        <BlogWrapper>
+          <div>
+            {posts.map(({ node }: any) => (
+              <PostItem
+                key={node.id}
+                link={node.frontmatter.slug}
+                title={node.frontmatter.title}
+                date={node.frontmatter.date}
+                excerpt={node.excerpt}
+                tags={node.frontmatter.tags}
+                category={node.frontmatter.categories}
+                readTime={node.timeToRead}
+              />
+            ))}
+            {/*
+                        {posts.map(({ node }: any) => (
+                            <PostItem
+                                key={node.id}
+                                link={node.frontmatter.slug}
+                                title={node.frontmatter.title}
+                                date={node.frontmatter.date}
+                                excerpt={node.excerpt}
+                                tags={node.frontmatter.tags}
+                                category={node.frontmatter.categories}
+                                readTime={node.timeToRead}
+                            />
+                            ))}
+                            {posts.map(({ node }: any) => (
+                                <PostItem
+                                    key={node.id}
+                                    link={node.frontmatter.slug}
+                                    title={node.frontmatter.title}
+                                    date={node.frontmatter.date}
+                                    excerpt={node.excerpt}
+                                    tags={node.frontmatter.tags}
+                                    category={node.frontmatter.categories}
+                                    readTime={node.timeToRead}
+                                />
+                                ))}
+                                */}
+          </div>
+          <Pagination
+            nextPagePath={nextPagePath}
+            previousPagePath={previousPagePath}
+          />
+        </BlogWrapper>
+      </Grid>
     </Layout>
   );
 };

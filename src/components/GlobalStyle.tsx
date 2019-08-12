@@ -120,7 +120,9 @@ export const GlobalStyle = createGlobalStyle<Props>`
         margin: 0.5em 0;
         padding: 1em;
         overflow: auto;
-        border-left: 0.5em solid #ff9913;
+        border: 2px solid #38FF64;
+        border-left: 7px solid #38FF64;
+        box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.25);
 
         /**
          *   * Remove the default PrismJS theme background-color, border-radius,
@@ -161,6 +163,6 @@ export const GlobalStyle = createGlobalStyle<Props>`
     :not(pre) > code[class*="language-"] {
         padding: 2px 8px;
         font-size: .85rem;
-        color: #1ec8ff;
+        color: #38FF64;
     }
 `;

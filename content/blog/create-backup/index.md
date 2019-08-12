@@ -11,17 +11,19 @@ banner: './images/banner.jpg'
 
 ---
 
-## Command
+### COMMAND
 
 ```vim
 :w %.bak
 ```
 
-## Explanation
+### EXPLANATION
 
-- `:w` : write file
+- `:w` : Write file to disk
 - `%` : Get current file name
 - `.bak` : Arbitrary extension name for the file
+
+<br/>
 
 Sometimes we have a create a copy of current working file, just for trying out some new thing or feature.
 

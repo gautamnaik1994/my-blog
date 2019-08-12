@@ -100,7 +100,7 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
       >
         <html lang="en" />
         <link
-          href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,700|Merriweather:400,400i,700&display=swap"
+          href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600,700|Merriweather:400,400i,700&display=swap"
           rel="stylesheet"
         />
         <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
@@ -121,7 +121,7 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
           >
             <Fragment>
               <Navbar toggleTheme={toggleTheme} />
-              <Grid>{children}</Grid>
+              {children}
               <Footer />
             </Fragment>
           </MDXProvider>
