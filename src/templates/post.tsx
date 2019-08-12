@@ -1,7 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import { lighten } from 'polished';
 import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
 // @ts-ignore
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import media from '../utils/MediaQueries';
@@ -9,6 +11,16 @@ import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
 import Badge from '../components/Badge';
 import { Site, Mdx, PageContext } from '../types';
+import { darkBackgroundColor, darkBackgroundTextColor } from '../utils/colors';
+
+const bodyBackgroundColor = theme('mode', {
+  light: '#f5f5f5',
+  dark: darkBackgroundColor,
+});
+const postBgColor = theme('mode', {
+  light: '#fff',
+  dark: lighten(0.05, darkBackgroundColor),
+});
 
 const Grid = styled.div`
   ${media.tablet} {
@@ -19,7 +31,7 @@ const Grid = styled.div`
     //grid-template-rows: minmax(0, 50vh) auto;
   }
   margin-top: 60px;
-  background: #f5f5f5;
+  background: ${bodyBackgroundColor};
 `;
 
 interface BannerProps {
@@ -46,9 +58,9 @@ const Banner = styled.div<BannerProps>`
 `;
 
 const Post = styled.div`
-  padding: 0 15px;
+  padding: 20px 15px 15px 15px;
   grid-column: 3/4;
-  background: #fff;
+  background: ${postBgColor};
   box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.126);
 `;
 
@@ -70,6 +82,7 @@ const CustomImg = styled(Img)`
 
 const Title = styled.h1`
   margin-bottom: 0;
+  margin-top: 0;
   ${media.tablet} {
     font-weight: 600;
     font-size: 36px;
