@@ -46,6 +46,9 @@ const MobileStyleForPost = css`
     background: transparent;
     color: var(--primary);
     border: 2px dotted var(--primary);
+    &.right {
+      text-align: right;
+    }
   }
 `;
 
@@ -74,12 +77,22 @@ const PaginationWrapper = styled.div<PaginationWrapperProp>`
     text-overflow: ellipsis;
     font-size: 14px;
     font-weight: bold;
+    > * {
+      vertical-align: middle;
+    }
+    .icon-arrow {
+      display: inline-block;
+      font-size: 10px;
+    }
     :hover {
       --blur: 20px;
     }
     &.left {
       float: left;
       border-top-left-radius: 10px;
+      .icon-arrow {
+        transform: rotateZ(180deg);
+      }
     }
     &.right {
       float: right;
@@ -101,6 +114,9 @@ const PaginationWrapper = styled.div<PaginationWrapperProp>`
       max-width: 200px;
       padding: 7px 20px;
       border-radius: 4px;
+      .icon-arrow {
+        font-size: 13px;
+      }
       &.left {
         border-top-left-radius: 4px;
       }
@@ -130,12 +146,14 @@ export default ({
   <PaginationWrapper insidePost={insidePost}>
     {previousPagePath && (
       <Link className="left" title={prevPostTitle} to={previousPagePath}>
-        {prevPostTitle}
+        <i className="icon-arrow" />
+        <span>&nbsp;{prevPostTitle}</span>
       </Link>
     )}
     {nextPagePath && (
       <Link className="right" title={nextPostTitle} to={nextPagePath}>
-        {nextPostTitle}
+        <span>{nextPostTitle}&nbsp;</span>
+        <i className="icon-arrow" />
       </Link>
     )}
   </PaginationWrapper>

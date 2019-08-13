@@ -99,17 +99,16 @@ export default ({
     <Layout site={site} frontmatter={mdx.frontmatter}>
       <Grid>
         {mdx.frontmatter.banner && (
-          <Banner bgImage={mdx.frontmatter.banner.childImageSharp.sizes.src}>
+          <Banner bgImage={mdx.frontmatter.banner.childImageSharp.fluid.src}>
             <div className="blur-container"></div>
             {mdx.frontmatter.banner && (
               <CustomImg
-                sizes={mdx.frontmatter.banner.childImageSharp.sizes}
+                fluid={mdx.frontmatter.banner.childImageSharp.fluid}
                 alt={site.siteMetadata.keywords.join(', ')}
               />
             )}
           </Banner>
         )}
-
         <Post>
           <Title>{mdx.frontmatter.title}</Title>
           <small>{mdx.frontmatter.date}</small>
@@ -141,8 +140,11 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         banner {
           childImageSharp {
-            sizes(maxWidth: 620) {
+            sizes(maxWidth: 650) {
               ...GatsbyImageSharpSizes
+            }
+            fluid(maxWidth: 650, srcSetBreakpoints: [400]) {
+              ...GatsbyImageSharpFluid
             }
           }
           absolutePath
