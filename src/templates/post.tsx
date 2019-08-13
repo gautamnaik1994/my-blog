@@ -5,7 +5,7 @@ import { lighten } from 'polished';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 // @ts-ignore
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import media from '../utils/MediaQueries';
 import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
@@ -99,29 +99,23 @@ export default ({
     <Layout site={site} frontmatter={mdx.frontmatter}>
       <Grid>
         {mdx.frontmatter.banner && (
-          <Banner bgImage={mdx.frontmatter.banner.childImageSharp.sizes.src}>
+          <Banner bgImage={mdx.frontmatter.banner.childImageSharp.fluid.src}>
             <div className="blur-container"></div>
             {mdx.frontmatter.banner && (
               <CustomImg
-                sizes={mdx.frontmatter.banner.childImageSharp.sizes}
+                fluid={mdx.frontmatter.banner.childImageSharp.fluid}
                 alt={site.siteMetadata.keywords.join(', ')}
               />
             )}
-            {/*
-          {mdx.frontmatter.banner && (
-            <img src={mdx.frontmatter.banner.childImageSharp.sizes.src} />
-          )}
-          */}
           </Banner>
         )}
-
         <Post>
           <Title>{mdx.frontmatter.title}</Title>
           <small>{mdx.frontmatter.date}</small>
           <div className="half-rem-mt two-rem-mb">
             <Badge name={mdx.frontmatter.categories[0]} />
           </div>
-          <MDXRenderer>{mdx.code.body}</MDXRenderer>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
           <Pagination
             insidePost
             nextPagePath={next && next.fields.slug}
@@ -146,8 +140,11 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         banner {
           childImageSharp {
-            sizes(maxWidth: 900) {
+            sizes(maxWidth: 650) {
               ...GatsbyImageSharpSizes
+            }
+            fluid(maxWidth: 650, srcSetBreakpoints: [400]) {
+              ...GatsbyImageSharpFluid
             }
           }
           absolutePath
@@ -156,9 +153,7 @@ export const pageQuery = graphql`
         categories
         keywords
       }
-      code {
-        body
-      }
+      body
     }
   }
 `;

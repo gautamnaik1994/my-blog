@@ -17,7 +17,7 @@ export interface Frontmatter {
   keywords?: string[] = [];
   categories?: string[] | any = [];
   tags?: string[] | any = [];
-  banner?: { absolutePath: string; childImageSharp: { sizes: any } };
+  banner?: { absolutePath: string; childImageSharp: { fluid: any } };
 }
 
 export interface Banner {
@@ -27,7 +27,7 @@ export interface Banner {
 
 export interface Mdx {
   edges: [];
-  code: { body: string };
+  body: string;
   frontmatter: Frontmatter;
 }
 

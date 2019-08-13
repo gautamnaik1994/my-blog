@@ -16,15 +16,15 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 1035,
-              sizeByPixelDensity: true,
+              maxWidth: 620,
+              srcSetBreakpoints: [400],
             },
           },
           {
