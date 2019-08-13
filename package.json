@@ -33,7 +33,7 @@
     "react-helmet": "~5.2.1",
     "react-transition-group": "^4.2.1",
     "react-youtube": "^7.9.0",
-    "sanitize.css": "^10.0.0",
+    "sanitize.css": "^11.0.0",
     "styled-components": "^4.3.2",
     "styled-theming": "^2.2.0"
   },
