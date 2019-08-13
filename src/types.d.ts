@@ -27,7 +27,7 @@ export interface Banner {
 
 export interface Mdx {
   edges: [];
-  code: { body: string };
+  body: string;
   frontmatter: Frontmatter;
 }
 

@@ -191,9 +191,6 @@ exports.createPages = ({ actions, graphql }) =>
               categories
               tags
             }
-            code {
-              scope
-            }
           }
         }
       }
