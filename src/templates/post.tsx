@@ -140,9 +140,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         banner {
           childImageSharp {
-            sizes(maxWidth: 650) {
-              ...GatsbyImageSharpSizes
-            }
             fluid(maxWidth: 650, srcSetBreakpoints: [400]) {
               ...GatsbyImageSharpFluid
             }
