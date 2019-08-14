@@ -6,7 +6,7 @@ description: 'Pressing Esc key is tiring as the finger has to move to the corner
 categories: ['vim']
 tags: ['vim', 'keymaps']
 keywords: ['vim', 'keymap']
-banner: './images/banner.jpg'
+banner: './images/banner.png'
 ---
 
 ---
