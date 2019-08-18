@@ -17,9 +17,8 @@ export interface Frontmatter {
   keywords?: string[] = [];
   categories?: string[] | any = [];
   tags?: string[] | any = [];
-  banner?: {childImageSharp: { fluid: any } };
+  banner?: { childImageSharp: { fluid: any } };
 }
-
 
 export interface Mdx {
   edges: [];
