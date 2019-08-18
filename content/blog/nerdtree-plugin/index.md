@@ -1,6 +1,7 @@
 ---
 slug: '/nerdtree'
 date: '2016-07-13T03:49:16.408Z'
+updatedDate: '2019-08-09'
 title: 'Nerd tree'
 description: 'Nerd tree Description ...'
 categories: ['vim']

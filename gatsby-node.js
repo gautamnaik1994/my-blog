@@ -254,6 +254,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     });
 
     createNodeField({
+      name: 'updatedDate',
+      node,
+      value: node.frontmatter.updatedDate || '',
+    });
+
+    createNodeField({
       name: 'banner',
       node,
       banner: node.frontmatter.banner,

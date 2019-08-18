@@ -1,6 +1,7 @@
 ---
 slug: '/react-book'
 date: '2012-07-14T03:49:16.408Z'
+updatedDate: '2019-08-09'
 title: 'The Road to learn React'
 description: 'The Road to learn React Description ...'
 categories: ['web dev']

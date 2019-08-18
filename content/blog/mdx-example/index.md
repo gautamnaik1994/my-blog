@@ -1,6 +1,7 @@
 ---
 slug: '/mdx-example'
 date: '2013-07-13T03:49:16.408Z'
+updatedDate: '2019-08-09'
 title: 'MDX Example'
 description: 'MDX Example Description ...'
 categories: ['mdx']

@@ -13,6 +13,7 @@ export interface Frontmatter {
   title?: string = '';
   slug?: string = '';
   date?: string = '';
+  updatedDate?: string = '';
   description?: string = '';
   keywords?: string[] = [];
   categories?: string[] | any = [];

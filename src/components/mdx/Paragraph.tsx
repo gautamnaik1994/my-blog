@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default styled.p`
   font-family: 'Merriweather', serif;
   text-align: left;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.58;
   letter-spacing: -0.003em;
 `;

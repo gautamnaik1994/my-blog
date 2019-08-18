@@ -1,6 +1,7 @@
 ---
 slug: '/graphql-book'
 date: '2014-07-18T13:35:13.234Z'
+updatedDate: '2019-08-09'
 title: 'The Road to GraphQL'
 description: 'GraphQL Description ...'
 categories: ['web dev']

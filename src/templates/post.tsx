@@ -144,7 +144,7 @@ export default ({
             </div>
             <div>
               <div className="title">Updated on </div>
-              <div className="value">{mdx.frontmatter.date}</div>
+              <div className="value">{mdx.frontmatter.updatedDate}</div>
             </div>
           </MetaDataContainer>
           <MDXRenderer>{mdx.body}</MDXRenderer>
@@ -170,6 +170,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMM D, 'YY")
+        updatedDate(formatString: "MMM D, 'YY")
         banner {
           childImageSharp {
             fluid(maxWidth: 650, srcSetBreakpoints: [400]) {

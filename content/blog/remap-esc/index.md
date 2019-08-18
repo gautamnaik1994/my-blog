@@ -1,6 +1,7 @@
 ---
 slug: '/remap-esc'
 date: '2011-07-18T13:35:13.234Z'
+updatedDate: '2019-08-09'
 title: 'Why should we remap Escape key'
 description: 'Pressing Esc key is tiring as the finger has to move to the corner...'
 categories: ['vim']

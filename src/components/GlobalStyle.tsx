@@ -155,7 +155,7 @@ export const GlobalStyle = createGlobalStyle<Props>`
   }
   :not(pre) > code[class*='language-'] {
     padding: 2px 8px;
-    font-size: 0.85rem;
+    font-size: 0.85em;
     color: #38ff64;
     background: #404040;
   }
