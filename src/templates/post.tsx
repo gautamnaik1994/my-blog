@@ -90,11 +90,33 @@ const Title = styled.h1`
   }
 `;
 
+const MetaDataContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  .title {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 2px;
+  }
+  .value {
+    font-size: 14px;
+  }
+
+  ${media.tablet} {
+    .title {
+      font-size: 14px;
+    }
+    .value {
+      font-size: 16px;
+    }
+  }
+`;
+
 export default ({
   data: { site, mdx },
   pageContext: { next, prev },
 }: Props) => {
-  console.log('Post Props ', mdx);
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
       <Grid>
@@ -111,10 +133,20 @@ export default ({
         )}
         <Post>
           <Title>{mdx.frontmatter.title}</Title>
-          <small>{mdx.frontmatter.date}</small>
-          <div className="half-rem-mt two-rem-mb">
-            <Badge name={mdx.frontmatter.categories[0]} />
-          </div>
+          <MetaDataContainer>
+            <div className="">
+              <div className="title">Posted in</div>
+              <Badge name={mdx.frontmatter.categories[0]} />
+            </div>
+            <div>
+              <div className="title">Published on </div>
+              <div className="value">{mdx.frontmatter.date}</div>
+            </div>
+            <div>
+              <div className="title">Updated on </div>
+              <div className="value">{mdx.frontmatter.date}</div>
+            </div>
+          </MetaDataContainer>
           <MDXRenderer>{mdx.body}</MDXRenderer>
           <Pagination
             insidePost
@@ -137,7 +169,7 @@ export const pageQuery = graphql`
     mdx(fields: { id: { eq: $id } }) {
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMM D, 'YY")
         banner {
           childImageSharp {
             fluid(maxWidth: 650, srcSetBreakpoints: [400]) {

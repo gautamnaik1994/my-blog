@@ -73,7 +73,7 @@
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
     "lint:fix": "npm run lint --fix",
-    "format": "prettier --write \"src/**/*.tsx\" \"*.js\"",
+    "format": "prettier --write \"src/**/*.tsx\" \"src/**/*.ts\" \"*.js\"",
     "format-md": "prettier --write \"content/**/*.md\"",
     "gentags": "genCtags.bat"
   }
