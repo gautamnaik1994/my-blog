@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useLayoutEffect } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
@@ -90,10 +90,11 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
     localStorage.setItem('theme', currentTheme);
   };
 
-  // useEffect(() => {
-  //   toggleTheme(localStorage.getItem('theme') || 'dark');
+  // useLayoutEffect(() => {
+  //   // toggleTheme(localStorage.getItem('theme') || 'light');
+  //   setTheme('dark');
   //   console.log('USE useEffect');
-  // }, [theme]);
+  // }, []);
 
   return (
     <Fragment>
