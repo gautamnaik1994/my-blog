@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import media from '../utils/MediaQueries';
-import SvgLogo from './Logo';
+import NamedLogo from './NamedLogo';
 
 const Footer = styled.footer`
   min-height: 150px;
@@ -18,10 +18,6 @@ const Footer = styled.footer`
   .inner {
     grid-column: 3/4;
   }
-  svg {
-    width: 30px;
-    height: 30px;
-  }
 `;
 
 const Grid = styled.div``;
@@ -29,7 +25,7 @@ const Grid = styled.div``;
 export default () => (
   <Footer>
     <div className="inner">
-      <SvgLogo />
+      <NamedLogo />
       <p>
         Consectetur exercitationem ipsam eligendi consequuntur quasi. Labore
         exercitationem repudiandae similique necessitatibus optio Soluta nisi ab

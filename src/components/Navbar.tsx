@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import theme from 'styled-theming';
 import Link from './Link';
-import SvgLogo from './Logo';
+import NamedLogo from './NamedLogo';
 import ThemeChooser from './ThemeChooser';
 
 const NAVIGATION = [{ to: 'https://gautamnaik.netlify.com/', label: 'About' }];
@@ -33,17 +33,17 @@ const Navbar = styled.nav`
 `;
 
 const HomeLink = styled(Link)`
-  width: 60px;
+  //width: 60px;
   height: 60px;
   margin-right: auto;
   padding: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
-  svg {
-    width: 30px;
+  /* svg {
+    width: 40px;
     height: 30px;
-  }
+  } */
 `;
 
 interface Props {
@@ -54,7 +54,7 @@ interface Props {
 export default ({ toggleTheme, className }: Props) => (
   <Navbar className={className}>
     <HomeLink title="Gautam Blogs" to="/">
-      <SvgLogo />
+      <NamedLogo />
     </HomeLink>
     {NAVIGATION.map(navigation => (
       <Link key={navigation.label} title={navigation.label} to={navigation.to}>

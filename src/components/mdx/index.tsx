@@ -11,7 +11,7 @@ export const MDXLayoutComponents = {
   //h2: (props: any) => <Subtitle {...props} />,
   p: (props: any) => <Paragraph {...props} />,
   ul: (props: any) => <List {...props} />,
-  h3: (props: any) => <H3 {...props} />,
+  //h3: (props: any) => <H3 {...props} />,
 };
 
 export const MDXGlobalComponents = {

@@ -31,7 +31,7 @@ const Categories = styled.ul`
     background: transparent;
     white-space: normal;
     overflow: hidden;
-    height: calc(100vh - 250px);
+    height: calc(100vh - 255px);
     text-align: left;
   }
 `;
