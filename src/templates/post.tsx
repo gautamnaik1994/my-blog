@@ -58,10 +58,11 @@ const Banner = styled.div<BannerProps>`
 `;
 
 const Post = styled.div`
-  padding: 20px 15px 15px 15px;
+  padding: 20px 15px 50px 15px;
   grid-column: 3/4;
   background: ${postBgColor};
   box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.126);
+  margin-bottom: 25px;
 `;
 
 interface Props {

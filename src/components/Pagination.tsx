@@ -45,7 +45,9 @@ const MobileStyleForPost = css`
     border-top-right-radius: 3px !important;
     background: transparent;
     color: var(--primary);
-    border: 2px dotted var(--primary);
+    //border: 2px dotted var(--primary);
+    box-shadow: 0 0 0 0.03em var(--primary);
+    padding: 8px 10px;
     &.right {
       text-align: right;
     }
