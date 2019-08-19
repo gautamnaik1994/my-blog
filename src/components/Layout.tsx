@@ -70,13 +70,21 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
 
   const keywords = (frontmatterKeywords || siteKeywords).join(', ');
   const description = frontmatterDescription || siteDescription;
-  const initialThemeValue =
-    (typeof window !== 'undefined' &&
-      window.localStorage &&
-      localStorage.getItem('theme')) ||
-    'light';
+  //const initialThemeValue = (typeof window !== 'undefined' && window.localStorage && localStorage.getItem('theme')) || 'light';
 
-  const [theme, setTheme] = useState<string | undefined>(initialThemeValue);
+  let initialThemeValue;
+  if (typeof window !== 'undefined' && window.localStorage) {
+    if (localStorage.getItem('theme') === null) {
+      localStorage.setItem('theme', 'light');
+      initialThemeValue = 'light';
+    } else {
+      initialThemeValue = localStorage.getItem('theme');
+    }
+  }
+
+  const [theme, setTheme] = useState<string | undefined | null>(
+    initialThemeValue,
+  );
 
   const toggleTheme = (): void => {
     const currentTheme = theme === 'light' ? 'dark' : 'light';
@@ -103,6 +111,7 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
           href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600,700|Merriweather:400,400i,700&display=swap"
           rel="stylesheet"
         />
+        <meta name="robots" content="noindex" />
         <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
       </Helmet>
       <ThemeProvider
