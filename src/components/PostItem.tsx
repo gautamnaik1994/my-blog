@@ -1,11 +1,10 @@
 import React from 'react';
-import styled, { keyframes, css } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import theme from 'styled-theming';
 import Paragraph from './mdx/Paragraph';
-import { darken, lighten } from 'polished';
+import { lighten } from 'polished';
 import Link from './Link';
 import Badge from './Badge';
-import CategoryItem from './CategoryItem';
 import media from '../utils/MediaQueries';
 import { darkBackgroundColor } from '../utils/colors';
 
