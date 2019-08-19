@@ -72,19 +72,17 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
   const description = frontmatterDescription || siteDescription;
   //const initialThemeValue = (typeof window !== 'undefined' && window.localStorage && localStorage.getItem('theme')) || 'light';
 
-  let initialThemeValue;
+  let initialThemeValue = 'light';
   if (typeof window !== 'undefined' && window.localStorage) {
     if (localStorage.getItem('theme') === null) {
       localStorage.setItem('theme', 'light');
       initialThemeValue = 'light';
     } else {
-      initialThemeValue = localStorage.getItem('theme');
+      initialThemeValue = localStorage.getItem('theme') || 'light';
     }
   }
 
-  const [theme, setTheme] = useState<string | undefined | null>(
-    initialThemeValue,
-  );
+  const [theme, setTheme] = useState<string>(initialThemeValue);
 
   const toggleTheme = (): void => {
     const currentTheme = theme === 'light' ? 'dark' : 'light';
