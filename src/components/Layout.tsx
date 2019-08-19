@@ -114,7 +114,7 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
       </Helmet>
       <ThemeProvider
         theme={{
-          mode: theme,
+          mode: theme || initialThemeValue,
           primary: theme === 'light' ? primaryCol : desaturatedPrimaryCol,
         }}
       >
