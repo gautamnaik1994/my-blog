@@ -72,17 +72,18 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
   const description = frontmatterDescription || siteDescription;
   //const initialThemeValue = (typeof window !== 'undefined' && window.localStorage && localStorage.getItem('theme')) || 'light';
 
-  let initialThemeValue = 'light';
-  if (typeof window !== 'undefined' && window.localStorage) {
-    if (localStorage.getItem('theme') === null) {
-      localStorage.setItem('theme', 'light');
-      initialThemeValue = 'light';
-    } else {
-      initialThemeValue = localStorage.getItem('theme') || 'light';
-    }
-  }
+  //let initialThemeValue = 'light';
+  //if (typeof window !== 'undefined' && window.localStorage) {
+  //if (localStorage.getItem('theme') === null) {
+  //localStorage.setItem('theme', 'light');
+  //initialThemeValue = 'light';
+  //} else {
+  //initialThemeValue = localStorage.getItem('theme') || 'light';
+  //}
+  //}
+  //
 
-  const [theme, setTheme] = useState<string>(initialThemeValue);
+  const [theme, setTheme] = useState<string | null>(null);
 
   const toggleTheme = (): void => {
     const currentTheme = theme === 'light' ? 'dark' : 'light';
@@ -90,11 +91,22 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
     setTheme(currentTheme);
   };
 
-  // useLayoutEffect(() => {
-  //   toggleTheme(localStorage.getItem('theme') || 'light');
-  //   setTheme(initialThemeValue);
-  //   console.log('USE useEffect');
-  // }, []);
+  useEffect(() => {
+    let initialThemeValue = 'light';
+    if (matchMedia('(prefers-color-scheme: dark)').matches) {
+      initialThemeValue = 'dark';
+    }
+    //if (typeof window !== 'undefined' && window.localStorage) {
+    //if (localStorage.getItem('theme') === null) {
+    //localStorage.setItem('theme', 'light');
+    //initialThemeValue = 'light';
+    //} else {
+    //initialThemeValue = localStorage.getItem('theme') || 'light';
+    //}
+    //}
+    localStorage.setItem('theme', initialThemeValue);
+    setTheme(initialThemeValue);
+  }, []);
 
   return (
     <Fragment>
@@ -115,7 +127,7 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
       </Helmet>
       <ThemeProvider
         theme={{
-          mode: theme || initialThemeValue,
+          mode: theme || null,
           primary: theme === 'light' ? primaryCol : desaturatedPrimaryCol,
         }}
       >
