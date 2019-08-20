@@ -28,7 +28,7 @@ import { primaryCol, desaturatedPrimaryCol } from '../utils/colors';
 //const desaturatedPrimaryCol = '#9fa8da';
 
 interface MyState {
-  theme: string;
+  theme: string | null;
   site: Site;
   frontmatter: Frontmatter;
 }
@@ -36,17 +36,17 @@ interface MyState {
 class Layout extends React.Component<LayoutProps, MyState> {
   public constructor(props: LayoutProps) {
     super(props);
-    let initialThemeValue = 'light';
-    if (typeof window !== 'undefined' && window.localStorage) {
-      if (localStorage.getItem('theme') === null) {
-        localStorage.setItem('theme', 'light');
-        initialThemeValue = 'light';
-      } else {
-        initialThemeValue = localStorage.getItem('theme') || 'light';
-      }
-    }
+    //let initialThemeValue = 'light';
+    // if (typeof window !== 'undefined' && window.localStorage) {
+    //   if (localStorage.getItem('theme') === null) {
+    //     localStorage.setItem('theme', 'light');
+    //     initialThemeValue = 'light';
+    //   } else {
+    //     initialThemeValue = localStorage.getItem('theme') || 'light';
+    //   }
+    // }
     this.state = {
-      theme: initialThemeValue,
+      theme: null,
       site: props.data.site,
       frontmatter: props.data.frontmatter || {},
     };
@@ -57,6 +57,21 @@ class Layout extends React.Component<LayoutProps, MyState> {
     localStorage.setItem('theme', currentTheme);
     this.setState({ theme: currentTheme });
   };
+
+  public componentDidMount() {
+    let initialThemeValue = 'light';
+    if (typeof window !== 'undefined' && window.localStorage) {
+      if (localStorage.getItem('theme') === null) {
+        localStorage.setItem('theme', 'light');
+        initialThemeValue = 'light';
+      } else {
+        initialThemeValue = localStorage.getItem('theme') || 'light';
+      }
+    }
+    this.setState({
+      theme: initialThemeValue,
+    });
+  }
 
   public render() {
     const {
@@ -91,7 +106,7 @@ class Layout extends React.Component<LayoutProps, MyState> {
         </Helmet>
         <ThemeProvider
           theme={{
-            mode: this.state.theme,
+            mode: this.state.theme || null,
             primary:
               this.state.theme === 'light' ? primaryCol : desaturatedPrimaryCol,
           }}
