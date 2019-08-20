@@ -86,13 +86,13 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
 
   const toggleTheme = (): void => {
     const currentTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(currentTheme);
     localStorage.setItem('theme', currentTheme);
+    setTheme(currentTheme);
   };
 
   // useLayoutEffect(() => {
-  //   // toggleTheme(localStorage.getItem('theme') || 'light');
-  //   setTheme('dark');
+  //   toggleTheme(localStorage.getItem('theme') || 'light');
+  //   setTheme(initialThemeValue);
   //   console.log('USE useEffect');
   // }, []);
 
@@ -111,7 +111,7 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
           rel="stylesheet"
         />
         <meta name="robots" content="noindex" />
-        <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+        <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver" />
       </Helmet>
       <ThemeProvider
         theme={{
