@@ -28,6 +28,7 @@ export interface Mdx {
 }
 
 export interface LayoutProps {
+  data: any = {};
   site: Site;
   frontmatter?: Frontmatter;
   children: {};

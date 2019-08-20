@@ -165,7 +165,11 @@ export default ({
 export const pageQuery = graphql`
   query($id: String!) {
     site {
-      ...site
+      siteMetadata {
+        title
+        description
+        keywords
+      }
     }
     mdx(fields: { id: { eq: $id } }) {
       frontmatter {

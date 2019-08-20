@@ -65,7 +65,7 @@
   "main": "n/a",
   "scripts": {
     "prestart": "rimraf .cache",
-    "start": "gatsby develop -o -H 0.0.0.0 -p 8000",
+    "start": "gatsby develop -o -H 0.0.0.0 -p 8080",
     "debug": "node --inspect node_modules/.bin/gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve -o",

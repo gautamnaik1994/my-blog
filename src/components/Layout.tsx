@@ -1,8 +1,7 @@
 import React, { Fragment, useState, useEffect, useLayoutEffect } from 'react';
 import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-import styled from 'styled-components';
-import { desaturate } from 'polished';
+import { StaticQuery, useStaticQuery, graphql } from 'gatsby';
+
 import '../global.d.ts';
 // @ts-ignore
 import { MDXProvider } from '@mdx-js/react';
@@ -12,28 +11,12 @@ import 'sanitize.css/typography.css';
 import 'sanitize.css/forms.css';
 import '../styles/style.css';
 import Navbar from './Navbar';
-import Hero from './Hero';
 import Footer from './Footer';
 import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
 import { GlobalStyle } from './GlobalStyle';
-import { LayoutProps } from '../types';
+import { LayoutProps, Site, Frontmatter } from '../types';
 import { ThemeProvider } from 'styled-components';
-import media from '../utils/MediaQueries';
 import { primaryCol, desaturatedPrimaryCol } from '../utils/colors';
-//const setTheme = (theme: string): void => {
-//console.log('Change Theme');
-//switch (theme) {
-//case themes.LIGHT:
-//theme = themes.LIGHT;
-//break;
-//case themes.DARK:
-//theme = themes.DARK;
-//break;
-//default:
-//theme = themes.LIGHT;
-//}
-//console.log(' Theme = ', theme);
-//};
 
 // interface LayoutProps {
 //   site: Site;
@@ -44,18 +27,97 @@ import { primaryCol, desaturatedPrimaryCol } from '../utils/colors';
 //const primaryCol = '#3F51B5';
 //const desaturatedPrimaryCol = '#9fa8da';
 
-const Grid = styled.div`
-  ${media.tablet} {
-    display: grid;
-    grid-template-columns:
-      auto minmax(auto, 200px) minmax(550px, 650px) minmax(0, 200px)
-      auto;
-    //grid-template-rows: minmax(0, 50vh) auto;
-    grid-gap: 15px;
-  }
-  margin-top: 60px;
-`;
+interface MyState {
+  theme: string;
+  site: Site;
+  frontmatter: Frontmatter;
+}
 
+class Layout extends React.Component<LayoutProps, MyState> {
+  public constructor(props: LayoutProps) {
+    super(props);
+    let initialThemeValue = 'light';
+    if (typeof window !== 'undefined' && window.localStorage) {
+      if (localStorage.getItem('theme') === null) {
+        localStorage.setItem('theme', 'light');
+        initialThemeValue = 'light';
+      } else {
+        initialThemeValue = localStorage.getItem('theme') || 'light';
+      }
+    }
+    this.state = {
+      theme: initialThemeValue,
+      site: props.data.site,
+      frontmatter: props.data.frontmatter || {},
+    };
+  }
+
+  private toggleTheme = (): void => {
+    const currentTheme = this.state.theme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', currentTheme);
+    this.setState({ theme: currentTheme });
+  };
+
+  public render() {
+    const {
+      title,
+      description: siteDescription,
+      keywords: siteKeywords,
+    } = this.state.site.siteMetadata;
+
+    const {
+      keywords: frontmatterKeywords,
+      description: frontmatterDescription,
+    } = this.state.frontmatter;
+
+    const keywords = (frontmatterKeywords || siteKeywords).join(', ');
+    const description = frontmatterDescription || siteDescription;
+    return (
+      <Fragment>
+        <Helmet
+          title={title}
+          meta={[
+            { name: 'description', content: description },
+            { name: 'keywords', content: keywords },
+          ]}
+        >
+          <html lang="en" />
+          <link
+            href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600,700|Merriweather:400,400i,700&display=swap"
+            rel="stylesheet"
+          />
+          <meta name="robots" content="noindex" />
+          <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver" />
+        </Helmet>
+        <ThemeProvider
+          theme={{
+            mode: this.state.theme,
+            primary:
+              this.state.theme === 'light' ? primaryCol : desaturatedPrimaryCol,
+          }}
+        >
+          <Fragment>
+            <GlobalStyle />
+            <MDXProvider
+              components={{
+                ...MDXLayoutComponents,
+                ...MDXGlobalComponents,
+              }}
+            >
+              <Fragment>
+                <Navbar toggleTheme={this.toggleTheme} />
+                {this.props.children}
+                <Footer />
+              </Fragment>
+            </MDXProvider>
+          </Fragment>
+        </ThemeProvider>
+      </Fragment>
+    );
+  }
+}
+
+/*
 export default ({ site, frontmatter = {}, children }: LayoutProps) => {
   const {
     title,
@@ -149,3 +211,35 @@ export const pageQuery = graphql`
     }
   }
 `;
+*/
+
+export default (props: any = {}) => (
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            keywords
+          }
+        }
+      }
+    `}
+    render={data => <Layout data={data} {...props} />}
+  />
+);
+
+// export default (props: any) => {
+//   const data = useStaticQuery(graphql`
+//     fragment site on Site {
+//       siteMetadata {
+//         title
+//         description
+//         author
+//         keywords
+//       }
+//     }
+//   `);
+//   return <Layout data={data} {...props} />;
+// };

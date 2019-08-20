@@ -117,7 +117,11 @@ export default Blog;
 export const pageQuery = graphql`
   query {
     site {
-      ...site
+      siteMetadata {
+        title
+        description
+        keywords
+      }
     }
     allMdx {
       edges {
