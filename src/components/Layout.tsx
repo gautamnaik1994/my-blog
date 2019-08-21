@@ -92,19 +92,19 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
   };
 
   useEffect(() => {
-    let initialThemeValue = 'light';
-    if (matchMedia('(prefers-color-scheme: dark)').matches) {
-      initialThemeValue = 'dark';
+    let initialThemeValue = theme;
+    if (localStorage.getItem('theme') === null) {
+      if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        initialThemeValue = 'dark';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+        initialThemeValue = 'light';
+      }
+    } else {
+      initialThemeValue = localStorage.getItem('theme') || 'light';
     }
-    //if (typeof window !== 'undefined' && window.localStorage) {
-    //if (localStorage.getItem('theme') === null) {
-    //localStorage.setItem('theme', 'light');
-    //initialThemeValue = 'light';
-    //} else {
-    //initialThemeValue = localStorage.getItem('theme') || 'light';
-    //}
-    //}
-    localStorage.setItem('theme', initialThemeValue);
+    //localStorage.setItem('theme', initialThemeValue);
     setTheme(initialThemeValue);
   }, []);
 
