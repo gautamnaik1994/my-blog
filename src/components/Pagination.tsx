@@ -39,15 +39,15 @@ const MobileStyleForPost = css`
     border-radius: 3px;
     width: auto;
     max-width: none;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 18px;
+    //font-weight: 400;
     border-top-left-radius: 3px !important;
     border-top-right-radius: 3px !important;
     background: transparent;
     color: var(--primary);
     //border: 2px dotted var(--primary);
-    box-shadow: 0 0 0 0.03em var(--primary);
-    padding: 8px 10px;
+    //box-shadow: 0 0 0 0.03em var(--primary);
+    padding: 8px 0px;
     &.right {
       text-align: right;
     }

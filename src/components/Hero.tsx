@@ -39,7 +39,7 @@ const Name = styled.div<NameProps>`
   font-weight: bold;
   line-height: 23px;
   transition: margin-left 1s cubic-bezier(0.43, 1.01, 0.57, 1.18) 0.5s;
-  font-family: 'Merriweather', serif;
+  //font-family: 'Merriweather', serif;
   position: relative;
   z-index: -1;
   margin-left: ${props => props.marginLeft}px;

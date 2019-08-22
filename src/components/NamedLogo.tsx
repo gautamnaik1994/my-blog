@@ -26,7 +26,7 @@ const Name = styled.div`
   color: var(--bodyColor);
   font-weight: bold;
   line-height: 20px;
-  font-family: 'Merriweather', serif;
+  //font-family: 'Merriweather', serif;
   position: relative;
   ${media.tablet} {
   }
