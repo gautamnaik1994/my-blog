@@ -1,11 +1,17 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import theme from 'styled-theming';
 import media from '../utils/MediaQueries';
 import NamedLogo from './NamedLogo';
 
+const DividerColor = theme('mode', {
+  light: '#dbdbdb',
+  dark: '#414141',
+});
+
 const Footer = styled.footer`
   min-height: 150px;
-  border-top: 1px solid #262626;
+  border-top: 1px solid ${DividerColor};
   border-bottom: 8px solid var(--primary);
   ${media.tablet} {
     display: grid;
@@ -13,7 +19,6 @@ const Footer = styled.footer`
       auto minmax(auto, 200px) minmax(550px, 650px) minmax(0, 200px)
       auto;
     grid-gap: 15px;
-    margin-top: 25px;
   }
   .inner {
     padding: 15px 15px 35px 15px;

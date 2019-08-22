@@ -84,6 +84,7 @@ const CustomImg = styled(Img)`
 const Title = styled.h1`
   margin-bottom: 0;
   margin-top: 0;
+  font-variant-ligatures: none;
   ${media.tablet} {
     font-weight: 600;
     font-size: 36px;

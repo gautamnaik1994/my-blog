@@ -6,12 +6,21 @@ import Link from './Link';
 import NamedLogo from './NamedLogo';
 import ThemeChooser from './ThemeChooser';
 
-const NAVIGATION = [{ to: 'https://gautamnaik.netlify.com/', label: 'About' }];
+const NAVIGATION = [
+  { to: 'https://gautamnaik.netlify.com/', label: 'About Me' },
+  { to: 'https://gautamnaik.netlify.com/', label: 'Github' },
+];
 
 const navBarBgColor = theme('mode', {
   light: '#fff',
   dark: lighten(0.15, '#121212'),
 });
+
+const NavLink = styled(Link)`
+  & + & {
+    margin-left: 15px;
+  }
+`;
 
 const Navbar = styled.nav`
   transition: background-color 0.3s ease-in;
@@ -28,7 +37,7 @@ const Navbar = styled.nav`
   width: 100%;
   z-index: 2;
   button {
-    margin-left: 5px;
+    //margin-left: 5px;
   }
 `;
 
@@ -57,9 +66,13 @@ export default ({ toggleTheme, className }: Props) => (
       <NamedLogo />
     </HomeLink>
     {NAVIGATION.map(navigation => (
-      <Link key={navigation.label} title={navigation.label} to={navigation.to}>
+      <NavLink
+        key={navigation.label}
+        title={navigation.label}
+        to={navigation.to}
+      >
         {navigation.label}
-      </Link>
+      </NavLink>
     ))}
     <ThemeChooser toggleTheme={toggleTheme} />
   </Navbar>

@@ -43,6 +43,9 @@ const PostItem = styled.div`
   position: relative;
   background: ${backgroundColor};
   border-bottom: 0;
+  h2 {
+    font-variant-ligatures: none;
+  }
   &:before {
     content: '';
     position: absolute;

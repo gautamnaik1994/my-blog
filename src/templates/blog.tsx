@@ -24,7 +24,7 @@ const Grid = styled.div`
 `;
 const BlogWrapper = styled.div`
   grid-column: 3/4;
-  padding: 0px 10px;
+  padding: 0px 10px 30px 10px;
 `;
 
 const HeroWrapper = styled.div`

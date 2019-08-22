@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export default styled.p`
   font-family: 'Merriweather', serif;
+  font-family: 'Ubuntu', serif;
   text-align: left;
   font-size: 18px;
   line-height: 1.58;

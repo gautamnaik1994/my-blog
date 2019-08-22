@@ -17,6 +17,7 @@ const ThemeChooser = styled.button`
   border: none;
   outline: none;
   font-size: 25px;
+  margin-left: 15px;
   span {
     display: inline-block;
   }
