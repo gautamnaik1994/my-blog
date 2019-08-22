@@ -7,15 +7,16 @@ const Footer = styled.footer`
   min-height: 150px;
   border-top: 1px solid #262626;
   border-bottom: 8px solid var(--primary);
-  padding: 15px 15px 35px 15px;
   ${media.tablet} {
     display: grid;
     grid-template-columns:
       auto minmax(auto, 200px) minmax(550px, 650px) minmax(0, 200px)
       auto;
     grid-gap: 15px;
+    margin-top: 25px;
   }
   .inner {
+    padding: 15px 15px 35px 15px;
     grid-column: 3/4;
   }
 `;
