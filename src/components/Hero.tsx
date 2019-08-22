@@ -14,16 +14,16 @@ const bgAnim = keyframes`
 `;
 
 const StyledLogo = styled(Logo)`
+  width: 22px;
   background-color: white;
+  padding: 10px 19px;
+  border-radius: 10px;
   box-shadow: 0 0 7px 0px #8b8b8b;
-  padding: 8px 14px;
-  width: 16px;
-  border-radius: 8px;
   box-sizing: content-box;
   ${media.tablet} {
-    width: 21px;
-    padding: 10px 18px;
-    border-radius: 11px;
+    width: 31px;
+    padding: 14px 26px;
+    border-radius: 18px;
   }
 `;
 
