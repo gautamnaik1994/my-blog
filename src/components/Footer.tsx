@@ -37,7 +37,10 @@ const Footer = styled.footer`
   }
 `;
 
-const Grid = styled.div``;
+const getYear = () => {
+  let d = new Date();
+  return d.getFullYear();
+};
 
 export default () => (
   <Footer>
@@ -63,7 +66,7 @@ export default () => (
             Netlify
           </Link>
         </small>
-        <small>&copy; Copyright 2019, Gautam Blogs</small>
+        <small>&copy; Copyright {getYear()}, Gautam Blogs</small>
       </div>
     </div>
   </Footer>
