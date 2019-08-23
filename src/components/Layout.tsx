@@ -79,8 +79,14 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
         ]}
       >
         <html lang="en" />
+        {/*
         <link
           href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600,700|Merriweather:400,400i,700|Ubuntu:400,400i,700&display=swap"
+          rel="stylesheet"
+        />
+        */}
+        <link
+          href="https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700,700i&display=swap"
           rel="stylesheet"
         />
         <meta name="robots" content="noindex" />

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import theme from 'styled-theming';
 import media from '../utils/MediaQueries';
 import NamedLogo from './NamedLogo';
+import Link from './Link';
 
 const DividerColor = theme('mode', {
   light: '#dbdbdb',
@@ -12,7 +13,7 @@ const DividerColor = theme('mode', {
 const Footer = styled.footer`
   min-height: 150px;
   border-top: 1px solid ${DividerColor};
-  border-bottom: 8px solid var(--primary);
+  border-bottom: 5px solid var(--primary);
   ${media.tablet} {
     display: grid;
     grid-template-columns:
@@ -21,8 +22,18 @@ const Footer = styled.footer`
     grid-gap: 15px;
   }
   .inner {
-    padding: 15px 15px 35px 15px;
+    padding: 15px 15px 55px 15px;
     grid-column: 3/4;
+  }
+  .bottom-info {
+    text-align: center;
+    small {
+      display: block;
+    }
+    ${media.tablet} {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 `;
 
@@ -33,11 +44,27 @@ export default () => (
     <div className="inner">
       <NamedLogo />
       <p>
-        Consectetur exercitationem ipsam eligendi consequuntur quasi. Labore
-        exercitationem repudiandae similique necessitatibus optio Soluta nisi ab
-        nobis rerum eum? Ullam cupiditate animi hic deleniti explicabo! Cum modi
-        quasi neque commodi facere.{' '}
+        Gautam Blogs is created and maintained by Gautam Naik. If you see
+        anything broken, you are welcome to create a pull request here. To know
+        more about me, visit my personal website{' '}
+        <Link title="Personal Website Link" to="www.gautamnaik.netlify.com">
+          www.gautamnaik.netlify.com
+        </Link>
+        .
       </p>
+      <div className="bottom-info">
+        <small>
+          Built using{' '}
+          <Link title="GatsbyJs" to="https://www.gatsbyjs.org/">
+            GatsbyJs
+          </Link>{' '}
+          and hosted on{' '}
+          <Link title="Netlify" to="https://www.netlify.com/">
+            Netlify
+          </Link>
+        </small>
+        <small>&copy; Copyright 2019, Gautam Blogs</small>
+      </div>
     </div>
   </Footer>
 );

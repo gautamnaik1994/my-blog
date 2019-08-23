@@ -24,7 +24,7 @@ banner: './images/banner.png'
 - `%` : Get current file name
 - `.bak` : Arbitrary extension name for the file
 
-Sometimes we have a create a copy of current working file, just for trying out some new thing or feature.
+**_Sometimes_** we have a create a copy of current working file, just for trying out some new thing or feature.
 
 Offcourse, version control systems was made for this solving this problem.
 
