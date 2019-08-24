@@ -8,7 +8,7 @@ import ThemeChooser from './ThemeChooser';
 
 const NAVIGATION = [
   { to: 'https://gautamnaik.netlify.com/', label: 'About Me' },
-  { to: 'https://gautamnaik.netlify.com/', label: 'Github' },
+  { to: 'https://github.com/gautamnaik1994/my-blog', label: 'Github' },
 ];
 
 const navBarBgColor = theme('mode', {

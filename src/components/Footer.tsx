@@ -48,8 +48,14 @@ export default () => (
       <NamedLogo />
       <p>
         Gautam Blogs is created and maintained by Gautam Naik. If you see
-        anything broken, you are welcome to create a pull request here. To know
-        more about me, visit my personal website{' '}
+        anything broken, you are welcome to create a pull request&nbsp;
+        <Link
+          title="Github Link"
+          to="https://github.com/gautamnaik1994/my-blog"
+        >
+          here
+        </Link>
+        . To know more about me, visit my personal website{' '}
         <Link title="Personal Website Link" to="www.gautamnaik.netlify.com">
           www.gautamnaik.netlify.com
         </Link>
