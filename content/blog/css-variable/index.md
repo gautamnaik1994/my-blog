@@ -10,11 +10,9 @@ keywords: ['css', 'css-variables']
 banner: './images/banner.png'
 ---
 
-# CSS Variable
-
 CSS variables is a new addition to CSS. As the name says, we can now add custom variables, similar to SCSS, Less and Stylus.
 
-### EXAMPLE
+## EXAMPLE
 
 ```css
 :root {
@@ -55,7 +53,7 @@ CSS Variables can be also scoped to a particular element. This can be done by de
 Another cool thing that can be done using CSS variables is changing the `box-shadow` size of an element on hover.
 Before CSS variables, we had to write the following to change the `box-shadow` on hover.
 
-###### Before CSS variables
+### Before CSS variables
 
 ```css
 .button {
@@ -69,7 +67,7 @@ Before CSS variables, we had to write the following to change the `box-shadow` o
 
 Notice that we had to write the entire box-shadow syntax again.
 
-###### Using CSS Variables
+### Using CSS Variables
 
 ```css
 .button {
@@ -84,11 +82,11 @@ Notice that we had to write the entire box-shadow syntax again.
 
 As we can see, there is a lot of potential for this feature in terms of what we can do with it.
 
-### USAGE WITH SCSS
+## USAGE WITH SCSS
 
 Note that we can use this feature with SCSS/SASS if you want.
 
-### USAGE WITH STYLED COMPONENTS
+## USAGE WITH STYLED COMPONENTS
 
 [Styled Components](https://www.styled-components.com/) is component-based styling framework for
 [ Reactjs ](www.reactjs.org). This blog is built using styled-components. When using styled-components, we can define color variables in a dedicated file.
@@ -100,7 +98,7 @@ export const accentColor = '#ff8000';
 
 Then import it in any component. The advantage of this is that all color variable stays in the same place. The disadvantage of this method is that we have to import it wherever you want it.
 
-###### CSS Variables to the rescue
+### CSS Variables to the rescue
 
 If we use CSS Variables, we don't have to import it in every component. We can directly use it inside Styled Component.
 
