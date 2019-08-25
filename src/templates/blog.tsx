@@ -122,7 +122,7 @@ export const pageQuery = graphql`
     allMdx {
       edges {
         node {
-          excerpt(pruneLength: 300)
+          excerpt(pruneLength: 200)
           id
           frontmatter {
             title
