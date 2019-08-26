@@ -63,14 +63,6 @@ const CategoryItem = styled(Link)<CategoryItemProps>`
         min-width: 30px;
         height: 4px;
         background-image: linear-gradient(
-          90deg,
-          rgb(131, 237, 184) 0%,
-          rgb(131, 237, 184) 0.01%,
-          rgb(80, 188, 182) 33.15%,
-          rgb(239, 64, 86) 67.4%,
-          rgb(252, 182, 67) 100%
-        );
-        background-image: linear-gradient(
           115deg,
           #4fcf70,
           #fad648,
@@ -89,7 +81,7 @@ const CategoryItem = styled(Link)<CategoryItemProps>`
   box-shadow: ${boxShadow};
     padding: 3px 8px;
     border-radius: 3px;
-    margin: 5px;
+    margin: 5px 8px 5px 0;
     background-color: ${props =>
       props.activeCategory
         ? props.theme.primary

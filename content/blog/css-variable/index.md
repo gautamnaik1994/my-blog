@@ -1,7 +1,7 @@
 ---
 slug: '/css-variable'
 date: '2019-08-23'
-updatedDate: '2019-08-09'
+updatedDate: '2019-08-26'
 title: 'CSS Variables'
 description: 'Pressing Esc key is tiring as the finger has to move to the corner...'
 categories: ['css']
