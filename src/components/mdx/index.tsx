@@ -8,7 +8,7 @@ import Link from '../Link';
 
 export const MDXLayoutComponents = {
   //h1: (props: any) => <Title {...props} />,
-  //h2: (props: any) => <Subtitle {...props} />,
+  h2: (props: any) => <Subtitle {...props} />,
   p: (props: any) => <Paragraph {...props} />,
   ul: (props: any) => <List {...props} />,
   //h3: (props: any) => <H3 {...props} />,

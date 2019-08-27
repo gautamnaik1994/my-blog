@@ -205,7 +205,7 @@ exports.createPages = ({ actions, graphql }) =>
     createBlog(actions.createPage, edges);
     createPosts(actions.createPage, edges);
     createCategoryPages(actions.createPage, edges);
-    createTagPages(actions.createPage, edges);
+    //createTagPages(actions.createPage, edges);
   });
 
 exports.onCreateWebpackConfig = ({ actions }) => {
