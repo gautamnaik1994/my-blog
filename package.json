@@ -33,7 +33,7 @@
     "react-helmet": "~5.2.1",
     "react-youtube": "^7.9.0",
     "sanitize.css": "^11.0.0",
-    "styled-components": "^4.3.2",
+    "styled-components": "^5.0.0",
     "styled-theming": "^2.2.0"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "@types/react": "^16.9.1",
     "@types/react-dom": "^16.8.5",
     "@types/react-helmet": "^5.0.9",
-    "@types/styled-components": "^4.1.18",
+    "@types/styled-components": "5.1.0",
     "@types/styled-theming": "^2.2.2",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
