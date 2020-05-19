@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import theme from 'styled-theming';
 import { transparentize, lighten, desaturate } from 'polished';
@@ -14,10 +14,7 @@ const backgroundColor = theme('mode', {
   dark: (props: any) => transparentize(0.4, props.theme.primary),
 });
 
-const tone = compose(
-  desaturate(0.2),
-  lighten(0.1),
-);
+const tone = compose(desaturate(0.2), lighten(0.1));
 
 const textColor = theme('mode', {
   dark: (props: any) => tone(props.theme.primary),
@@ -30,7 +27,7 @@ interface Props {
 const Badge = styled(Link)`
   --blur: 7px;
   padding: 5px 8px;
-  background: ${props => transparentize(0.6, props.theme.primary)};
+  background: ${(props) => transparentize(0.6, props.theme.primary)};
   border-radius: 5px;
   font-size: 12px;
   font-weight: 700;

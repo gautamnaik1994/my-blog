@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect, useLayoutEffect } from 'react';
-import Helmet from 'react-helmet';
+import {Helmet} from "react-helmet";
 import { graphql } from 'gatsby';
 import '../global.d.ts';
 // @ts-ignore

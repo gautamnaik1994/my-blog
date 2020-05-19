@@ -1,11 +1,11 @@
 const path = require('path');
 
-const PAGINATION_OFFSET = 2;
+const PAGINATION_OFFSET = 4;
 
-const pluckCategories = edges =>
+const pluckCategories = (edges) =>
   Object.keys(
     edges.reduce((acc, value) => {
-      value.node.fields.categories.forEach(category => {
+      value.node.fields.categories.forEach((category) => {
         if (!acc[category]) {
           acc[category] = category;
         }
@@ -15,9 +15,9 @@ const pluckCategories = edges =>
     }, {}),
   );
 
-const groupByCategory = edges =>
+const groupByCategory = (edges) =>
   edges.reduce((acc, value) => {
-    value.node.fields.categories.forEach(category => {
+    value.node.fields.categories.forEach((category) => {
       if (!acc[category]) {
         acc[category] = [];
       }
@@ -26,10 +26,10 @@ const groupByCategory = edges =>
     return acc;
   }, {});
 
-const pluckTags = edges =>
+const pluckTags = (edges) =>
   Object.keys(
     edges.reduce((acc, value) => {
-      value.node.fields.tags.forEach(tag => {
+      value.node.fields.tags.forEach((tag) => {
         if (!acc[tag]) {
           acc[tag] = tag;
         }
@@ -39,9 +39,9 @@ const pluckTags = edges =>
     }, {}),
   );
 
-const groupByTag = edges =>
+const groupByTag = (edges) =>
   edges.reduce((acc, value) => {
-    value.node.fields.tags.forEach(tag => {
+    value.node.fields.tags.forEach((tag) => {
       if (!acc[tag]) {
         acc[tag] = [];
       }

@@ -55,7 +55,7 @@ export default () => (
         >
           here
         </Link>
-        . To know more about me, visit my personal website{' '}
+        . To know more about me, visit my website{' '}
         <Link title="Personal Website Link" to="www.gautamnaik.netlify.com">
           www.gautamnaik.netlify.com
         </Link>
