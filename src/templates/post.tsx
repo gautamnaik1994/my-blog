@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { lighten } from 'polished';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import theme from 'styled-theming';
 // @ts-ignore
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -11,7 +11,7 @@ import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
 import Badge from '../components/Badge';
 import { Site, Mdx, PageContext } from '../types';
-import { darkBackgroundColor, darkBackgroundTextColor } from '../utils/colors';
+import { darkBackgroundColor } from '../utils/colors';
 
 const bodyBackgroundColor = theme('mode', {
   light: '#f5f5f5',
@@ -43,7 +43,7 @@ const Banner = styled.div<BannerProps>`
   overflow: hidden;
   position: relative;
   .blur-container {
-    background-image: url(${props => props.bgImage});
+    background-image: url(${(props) => props.bgImage});
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

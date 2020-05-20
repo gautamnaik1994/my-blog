@@ -127,7 +127,7 @@ const PaginationWrapper = styled.div<PaginationWrapperProp>`
       }
     }
   }
-  ${props => props.insidePost && MobileStyleForPost}
+  ${(props) => props.insidePost && MobileStyleForPost}
 `;
 
 interface Props {

@@ -65,7 +65,7 @@ export default ({ toggleTheme, className }: Props) => (
     <HomeLink title="Gautam Blogs" to="/">
       <NamedLogo />
     </HomeLink>
-    {NAVIGATION.map(navigation => (
+    {NAVIGATION.map((navigation) => (
       <NavLink
         key={navigation.label}
         title={navigation.label}

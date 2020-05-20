@@ -20,7 +20,7 @@ The solution is to remap the <kbd>ESC</kbd> to <kbd>j</kbd><kbd>k</kbd>.
 
 ### Command
 
-```viml
+```vim
 inoremap jk <esc>
 ```
 
@@ -41,7 +41,7 @@ To break this habit, you will have to disable the <kbd>ESC</kbd> key.
 
 ### Command
 
-```viml
+```vim
 inoremap <esc> <nop>
 ```
 

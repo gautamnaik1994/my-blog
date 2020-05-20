@@ -5,7 +5,7 @@ export default <T extends any[], R>(
 ) => {
   const piped = fns.reduce(
     (prevFn, nextFn) => (value: R) => nextFn(prevFn(value)),
-    value => value,
+    (value) => value,
   );
   return (...args: T) => piped(fn1(...args));
 };

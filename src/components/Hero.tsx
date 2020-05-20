@@ -42,7 +42,7 @@ const Name = styled.div<NameProps>`
   //font-family: 'Merriweather', serif;
   position: relative;
   z-index: -1;
-  margin-left: ${props => props.marginLeft}px;
+  margin-left: ${(props) => props.marginLeft}px;
 
   ${media.tablet} {
     font-size: 33px;
@@ -56,7 +56,7 @@ interface HeroProps {
 
 const Hero = styled.header<HeroProps>`
   position: relative;
-  height: ${props => (props.showHero ? 30 : 0)}vh;
+  height: ${(props) => (props.showHero ? 30 : 0)}vh;
   background: rgba(0, 132, 255, 1);
   background-image: linear-gradient(
     243.4deg,
@@ -92,7 +92,7 @@ const Hero = styled.header<HeroProps>`
     }
   }
   ${media.tablet} {
-    height: ${props => (props.showHero ? 50 : 0)}vh;
+    height: ${(props) => (props.showHero ? 50 : 0)}vh;
   }
   .img-bg-2 {
     background-image: url('abstractbgOther.svg');

@@ -38,7 +38,7 @@ const Footer = styled.footer`
 `;
 
 const getYear = () => {
-  let d = new Date();
+  const d = new Date();
   return d.getFullYear();
 };
 

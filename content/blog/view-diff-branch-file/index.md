@@ -24,19 +24,19 @@ Refer to its docs for its usage and commands.
 
 #### To inspect the contents of a file for a supplied path.
 
-```viml
+```vim
 :Gvsplit branch_name:path_of_file
 ```
 
 #### To view the contents of the same file as the working file.
 
-```viml
+```vim
 :Gvsplit branch_name:%
 ```
 
 #### To compare files.
 
-```viml
+```vim
 :Gvdiffsplit branch_name:%
 ```
 

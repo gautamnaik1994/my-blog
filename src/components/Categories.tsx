@@ -1,7 +1,5 @@
-import React, { Fragment, useRef, useEffect } from 'react';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import Link from './Link';
+import React, { useRef, useEffect } from 'react';
+import styled from 'styled-components';
 import media from '../utils/MediaQueries';
 import CategoryItem from './CategoryItem';
 
@@ -40,8 +38,8 @@ export default ({ categories = [], activeCategoryIndex }: CategoryProps) => {
   const CategorierRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    var observer = new IntersectionObserver(
-      function(entries) {
+    const observer = new IntersectionObserver(
+      function (entries) {
         if (CategorierRef && CategorierRef.current) {
           // no intersection with screen
           if (entries[0].intersectionRatio < 1) {

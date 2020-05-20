@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useEffect } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { graphql } from 'gatsby';
 //import Img from 'gatsby-image';
 import styled from 'styled-components';

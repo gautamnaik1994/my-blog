@@ -14,10 +14,7 @@ interface Props {
   category: string;
 }
 
-const tone = compose(
-  desaturate(0.2),
-  lighten(0.1),
-);
+const tone = compose(desaturate(0.2), lighten(0.1));
 
 const textColor = theme('mode', {
   dark: (props: any) => tone(props.theme.primary),
@@ -53,7 +50,7 @@ const CategoryItem = styled(Link)<CategoryItemProps>`
     --blur: 20px;
     background: ${backgroundColor};
   }
-  ${props =>
+  ${(props) =>
     props.activeCategory &&
     css`
       &:after {
@@ -82,12 +79,12 @@ const CategoryItem = styled(Link)<CategoryItemProps>`
     padding: 3px 8px;
     border-radius: 3px;
     margin: 5px 8px 5px 0;
-    background-color: ${props =>
+    background-color: ${(props) =>
       props.activeCategory
         ? props.theme.primary
         : transparentize(0.6, props.theme.primary)};
     text-transform: capitalize;
-    ${props =>
+    ${(props) =>
       props.activeCategory &&
       css`
         color: ${textColorTablet};
