@@ -3,6 +3,7 @@ export interface SiteMetadata {
   description: string;
   author: string;
   keywords: string[];
+  siteUrl: string;
 }
 
 export interface Site {
@@ -28,7 +29,7 @@ export interface Mdx {
 }
 
 export interface LayoutProps {
-  site: Site;
+  site?: Site;
   frontmatter?: Frontmatter;
   children: {};
 }

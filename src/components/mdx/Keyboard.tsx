@@ -15,8 +15,4 @@ export default styled.kbd`
   white-space: nowrap;
   vertical-align: middle;
   font-weight: bold;
-  /* padding: 2px 5px;
-    border: 1px solid grey;
-    border-radius: 3px;
-    margin: 2px; */
 `;

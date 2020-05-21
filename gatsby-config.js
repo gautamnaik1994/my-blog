@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    siteUrl: 'https://gautamblogs.netlify.com/',
+    siteUrl: 'https://gautamblogs.netlify.app',
     author: 'Gautam Naik',
     title: 'Gautam Blogs',
     description: 'Blog will contain blogs',
@@ -60,5 +60,21 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-next-seo',
+      options: {
+        openGraph: {
+          type: 'website',
+          locale: 'en_IN',
+          url: 'https://gautamblogs.netlify.app/',
+          site_name: 'Gautam Blogs',
+        },
+        // twitter: {
+        //   handle: '@handle',
+        //   site: '@site',
+        //   cardType: 'summary_large_image',
+        // },
+      },
+    },
   ],
 };

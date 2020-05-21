@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import { lighten } from 'polished';
 import styled from 'styled-components';
 import theme from 'styled-theming';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 // @ts-ignore
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import media from '../utils/MediaQueries';
@@ -121,6 +122,19 @@ export default ({
 }: Props) => {
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
+      <GatsbySeo
+        title={mdx.frontmatter.title}
+        description={mdx.frontmatter.description}
+        canonical={`${site.siteMetadata.siteUrl}${mdx.frontmatter.slug}`}
+        metaTags={[
+          {
+            name: 'keywords',
+            content: mdx.frontmatter.keywords
+              ? mdx.frontmatter.keywords.join(',')
+              : '',
+          },
+        ]}
+      />
       <Grid>
         {mdx.frontmatter.banner && (
           <Banner bgImage={mdx.frontmatter.banner.childImageSharp.fluid.src}>
@@ -184,6 +198,7 @@ export const pageQuery = graphql`
         slug
         categories
         keywords
+        description
       }
       body
     }

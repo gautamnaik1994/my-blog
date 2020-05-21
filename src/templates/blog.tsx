@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react';
 import { graphql } from 'gatsby';
 //import Img from 'gatsby-image';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 //import Link from '../components/Link';
@@ -78,7 +79,15 @@ const Blog = ({
   }, []);
 
   return (
-    <Layout site={site}>
+    <Layout>
+      <GatsbySeo
+        title={site.siteMetadata.title}
+        description={site.siteMetadata.description}
+        canonical={site.siteMetadata.siteUrl}
+        metaTags={[
+          { name: 'keywords', content: site.siteMetadata.keywords.join(',') },
+        ]}
+      />
       <Grid>
         <HeroWrapper>
           <Hero showHero={showHero} title="Welcome to Blog" />

@@ -18,19 +18,20 @@ import { ThemeProvider } from 'styled-components';
 import { primaryCol, desaturatedPrimaryCol } from '../utils/colors';
 
 export default ({ site, frontmatter = {}, children }: LayoutProps) => {
-  const {
-    title,
-    description: siteDescription,
-    keywords: siteKeywords,
-  } = site.siteMetadata;
+  // const {
+  //   title,
+  //   description: siteDescription,
+  //   keywords: siteKeywords,
+  // } = site.siteMetadata;
 
-  const {
-    keywords: frontmatterKeywords,
-    description: frontmatterDescription,
-  } = frontmatter;
+  // const {
+  //   keywords: frontmatterKeywords,
+  //   description: frontmatterDescription,
+  // } = frontmatter;
 
-  const keywords = (frontmatterKeywords || siteKeywords).join(', ');
-  const description = frontmatterDescription || siteDescription;
+  // const keywords = (frontmatterKeywords || siteKeywords).join(', ');
+  // const description = frontmatterDescription || siteDescription;
+
   //const initialThemeValue = (typeof window !== 'undefined' && window.localStorage && localStorage.getItem('theme')) || 'light';
 
   //let initialThemeValue = 'light';
@@ -72,11 +73,11 @@ export default ({ site, frontmatter = {}, children }: LayoutProps) => {
   return (
     <Fragment>
       <Helmet
-        title={title}
-        meta={[
-          { name: 'description', content: description },
-          { name: 'keywords', content: keywords },
-        ]}
+      // title={title}
+      // meta={[
+      //   { name: 'description', content: description },
+      //   { name: 'keywords', content: keywords },
+      // ]}
       >
         <html lang="en" />
         {/*
@@ -125,6 +126,7 @@ export const pageQuery = graphql`
       description
       author
       keywords
+      siteUrl
     }
   }
 `;
