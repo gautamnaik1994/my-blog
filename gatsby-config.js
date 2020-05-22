@@ -69,6 +69,9 @@ module.exports = {
           url: 'https://gautamblogs.netlify.app/',
           site_name: 'Gautam Blogs',
         },
+        facebook: {
+          appId: 543210136344363,
+        },
         // twitter: {
         //   handle: '@handle',
         //   site: '@site',

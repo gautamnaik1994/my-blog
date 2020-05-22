@@ -125,7 +125,7 @@ export default ({
       <GatsbySeo
         title={mdx.frontmatter.title}
         description={mdx.frontmatter.description}
-        canonical={`${site.siteMetadata.siteUrl}${mdx.frontmatter.slug}`}
+        canonical={`${site.siteMetadata.siteUrl}${mdx.frontmatter.slug}/`}
         metaTags={[
           {
             name: 'keywords',
@@ -135,7 +135,7 @@ export default ({
           },
         ]}
         openGraph={{
-          url: `${site.siteMetadata.siteUrl}${mdx.frontmatter.slug}`,
+          url: `${site.siteMetadata.siteUrl}${mdx.frontmatter.slug}/`,
           title: mdx.frontmatter.title,
           description: mdx.frontmatter.description,
           images: [
