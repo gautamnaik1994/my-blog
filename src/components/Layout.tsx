@@ -90,7 +90,8 @@ export default ({ site, children }: LayoutProps) => {
           href="https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700,700i&display=swap"
           rel="stylesheet"
         />
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="all" />
+        <meta name="googlebot" content="all" />
         <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver" />
       </Helmet>
       <ThemeProvider
