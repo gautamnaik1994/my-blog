@@ -93,7 +93,7 @@ const Blog = ({
           description: site.siteMetadata.description,
           images: [
             {
-              url: `${site.siteMetadata.siteUrl}/public/banner.png`,
+              url: `${site.siteMetadata.siteUrl}/banner.png`,
               width: 1200,
               height: 630,
               alt: site.siteMetadata.title,
