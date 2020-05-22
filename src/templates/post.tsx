@@ -134,19 +134,29 @@ export default ({
               : '',
           },
         ]}
+        openGraph={{
+          url: `${site.siteMetadata.siteUrl}${mdx.frontmatter.slug}`,
+          title: mdx.frontmatter.title,
+          description: mdx.frontmatter.description,
+          images: [
+            {
+              url: `${site.siteMetadata.siteUrl}${mdx.frontmatter.banner.publicURL}`,
+              width: 1200,
+              height: 630,
+              alt: mdx.frontmatter.title,
+            },
+          ],
+        }}
       />
       <Grid>
-        {mdx.frontmatter.banner && (
-          <Banner bgImage={mdx.frontmatter.banner.childImageSharp.fluid.src}>
-            <div className="blur-container"></div>
-            {mdx.frontmatter.banner && (
-              <CustomImg
-                fluid={mdx.frontmatter.banner.childImageSharp.fluid}
-                alt={site.siteMetadata.keywords.join(', ')}
-              />
-            )}
-          </Banner>
-        )}
+        <Banner bgImage={mdx.frontmatter.banner.childImageSharp.fluid.src}>
+          <div className="blur-container"></div>
+          <CustomImg
+            fluid={mdx.frontmatter.banner.childImageSharp.fluid}
+            alt={site.siteMetadata.keywords.join(', ')}
+          />
+        </Banner>
+
         <Post>
           <Title>{mdx.frontmatter.title}</Title>
           <MetaDataContainer>
@@ -193,7 +203,7 @@ export const pageQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
-          absolutePath
+          publicURL
         }
         slug
         categories

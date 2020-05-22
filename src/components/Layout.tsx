@@ -17,7 +17,7 @@ import { LayoutProps } from '../types';
 import { ThemeProvider } from 'styled-components';
 import { primaryCol, desaturatedPrimaryCol } from '../utils/colors';
 
-export default ({ site, frontmatter = {}, children }: LayoutProps) => {
+export default ({ site, children }: LayoutProps) => {
   // const {
   //   title,
   //   description: siteDescription,

@@ -87,6 +87,19 @@ const Blog = ({
         metaTags={[
           { name: 'keywords', content: site.siteMetadata.keywords.join(',') },
         ]}
+        openGraph={{
+          url: site.siteMetadata.siteUrl,
+          title: site.siteMetadata.title,
+          description: site.siteMetadata.description,
+          images: [
+            {
+              url: `${site.siteMetadata.siteUrl}/public/banner.png`,
+              width: 1200,
+              height: 630,
+              alt: site.siteMetadata.title,
+            },
+          ],
+        }}
       />
       <Grid>
         <HeroWrapper>

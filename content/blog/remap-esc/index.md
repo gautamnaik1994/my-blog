@@ -32,8 +32,7 @@ inoremap jk <esc>
 
 When <kbd>j</kbd><kbd>k</kbd> is pressed immediately in Insert mode, VIM will exit Insert mode and go to Normal mode.
 
-<kbd>j</kbd><kbd>k</kbd> is used because very rarely you will need to type words containing the character
-<strong> k</strong> followed by <strong>j</strong>.
+<kbd>j</kbd><kbd>k</kbd> is used because very rarely you will need to type words containing the character <strong> k</strong> followed by <strong>j</strong>.
 
 But transitioning from pressing <kbd>ESC</kbd> to pressing <kbd>j</kbd><kbd>k</kbd> can be difficult as you are used to old mapping.
 

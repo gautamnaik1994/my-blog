@@ -31,7 +31,7 @@ _for eg,_ One can change the primary color website just by changing the primary 
 ```javascript
 let root = document.documentElement;
 
-root.addEventListener('click', e => {
+root.addEventListener('click', (e) => {
   root.style.setProperty('--primary', '#555555');
 });
 ```
@@ -60,7 +60,7 @@ If the variable is not defined or may not be available/accessible due to any rea
 }
 ```
 
-Another cool thing that can be done using CSS variables is changing the `box-shadow` size of an element on hover.
+Another cool thing that CSS variables can do is change the `box-shadow` size of an element on hover.
 Before CSS variables, we had to write the following code to change the `box-shadow` on hover.
 
 ### Before CSS Variables
