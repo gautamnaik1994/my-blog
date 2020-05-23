@@ -79,5 +79,17 @@ module.exports = {
         // },
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-5ZV4S62',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-124761745-2',
+      },
+    },
   ],
 };
