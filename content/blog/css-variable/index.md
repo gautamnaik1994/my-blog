@@ -3,7 +3,7 @@ slug: '/css-variable'
 date: '2019-08-23'
 updatedDate: '2019-08-27'
 title: 'CSS Variables'
-description: 'Pressing Esc key is tiring as the finger has to move to the corner...'
+description: 'CSS variables is a new addition to CSS. As the name says, we can now add custom variables, similar to SCSS, Less and Stylus.'
 categories: ['css']
 tags: ['css', 'css-variables']
 keywords: ['css', 'css-variables']

@@ -3,7 +3,7 @@ slug: '/remap-esc'
 date: '2020-05-20'
 updatedDate: '2020-05-20'
 title: 'Why should you remap ESC key in Vim'
-description: 'By default,the <kbd>ESC</kbd> key is used to switch to Normal mode from Insert mode.But as you can see on a regular keyboard, the position of <kbd>ESC</kbd> key is far from the home row keys.'
+description: 'By default,the ESC key is used to switch to Normal mode from Insert mode.But as you can see on a regular keyboard, the position of ESC key is far from the home row keys.'
 categories: ['vim']
 tags: ['vim', 'keymaps']
 keywords: ['vim', 'keymap']

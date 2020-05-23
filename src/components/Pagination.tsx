@@ -48,6 +48,10 @@ const MobileStyleForPost = css`
     //border: 2px dotted var(--primary);
     box-shadow: none;
     padding: 8px 0px;
+    white-space: normal;
+    span {
+      border-bottom: 1px dashed;
+    }
     &.right {
       text-align: right;
     }
@@ -56,7 +60,7 @@ const MobileStyleForPost = css`
 
 const PaginationWrapper = styled.div<PaginationWrapperProp>`
   position: fixed;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   right: 0;
   background-color: ${navBarBgColor};

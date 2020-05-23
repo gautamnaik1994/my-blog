@@ -116,6 +116,12 @@ const MetaDataContainer = styled.div`
   }
 `;
 
+const StyledMDXRenderer = styled.div`
+  a {
+    text-decoration: underline;
+  }
+`;
+
 export default ({
   data: { site, mdx },
   pageContext: { next, prev },
@@ -173,7 +179,9 @@ export default ({
               <div className="value">{mdx.frontmatter.updatedDate}</div>
             </div>
           </MetaDataContainer>
-          <MDXRenderer>{mdx.body}</MDXRenderer>
+          <StyledMDXRenderer>
+            <MDXRenderer>{mdx.body}</MDXRenderer>
+          </StyledMDXRenderer>
           <Pagination
             insidePost
             nextPagePath={next && next.fields.slug}
