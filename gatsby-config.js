@@ -85,11 +85,11 @@ module.exports = {
         id: 'GTM-5ZV4S62',
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-124761745-2',
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: 'UA-124761745-2',
+    //   },
+    // },
   ],
 };
