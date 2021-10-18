@@ -50,7 +50,7 @@
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "add": "^2.0.6",
-    "babel-plugin-styled-components": "^1.10.7",
+    "babel-plugin-styled-components": "1.13.3",
     "eslint": "^7.0.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
