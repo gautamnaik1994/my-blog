@@ -46,7 +46,7 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-helmet": "^6.0.0",
     "@types/styled-components": "^5.1.0",
-    "@types/styled-theming": "^2.2.3",
+    "@types/styled-theming": "2.2.5",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "add": "^2.0.6",
